@@ -1,4 +1,5 @@
 import 'package:caro_user_app/core/extension.dart';
+import 'package:caro_user_app/core/utils/size_utils.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_colors.dart';
@@ -42,7 +43,7 @@ class OnBoardingView extends StatelessWidget {
                 ),
                 10.vs,
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 40.w),
+                  padding: getMarginOrPadding(horizontal: 40),
                   child: CustomTextWidget(
                     text:
                         "شكل توضع لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارج الشكل الخارج للنص أو شكل توضع لصفحة ما سيلهي القارئ عن التي يقرأها. ولذاستخدام طريقة تبدو",

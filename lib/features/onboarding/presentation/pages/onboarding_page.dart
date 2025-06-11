@@ -13,17 +13,15 @@ import '../widget/page_indicator.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     PageController pageController = PageController();
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
           children: [
-            50.vs,
+            72.vs,
             OnBoardingView(pageController: pageController),
             45.vs,
             PageIndicator(pageController: pageController),

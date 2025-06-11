@@ -1,4 +1,4 @@
-
+import 'package:caro_user_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_colors.dart';
@@ -18,17 +18,17 @@ class OnBoardingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      minWidth: 335,
-      height: 46,
+      minWidth: 335.w,
+      height: 46.h,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
         side: const BorderSide(color: AppColors.primaryColor, width: 1),
       ),
       color: backgroundColor,
       onPressed: () {},
       child: CustomTextWidget(
         text: text,
-        style: getMediumTextStyle(color: textColor),
+        style: getMediumTextStyle(color: textColor, fontSize: 13),
       ),
     );
   }
