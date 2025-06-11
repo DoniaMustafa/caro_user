@@ -1,6 +1,8 @@
+import 'package:caro_user_app/core/extension.dart';
 import 'package:caro_user_app/core/utils/app_mixin.dart';
 import 'package:flutter/material.dart';
 
+import '../custom_icon.dart';
 import 'custom_text_form.dart';
 
 class PasswordFormField extends StatefulWidget with BasedFormField {
@@ -10,6 +12,12 @@ class PasswordFormField extends StatefulWidget with BasedFormField {
     this.onValidate,
     this.onSaved,
     required this.controller,
+    required this.suffixIcon,
+    required this.hintText,
+    this.textDirection,
+    this.hintTextDirection,
+    required this.isFill,
+    required this.border, required this.hintStyle,
   });
 
   @override
@@ -20,6 +28,14 @@ class PasswordFormField extends StatefulWidget with BasedFormField {
   final ValueChanged<String?>? onSaved;
   @override
   final FormFieldValidator<String?>? onValidate;
+
+  final Widget? suffixIcon;
+  final String hintText;
+  final TextDirection? textDirection;
+  final TextDirection? hintTextDirection;
+  final bool isFill;
+  final InputBorder border;
+  final TextStyle hintStyle;
 
   @override
   State<PasswordFormField> createState() => _PasswordFormFieldState();
@@ -46,6 +62,13 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
       //     setState(() {});
       //   },
       // ),
+      // suffixIcon: widget.suffixIcon,
+      hintText: widget.hintText,
+      hintTextDirection: widget.hintTextDirection,
+      textDirection: widget.textDirection,
+      border: widget.border,
+      isFill: widget.isFill,
+      hintStyle: widget.hintStyle,
     );
   }
 }

@@ -14,7 +14,7 @@ class CustomTextFormField extends StatefulWidget {
   final TextInputAction textInputAction;
   final FormFieldValidator<String>? validator;
   final String? prefixIcon;
-  final String? suffixIcon;
+  final Widget? suffixIcon;
   final int? maxLength;
 
   final String? hintText;
@@ -29,6 +29,7 @@ class CustomTextFormField extends StatefulWidget {
   final bool isFill;
   final FocusNode? focusNode;
   final TextDirection? textDirection;
+  final TextDirection? hintTextDirection;
   final TextAlign textAlign;
   final void Function()? onEditingComplete;
   final Function()? onTap;
@@ -93,6 +94,7 @@ class CustomTextFormField extends StatefulWidget {
     this.suffixIcon,
     this.suffixOnTap,
     this.r,
+    this.hintTextDirection,
   }) : super(key: key);
 
   @override
@@ -110,6 +112,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         boxShadow: widget.boxShadow.isNotNull ? widget.boxShadow : null,
       ),
       child: TextFormField(
+        textDirection: widget.textDirection,
         style:
             widget.textStyle ??
             getRegularTextStyle(
@@ -140,9 +143,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         maxLength: widget.maxLength,
         obscuringCharacter: "*",
         onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
-        onTap: () {
-          // String? value = await
-          widget.onTap?.call();
+        onTap: () async {
+          //  String? value = await          widget.onTap?.call();
         },
         enabled: widget.enabled,
         // textDirection: context.read<LanguageCubit>().isEn
@@ -152,6 +154,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           widget.onChanged?.call(value);
         },
         decoration: InputDecoration(
+          hintTextDirection: widget.hintTextDirection,
           filled: widget.isFill,
           fillColor: AppColors.white,
           // widget.isFill.isTrue
@@ -173,12 +176,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 AppColors.white,
           ),
           // : AppColors.black.withOpacity(0.67)),
-          prefix:
-              widget.isPassword
-                  ? buildSuffixPassword
-                  : widget.prefix.isNotNull
-                  ? widget.prefix
-                  : null,
+          // prefix:
+          //     widget.isPassword
+          //         ? buildSuffixPassword
+          //         : widget.prefix.isNotNull
+          //         ? widget.prefix
+          //         : null,
           suffix: widget.suffix,
           hintText: widget.hintText,
           // hintFadeDuration: 20.milliseconds,
@@ -199,23 +202,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 fontSize: 14,
               ),
           suffixIcon:
-              widget.suffixIcon.isNotNull
-                  ? GestureDetector(
-                    onTap: widget.suffixOnTap,
-                    child: Padding(
-                      padding: getMarginOrPadding(end: 10, vertical: 7),
-                      child: CircleAvatar(
-                        radius: 20,
-                        backgroundColor: AppColors.transparent,
-                        child: CustomNetworkImage.circular(
-                          imageUrl: widget.suffixIcon!,
-                          defaultAsset: widget.suffixIcon!,
-                          // matchTextDirection: true,
-                        ),
-                      ),
-                    ),
-                  )
-                  : null,
+              widget.isPassword ? buildSuffixPassword : widget.suffixIcon,
           // prefixIcon: widget.prefixIcon.isNotNull
           //     ? Padding(
           //   padding: getPadding(horizontal: 15, vertical: 10),

@@ -8,7 +8,4 @@ class AppStrings {
   static const  transparent = '';
   static const  black = '';
   static const  grey = '';
-
-
-
 }

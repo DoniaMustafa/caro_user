@@ -3,6 +3,7 @@ mixin class AssetsFiles {
   static const svg = 'assets/svg/';
   String onBoarding1 = '${svg}onBoarding1.svg';
   String onBoarding2 = '${svg}onBoarding2.svg';
+  String personIcon = '${svg}person_icon.svg';
 }
 
 mixin class ImageFiles {

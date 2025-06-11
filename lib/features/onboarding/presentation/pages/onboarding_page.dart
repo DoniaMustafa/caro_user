@@ -1,14 +1,21 @@
+import 'package:caro_user_app/config/routes/app_routes.dart';
 import 'package:caro_user_app/core/extension.dart';
 import 'package:caro_user_app/core/utils/app_colors.dart';
+import 'package:caro_user_app/core/widgets/custom_button_widget.dart';
 
 import 'package:flutter/material.dart';
 
-import '../widget/onboarding_button.dart';
+import '../../../../core/utils/app_style.dart';
+import '../../../../core/widgets/custom_text_widget.dart';
 import '../widget/onboarding_view.dart';
 import '../widget/page_indicator.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
+  void _nextPage() {
+    Routes.signUpRoute.moveTo;
+  }
+
   @override
   Widget build(BuildContext context) {
     PageController pageController = PageController();
@@ -22,16 +29,25 @@ class OnboardingPage extends StatelessWidget {
             45.vs,
             PageIndicator(pageController: pageController),
             70.vs,
-            const OnBoardingButton(
+            CustomButtonWidget(
+              function: () {},
               backgroundColor: AppColors.primaryColor,
-              textColor: AppColors.white,
+              child:  CustomTextWidget(
               text: "تسجيل دخول",
+        style: getMediumTextStyle(color: AppColors.white, fontSize: 13),
+      ),
             ),
             18.vs,
-            const OnBoardingButton(
+            CustomButtonWidget(
+                 function: () {
+                _nextPage();
+              },
               backgroundColor: AppColors.white,
-              textColor: AppColors.primaryColor,
+                 child:  CustomTextWidget(
               text: "انشاء حساب",
+        style: getMediumTextStyle(color: AppColors.primaryColor, fontSize: 13),
+      ),
+          
             ),
           ],
         ),

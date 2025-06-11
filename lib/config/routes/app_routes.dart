@@ -1,5 +1,6 @@
 
 import 'package:caro_user_app/core/extension.dart';
+import 'package:caro_user_app/features/signup/presentation/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -180,11 +181,11 @@ class RouteGenerator {
             child: const SplashScreen(), routeSettings: routeSettings);
       case Routes.onBoardRoute:
         return buildPageRoute(
-            child: OnboardingPage(), routeSettings: routeSettings);
-      // case Routes.statisticsExamRoute:
-      //   return buildPageRoute(
-      //       child: StatisticsExamScreen(), routeSettings: routeSettings);
-      //
+            child:const OnboardingPage(), routeSettings: routeSettings);
+      case Routes.signUpRoute:
+        return buildPageRoute(
+            child: const SignupPage(), routeSettings: routeSettings);
+      
       // case Routes.youtueWidgetRoute:
       //   return buildPageRoute(
       //       child:  YoutueWidget(), routeSettings: routeSettings);
