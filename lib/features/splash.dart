@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:caro_user_app/config/routes/app_routes.dart';
 import 'package:caro_user_app/core/extension.dart';
 import 'package:caro_user_app/core/utils/app_style.dart';
 import 'package:caro_user_app/core/widgets/custom_text_widget.dart';
@@ -28,8 +31,8 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-
     _buildAnimation();
+    _nextPage();
   }
 
   @override
@@ -41,94 +44,69 @@ class _SplashScreenState extends State<SplashScreen>
   void _buildAnimation() {
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 4), // مدة الانيميشن الكلية
+      duration: const Duration(seconds: 4),
     );
 
     _carSlideAnimation = Tween<Offset>(
-      begin: const Offset(-1.0, 0.0), // تبدأ من خارج الشاشة على الشمال
-      end: const Offset(0.0, 0.0), // توصل لمكانها الأصلي
+      begin: const Offset(-1.0, 0.0),
+      end: const Offset(0.0, 0.0),
     ).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(
-          0.0,
-          0.6,
-          curve: Curves.easeOutCubic,
-        ), // انيميشن الحركة
+        curve: const Interval(0.0, 0.6, curve: Curves.easeOutCubic),
       ),
     );
     _logoOpacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(
-          0.5,
-          0.7,
-          curve: Curves.easeIn,
-        ), // تبدأ من 50% وتنتهي عند 70%
+        curve: const Interval(0.5, 0.7, curve: Curves.easeIn),
       ),
     );
 
-    // الـ Pop Effect للوجو: هيحصل بعد ما يظهر بـ Opacity كامل
     _logoScaleAnimation = Tween<double>(begin: 1.0, end: 1.05).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(
-          0.7,
-          0.75,
-          curve: Curves.easeInOutBack,
-        ), // Pop جزء صغير
+        curve: const Interval(0.7, 0.75, curve: Curves.easeInOutBack),
       ),
     );
-    // جزء الرجوع لحجمه الطبيعي
+
     _logoScaleAnimation = Tween<double>(begin: 1.05, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(
-          0.75,
-          0.8,
-          curve: Curves.easeInOut,
-        ), // رجوع للحجم الطبيعي
+        curve: const Interval(0.75, 0.8, curve: Curves.easeInOut),
       ),
     );
 
-    // ************* Text Opacity and Scale Animation *************
-    // النص يبدأ يظهر بعد اللوجو بمدة بسيطة (مثلاً من 0.8 لـ 0.95 من المدة)
     _textOpacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(
-          0.8,
-          0.95,
-          curve: Curves.easeIn,
-        ), // تبدأ من 80% وتنتهي عند 95%
+        curve: const Interval(0.8, 0.95, curve: Curves.easeIn),
       ),
     );
 
-    // الـ Pop Effect للنص: هيحصل بعد ما يظهر بـ Opacity كامل
     _textScaleAnimation = Tween<double>(begin: 1.0, end: 1.05).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(
-          0.95,
-          0.975,
-          curve: Curves.easeInOutBack,
-        ), // Pop جزء صغير
-      ),
-    );
-    // جزء الرجوع لحجمه الطبيعي
-    _textScaleAnimation = Tween<double>(begin: 1.05, end: 1.0).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(
-          0.975,
-          1.0,
-          curve: Curves.easeInOut,
-        ), // رجوع للحجم الطبيعي
+        curve: const Interval(0.95, 0.975, curve: Curves.easeInOutBack),
       ),
     );
 
-    // ابدأ الـ animation
+    _textScaleAnimation = Tween<double>(begin: 1.05, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0.975, 1.0, curve: Curves.easeInOut),
+      ),
+    );
+    _nextPage();
     _controller.forward();
+  }
+
+  void _nextPage() {
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        Routes.onBoardRoute.pushAndRemoveAllUntil;
+      }
+    });
   }
 
   @override
@@ -150,16 +128,13 @@ class _SplashScreenState extends State<SplashScreen>
 
   get _buildCarAnimation => Positioned.fill(
     child: Opacity(
-      opacity: 1.0, // هنا تم تثبيت الـ opacity على 1.0
+      opacity: 1.0,
       child: FractionallySizedBox(
         alignment: Alignment.bottomLeft,
         widthFactor: 1.0,
         heightFactor: 1.0,
         child: Transform.translate(
-          offset: Offset(
-            _carSlideAnimation.value.dx * MediaQuery.of(context).size.width,
-            0,
-          ), // Y offset ثابت على 0
+          offset: Offset(_carSlideAnimation.value.dx * width, 0),
           child: CustomNetworkImage.rectangle(
             imageUrl: AppAssets().car,
             // fit: BoxFit.contain,
@@ -175,30 +150,34 @@ class _SplashScreenState extends State<SplashScreen>
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Transform.scale(
-          scale: _logoScaleAnimation.value,
-          child: Opacity(
-            opacity: _logoOpacityAnimation.value,
-            child: CustomNetworkImage.circular(
-              imageUrl: AppAssets().logo,
-              radius: 100,
-              defaultAsset: AppAssets().logo,
-            ),
+        _buildComponentItem(
+          widget: CustomNetworkImage.circular(
+            imageUrl: AppAssets().logo,
+            radius: 100,
+            defaultAsset: AppAssets().logo,
           ),
+          scale: _logoScaleAnimation.value,
+          opacity: _logoOpacityAnimation.value,
         ),
         22.vs,
-        Transform.scale(
-          scale: _textScaleAnimation.value,
-          child: Opacity(
-            opacity: _textOpacityAnimation.value,
-            child: CustomTextWidget(
-              text: 'عالم السيارات في يدك',
-              style: getMediumTextStyle(fontSize: 18),
-              textAlign: TextAlign.center,
-            ),
+        _buildComponentItem(
+          widget: CustomTextWidget(
+            text: 'عالم السيارات في يدك',
+            style: getMediumTextStyle(fontSize: 18),
+            textAlign: TextAlign.center,
           ),
+          scale: _textScaleAnimation.value,
+          opacity: _textOpacityAnimation.value,
         ),
       ],
     ),
+  );
+  Widget _buildComponentItem({
+    required double scale,
+    required double opacity,
+    required Widget widget,
+  }) => Transform.scale(
+    scale: scale,
+    child: Opacity(opacity: opacity, child: widget),
   );
 }

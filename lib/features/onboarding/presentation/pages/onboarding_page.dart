@@ -1,11 +1,7 @@
 import 'package:caro_user_app/core/extension.dart';
 import 'package:caro_user_app/core/utils/app_colors.dart';
-import 'package:caro_user_app/core/utils/app_style.dart';
-import 'package:caro_user_app/core/utils/assats_file.dart';
-import 'package:caro_user_app/core/widgets/custom_svg.dart';
-import 'package:caro_user_app/core/widgets/custom_text_widget.dart';
+
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../widget/onboarding_button.dart';
 import '../widget/onboarding_view.dart';

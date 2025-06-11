@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:caro_user_app/core/utils/size_utils.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../config/routes/app_routes_helper.dart';
+
 extension StringExtensions on String {
   String get removeSpaces => replaceAll(' ', '');
   String get removeRangeSpaces => replaceRange(5, 8, '');
@@ -45,7 +47,15 @@ extension StringExtensions on String {
   bool isLengthEqual(int length) => this.length == length;
   int get toInt => int.parse(this);
   bool get isEmptyOrNull => (isEmpty) || (this == 'null');
-
+  get moveToAndRemoveCurrent => pushRoute(this, isToReplace: true);
+  moveToWithArgs(Map<String, dynamic> args) => pushRoute(this, arguments: args);
+//
+  get moveTo => pushRoute(this);
+//
+  get pushAndRemoveAllUntil => pushRoute(this, isNewTask: true);
+//
+  pushReplacementWithData(Map<String, dynamic>? arguments) =>
+      pushRoute(this, isToReplace: true, arguments: arguments);
   // bool get validateOtp {
   //   if (isNullOrEmpty || length < AppConstants.otpLength) {
   //     return false;
@@ -102,6 +112,19 @@ extension IntNullExtension on int? {
   SizedBox get vs => SizedBox(height: getVerticalSize(validate.toDouble()));
   SizedBox get hs => SizedBox(width: getHorizontalSize(validate.toDouble()));
 
+  Duration get microseconds => Duration(microseconds: validate);
+
+
+  Duration get seconds => Duration(seconds: validate);
+
+  Duration get minutes => Duration(minutes: validate);
+
+
+  Duration get hours => Duration(hours: this.validate);
+
+
+  Duration get days => Duration(days: validate);
+  Duration get milliseconds => Duration(milliseconds: validate);
   bool isSuccessful() => validate >= 200 && validate <= 206;
   double get h => getVerticalSize(validate.toDouble());
   double get w => getHorizontalSize(validate.toDouble());

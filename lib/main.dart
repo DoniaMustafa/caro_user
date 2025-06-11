@@ -1,6 +1,8 @@
 import 'package:caro_user_app/features/onboarding/presentation/pages/onboarding_page.dart';
 import 'package:flutter/material.dart';
 
+import 'config/routes/app_routes.dart';
+import 'config/routes/app_routes_helper.dart';
 import 'features/splash.dart';
 
 void main() {
@@ -13,11 +15,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       title: 'Flutter Demo',
       // theme: ,
       debugShowCheckedModeBanner: false,
-      home: OnboardingPage(),
+      onGenerateRoute: RouteGenerator.getRoute,navigatorKey: navigatorKey,
+      // home: OnboardingPage(),
     );
   }
 }
