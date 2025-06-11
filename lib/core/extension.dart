@@ -1,8 +1,8 @@
-
 import 'dart:convert';
 
 import 'package:caro_user_app/core/utils/size_utils.dart';
 import 'package:flutter/cupertino.dart';
+
 extension StringExtensions on String {
   String get removeSpaces => replaceAll(' ', '');
   String get removeRangeSpaces => replaceRange(5, 8, '');
@@ -15,9 +15,10 @@ extension StringExtensions on String {
     } else if (formattedStringColor.startsWith('0X')) {
       formattedStringColor = formattedStringColor.replaceAll('0X', '');
     }
-    formattedStringColor = formattedStringColor.isLengthEqual(6)
-        ? formattedStringColor.addAtStart('FF')
-        : formattedStringColor;
+    formattedStringColor =
+        formattedStringColor.isLengthEqual(6)
+            ? formattedStringColor.addAtStart('FF')
+            : formattedStringColor;
     return int.parse(formattedStringColor, radix: 16);
   }
 
@@ -30,9 +31,10 @@ extension StringExtensions on String {
     } else if (formattedStringColor.startsWith('0X')) {
       formattedStringColor = formattedStringColor.replaceAll('0X', '');
     }
-    formattedStringColor = formattedStringColor.isLengthEqual(6)
-        ? formattedStringColor.addAtStart('FF')
-        : formattedStringColor;
+    formattedStringColor =
+        formattedStringColor.isLengthEqual(6)
+            ? formattedStringColor.addAtStart('FF')
+            : formattedStringColor;
     return Color(int.parse(formattedStringColor, radix: 16));
   }
 
@@ -60,7 +62,6 @@ extension StringExtensions on String {
 
   isEqualTo(value) => this == value;
   isNotEqualTo(value) => this != value;
-
 }
 
 extension CutomMethodsOnNullObject on Object? {
@@ -93,13 +94,9 @@ extension StringNullExtension on String? {
   }
 
   bool get isNullOrEmpty => this == null || this!.isEmpty;
-
-
-
 }
 
 extension IntNullExtension on int? {
-
   int get validate => this ?? 0;
 
   SizedBox get vs => SizedBox(height: getVerticalSize(validate.toDouble()));
