@@ -92,7 +92,7 @@ class CustomBaseButton extends StatelessWidget  {
           Expanded(
             child: Text(
               text,
-              textScaler: TextScaler.linear(0.9),
+              textScaler: const TextScaler.linear(0.9),
               textAlign: TextAlign.center,
               style: style ??
                   getMediumTextStyle(fontSize: 18, color: textColor, height: 1),
@@ -100,7 +100,7 @@ class CustomBaseButton extends StatelessWidget  {
           ),
           if (rightIcon.isNotNull) 7.97.hs,
           if (isEnd)
-            Spacer(
+            const Spacer(
               flex: 1,
             ),
           if (rightIcon.isNotNull) rightIcon!,

@@ -1,17 +1,15 @@
 import 'package:caro_user_app/core/extension.dart';
 import 'package:caro_user_app/core/utils/app_colors.dart';
-import 'package:caro_user_app/core/utils/assats_file.dart';
 import 'package:caro_user_app/core/utils/size_utils.dart';
 import 'package:caro_user_app/core/widgets/custom_button_widget.dart';
 import 'package:caro_user_app/core/widgets/custom_icon.dart';
-import 'package:caro_user_app/core/widgets/custom_network_image.dart';
-import 'package:caro_user_app/core/widgets/custom_svg.dart';
 import 'package:caro_user_app/core/widgets/custom_text_widget.dart';
 import 'package:caro_user_app/core/widgets/form_field/email_form_field.dart';
 import 'package:caro_user_app/core/widgets/form_field/password_form_field.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/utils/app_style.dart';
+import '../../../../core/widgets/button_shape/custom_elevated_button.dart';
+import '../../../../core/widgets/button_shape/custom_outline_button.dart';
 import '../../../../core/widgets/form_field/custom_text_form.dart';
 
 class SignupPage extends StatelessWidget {
@@ -96,9 +94,7 @@ class ContainerOfBody extends StatelessWidget {
     TextEditingController nameController = TextEditingController();
 
     return Container(
-      width: 335.w,
-      height: 511.h,
-      padding: getMarginOrPadding(horizontal: 19),
+      padding: getMarginOrPadding(horizontal: 19, vertical: 10),
       decoration: BoxDecoration(
         color: const Color(0xffF7F7F7),
         borderRadius: BorderRadius.circular(15.r),
@@ -202,23 +198,33 @@ class ContainerOfBody extends StatelessWidget {
             ),
           ),
           24.vs,
-          CustomButtonWidget(
-            backgroundColor: AppColors.primaryColor,
-            function: () {},
-            child: CustomTextWidget(
-              text: "إنشاء حساب",
-              style: getMediumTextStyle(color: AppColors.white),
-            ),
+          CustomElevatedButton(
+            
+            onPressed: () {}, text: "تسجيل دخول"),
+          CustomOutlineButton(
+          
+            onPressed: () {
+              // _nextPage();
+            },
+            text: "انشاء حساب",
           ),
-          14.vs,
-          CustomButtonWidget(
-            backgroundColor: AppColors.white,
-            function: () {},
-            child: CustomTextWidget(
-              text: "تسجيل الدخول",
-              style: getMediumTextStyle(color: AppColors.primaryColor),
-            ),
-          ),
+          // CustomButtonWidget(
+          //   backgroundColor: AppColors.primaryColor,
+          //   function: () {},
+          //   child: CustomTextWidget(
+          //     text: "إنشاء حساب",
+          //     style: getMediumTextStyle(color: AppColors.white),
+          //   ),
+          // ),
+          // 14.vs,
+          // CustomButtonWidget(
+          //   backgroundColor: AppColors.white,
+          //   function: () {},
+          //   child: CustomTextWidget(
+          //     text: "تسجيل الدخول",
+          //     style: getMediumTextStyle(color: AppColors.primaryColor),
+          //   ),
+          // ),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:caro_user_app/core/utils/app_colors.dart';
 import 'package:caro_user_app/core/utils/app_mixin.dart';
+import 'package:caro_user_app/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/size_utils.dart';
@@ -15,6 +16,7 @@ class CustomOutlineButton extends StatelessWidget with BaseButton {
   @override
   Widget build(BuildContext context) {
     return CustomBaseButton(
+      style: getMediumTextStyle(color: AppColors.primaryColor, fontSize: 13),
       onPressed: onPressed,
       text: text,
       borderColor: AppColors.primaryColor,

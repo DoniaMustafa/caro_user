@@ -16,6 +16,7 @@ class CustomElevatedButton extends StatelessWidget with BaseButton {
   @override
   Widget build(BuildContext context) {
     return CustomBaseButton(
+      
       margin: getMarginOrPadding(horizontal: 20),
       onPressed: onPressed,
       text: text,
