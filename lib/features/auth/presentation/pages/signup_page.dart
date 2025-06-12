@@ -82,7 +82,9 @@ class ContainerOfBody extends StatelessWidget {
     TextEditingController nameController = TextEditingController();
 
     return Container(
-      padding: getMarginOrPadding(horizontal: 19, vertical: 10),
+      width: 335.w,
+      height: 511.h,
+      padding: getMarginOrPadding(horizontal: 19),
       decoration: BoxDecoration(
         color: const Color(0xffF7F7F7),
         borderRadius: BorderRadius.circular(15.r),
@@ -186,30 +188,23 @@ class ContainerOfBody extends StatelessWidget {
             ),
           ),
           24.vs,
-          CustomElevatedButton(onPressed: () {}, text: "تسجيل دخول"),
-          CustomOutlineButton(
-            onPressed: () {
-              // _nextPage();
-            },
-            text: "انشاء حساب",
+          CustomButtonWidget(
+            backgroundColor: AppColors.primaryColor,
+            function: () {},
+            child: CustomTextWidget(
+              text: "إنشاء حساب",
+              style: getMediumTextStyle(color: AppColors.white),
+            ),
           ),
-          // CustomButtonWidget(
-          //   backgroundColor: AppColors.primaryColor,
-          //   function: () {},
-          //   child: CustomTextWidget(
-          //     text: "إنشاء حساب",
-          //     style: getMediumTextStyle(color: AppColors.white),
-          //   ),
-          // ),
-          // 14.vs,
-          // CustomButtonWidget(
-          //   backgroundColor: AppColors.white,
-          //   function: () {},
-          //   child: CustomTextWidget(
-          //     text: "تسجيل الدخول",
-          //     style: getMediumTextStyle(color: AppColors.primaryColor),
-          //   ),
-          // ),
+          14.vs,
+          CustomButtonWidget(
+            backgroundColor: AppColors.white,
+            function: () {},
+            child: CustomTextWidget(
+              text: "تسجيل الدخول",
+              style: getMediumTextStyle(color: AppColors.primaryColor),
+            ),
+          ),
         ],
       ),
     );
