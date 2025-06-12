@@ -1,4 +1,5 @@
 import 'package:caro_user_app/config/localization_constants.dart';
+import 'package:caro_user_app/config/themes/themes.dart';
 import 'package:flutter/material.dart';
 
 import 'config/routes/app_routes.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      // theme: ,
+      theme: getAppTheme(context),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouteGenerator.getRoute,
 

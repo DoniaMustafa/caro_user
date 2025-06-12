@@ -6,6 +6,8 @@ import 'package:caro_user_app/core/widgets/custom_button_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_style.dart';
+import '../../../../core/widgets/button_shape/custom_elevated_button.dart';
+import '../../../../core/widgets/button_shape/custom_outline_button.dart';
 import '../../../../core/widgets/custom_text_widget.dart';
 import '../widget/onboarding_view.dart';
 import '../widget/page_indicator.dart';
@@ -29,25 +31,27 @@ class OnboardingPage extends StatelessWidget {
             45.vs,
             PageIndicator(pageController: pageController),
             70.vs,
-            CustomButtonWidget(
-              function: () {},
-              backgroundColor: AppColors.primaryColor,
-              child:  CustomTextWidget(
+            CustomElevatedButton(
+              onPressed: () {},
+              // backgroundColor: AppColors.primaryColor,
+              // child:  CustomTextWidget(
               text: "تسجيل دخول",
-        style: getMediumTextStyle(color: AppColors.white, fontSize: 13),
-      ),
+              // style: getMediumTextStyle(color: AppColors.white, fontSize: 13),
+              // ),
             ),
             18.vs,
-            CustomButtonWidget(
-                 function: () {
+            CustomOutlineButton(
+              onPressed: () {
                 _nextPage();
               },
-              backgroundColor: AppColors.white,
-                 child:  CustomTextWidget(
-              text: "انشاء حساب",
-        style: getMediumTextStyle(color: AppColors.primaryColor, fontSize: 13),
-      ),
-          
+              // backgroundColor: AppColors.white,
+              // child: CustomTextWidget(
+                text: "انشاء حساب",
+                // style: getMediumTextStyle(
+                //   color: AppColors.primaryColor,
+                //   fontSize: 13,
+                // ),
+              // ),
             ),
           ],
         ),

@@ -27,12 +27,16 @@ class OnBoardingView extends StatelessWidget {
           itemBuilder: (context, index) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
+             crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 210.w,
-                  height: 234.h,
-                  child: CustomSvg.assets(asset: items[index]["image"]),
-                ),
+                CustomSvg.assets(
+                  asset: items[index]["image"],
+                ).withPadding(horizontal: 90, vertical: 100),
+                // SizedBox(
+                //   width: 210.w,
+                //   height: 234.h,
+                //   child: CustomSvg.assets(asset: items[index]["image"]),
+                // ),
                 70.vs,
                 CustomTextWidget(
                   text: items[index]["title"],

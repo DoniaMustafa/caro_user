@@ -18,3 +18,17 @@ mixin ShapeMixin {
   BoxShape? get shape;
   List<BoxShadow>? get boxShadow;
 }
+mixin BaseButton {
+   String get text;
+   void Function()?get  onPressed;
+  // double? get width;
+  // double? get height;
+  // Widget? get child;
+  // Color? get color;
+  // EdgeInsetsGeometry? get padding;
+  // EdgeInsetsGeometry? get margin;
+  // BorderRadiusGeometry? get borderRadius;
+  // BoxBorder? get border;
+  // BoxShape? get shape;
+  // List<BoxShadow>? get boxShadow;
+}

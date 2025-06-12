@@ -5,6 +5,31 @@ import 'package:flutter/cupertino.dart';
 
 import '../config/routes/app_routes_helper.dart';
 
+extension WidgetExtension on Widget {
+  Widget withPadding({
+    double? horizontal,
+    double? all,
+    double? bottom,
+    double? end,
+    double? start,
+    double? top,
+    double? vertical,
+  }) {
+    return Padding(
+      padding: getMarginOrPadding(
+        horizontal: horizontal,
+        all: all,
+        bottom: bottom,
+        end: end,
+        start: start,
+        top: top,
+        vertical: vertical,
+      ),
+      child: this,
+    );
+  }
+}
+
 extension StringExtensions on String {
   String get removeSpaces => replaceAll(' ', '');
   String get removeRangeSpaces => replaceRange(5, 8, '');
@@ -49,11 +74,11 @@ extension StringExtensions on String {
   bool get isEmptyOrNull => (isEmpty) || (this == 'null');
   get moveToAndRemoveCurrent => pushRoute(this, isToReplace: true);
   moveToWithArgs(Map<String, dynamic> args) => pushRoute(this, arguments: args);
-//
+  //
   get moveTo => pushRoute(this);
-//
+  //
   get pushAndRemoveAllUntil => pushRoute(this, isNewTask: true);
-//
+  //
   pushReplacementWithData(Map<String, dynamic>? arguments) =>
       pushRoute(this, isToReplace: true, arguments: arguments);
   // bool get validateOtp {
@@ -114,14 +139,11 @@ extension IntNullExtension on int? {
 
   Duration get microseconds => Duration(microseconds: validate);
 
-
   Duration get seconds => Duration(seconds: validate);
 
   Duration get minutes => Duration(minutes: validate);
 
-
   Duration get hours => Duration(hours: this.validate);
-
 
   Duration get days => Duration(days: validate);
   Duration get milliseconds => Duration(milliseconds: validate);

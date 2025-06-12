@@ -1,0 +1,3 @@
+class AppListConstant {
+  AppListConstant._();
+}
