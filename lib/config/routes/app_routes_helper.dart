@@ -30,7 +30,8 @@ Future<T?> pushRoute<T>(
 
 /// Dispose current screens or close current dialog
 void pop([Object? object]) {
-  if (Navigator.canPop(getContext))
+  if (Navigator.canPop(getContext)) {
     Navigator.pop(getContext, object);
+  }
 }
 

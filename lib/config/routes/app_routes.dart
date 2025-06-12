@@ -1,5 +1,6 @@
 
 import 'package:caro_user_app/core/extension.dart';
+import 'package:caro_user_app/features/login/presentation/pages/login_page.dart';
 import 'package:caro_user_app/features/signup/presentation/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -186,10 +187,10 @@ class RouteGenerator {
         return buildPageRoute(
             child: const SignupPage(), routeSettings: routeSettings);
       
-      // case Routes.youtueWidgetRoute:
-      //   return buildPageRoute(
-      //       child:  YoutueWidget(), routeSettings: routeSettings);
-      //
+      case Routes.loginRoute:
+        return buildPageRoute(
+            child: const LoginPage(), routeSettings: routeSettings);
+      
       // case Routes.mainRoute:
       //   return buildPageRoute(
       //       child: const MainRegisterScreen(), routeSettings: routeSettings);
@@ -579,116 +580,115 @@ class RouteGenerator {
     RouteSettings? routeSettings,
   }) {
     pageRouteAnimation = pageRouteAnimation ?? PageRouteAnimation.Scale;
-    if (pageRouteAnimation != null) {
-      if (pageRouteAnimation == PageRouteAnimation.Fade) {
-        return PageRouteBuilder(
-          settings: routeSettings,
-          transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
-          reverseTransitionDuration: const Duration(milliseconds: 50),
-          pageBuilder: (context, a1, a2) =>
-              // BlocBuilder<LanguageCubit, LanguageState>(
-            // builder: (context, state) {
-               child,
-              //   Directionality(
-              //     textDirection: context.read<LanguageCubit>().isEn
-              //         ? TextDirection.ltr
-              //         : TextDirection.rtl,
-              //     child:
-              // ),
-          //   },
-          // ),
-          transitionsBuilder: (c, anim, a2, child) {
-            return FadeTransition(opacity: anim, child: child);
-          },
-        );
-      } else if (pageRouteAnimation == PageRouteAnimation.Rotate) {
-        return PageRouteBuilder(
-          settings: routeSettings,
-          pageBuilder: (context, a1, a2) =>child,
-          //     BlocBuilder<LanguageCubit, LanguageState>(
-          //   builder: (context, state) {
-          //     return Directionality(
-          //         textDirection: context.read<LanguageCubit>().isEn
-          //             ? TextDirection.ltr
-          //             : TextDirection.rtl,
-          //         child: child);
-          //   },
-          // ),
-          transitionsBuilder: (c, anim, a2, child) {
-            return RotationTransition(
-                child: child, turns: ReverseAnimation(anim));
-          },
-          transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
-        );
-      } else if (pageRouteAnimation == PageRouteAnimation.Scale) {
-        return PageRouteBuilder(
-          settings: routeSettings,
-          pageBuilder: (context, a1, a2) =>child,
-          //     BlocBuilder<LanguageCubit, LanguageState>(
-          //   builder: (context, state) {
-          //     return Directionality(
-          //         textDirection: context.read<LanguageCubit>().isEn
-          //             ? TextDirection.ltr
-          //             : TextDirection.rtl,
-          //         child: child);
-          //   },
-          // ),
-          transitionsBuilder: (c, anim, a2, child) {
-            return ScaleTransition(child: child, scale: anim);
-          },
-          transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
-        );
-      } else if (pageRouteAnimation == PageRouteAnimation.Slide) {
-        return PageRouteBuilder(
-          settings: routeSettings,
-          pageBuilder: (context, a1, a2) =>child,
-          //     BlocBuilder<LanguageCubit, LanguageState>(
-          //   builder: (context, state) {
-          //     return Directionality(
-          //         textDirection: context.read<LanguageCubit>().isEn
-          //             ? TextDirection.ltr
-          //             : TextDirection.rtl,
-          //         child: child);
-          //   },
-          // ),
-          transitionsBuilder: (c, anim, a2, child) {
-            return SlideTransition(
-              child: child,
-              position: Tween(
-                begin: const Offset(1.0, 0.0),
-                end: const Offset(0.0, 0.0),
-              ).animate(anim),
-            );
-          },
-          transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
-        );
-      } else if (pageRouteAnimation == PageRouteAnimation.SlideBottomTop) {
-        return PageRouteBuilder(
-          settings: routeSettings,
-          pageBuilder: (context, a1, a2) =>child,
-          //     BlocBuilder<LanguageCubit, LanguageState>(
-          //   builder: (context, state) {
-          //     return Directionality(
-          //         textDirection: context.read<LanguageCubit>().isEn
-          //             ? TextDirection.ltr
-          //             : TextDirection.rtl,
-          //         child: child);
-          //   },
-          // ),
-          transitionsBuilder: (c, anim, a2, child) {
-            return SlideTransition(
-              position: Tween(
-                begin: const Offset(0.0, 1.0),
-                end: const Offset(0.0, 0.0),
-              ).animate(anim),
-              child: child,
-            );
-          },
-          transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
-        );
-      }
+    if (pageRouteAnimation == PageRouteAnimation.Fade) {
+      return PageRouteBuilder(
+        settings: routeSettings,
+        transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
+        reverseTransitionDuration: const Duration(milliseconds: 50),
+        pageBuilder: (context, a1, a2) =>
+            // BlocBuilder<LanguageCubit, LanguageState>(
+          // builder: (context, state) {
+             child,
+            //   Directionality(
+            //     textDirection: context.read<LanguageCubit>().isEn
+            //         ? TextDirection.ltr
+            //         : TextDirection.rtl,
+            //     child:
+            // ),
+        //   },
+        // ),
+        transitionsBuilder: (c, anim, a2, child) {
+          return FadeTransition(opacity: anim, child: child);
+        },
+      );
+    } else if (pageRouteAnimation == PageRouteAnimation.Rotate) {
+      return PageRouteBuilder(
+        settings: routeSettings,
+        pageBuilder: (context, a1, a2) =>child,
+        //     BlocBuilder<LanguageCubit, LanguageState>(
+        //   builder: (context, state) {
+        //     return Directionality(
+        //         textDirection: context.read<LanguageCubit>().isEn
+        //             ? TextDirection.ltr
+        //             : TextDirection.rtl,
+        //         child: child);
+        //   },
+        // ),
+        transitionsBuilder: (c, anim, a2, child) {
+          return RotationTransition(
+              turns: ReverseAnimation(anim),
+              child: child);
+        },
+        transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
+      );
+    } else if (pageRouteAnimation == PageRouteAnimation.Scale) {
+      return PageRouteBuilder(
+        settings: routeSettings,
+        pageBuilder: (context, a1, a2) =>child,
+        //     BlocBuilder<LanguageCubit, LanguageState>(
+        //   builder: (context, state) {
+        //     return Directionality(
+        //         textDirection: context.read<LanguageCubit>().isEn
+        //             ? TextDirection.ltr
+        //             : TextDirection.rtl,
+        //         child: child);
+        //   },
+        // ),
+        transitionsBuilder: (c, anim, a2, child) {
+          return ScaleTransition(scale: anim, child: child);
+        },
+        transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
+      );
+    } else if (pageRouteAnimation == PageRouteAnimation.Slide) {
+      return PageRouteBuilder(
+        settings: routeSettings,
+        pageBuilder: (context, a1, a2) =>child,
+        //     BlocBuilder<LanguageCubit, LanguageState>(
+        //   builder: (context, state) {
+        //     return Directionality(
+        //         textDirection: context.read<LanguageCubit>().isEn
+        //             ? TextDirection.ltr
+        //             : TextDirection.rtl,
+        //         child: child);
+        //   },
+        // ),
+        transitionsBuilder: (c, anim, a2, child) {
+          return SlideTransition(
+            position: Tween(
+              begin: const Offset(1.0, 0.0),
+              end: const Offset(0.0, 0.0),
+            ).animate(anim),
+            child: child,
+          );
+        },
+        transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
+      );
+    } else if (pageRouteAnimation == PageRouteAnimation.SlideBottomTop) {
+      return PageRouteBuilder(
+        settings: routeSettings,
+        pageBuilder: (context, a1, a2) =>child,
+        //     BlocBuilder<LanguageCubit, LanguageState>(
+        //   builder: (context, state) {
+        //     return Directionality(
+        //         textDirection: context.read<LanguageCubit>().isEn
+        //             ? TextDirection.ltr
+        //             : TextDirection.rtl,
+        //         child: child);
+        //   },
+        // ),
+        transitionsBuilder: (c, anim, a2, child) {
+          return SlideTransition(
+            position: Tween(
+              begin: const Offset(0.0, 1.0),
+              end: const Offset(0.0, 0.0),
+            ).animate(anim),
+            child: child,
+          );
+        },
+        transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
+      );
     }
-    return MaterialPageRoute<T>(
+      return MaterialPageRoute<T>(
       builder: (context) => AnnotatedRegion<SystemUiOverlayStyle>(
           value: const SystemUiOverlayStyle(
             statusBarColor: AppColors.transparent,

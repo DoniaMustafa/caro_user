@@ -12,8 +12,12 @@ import '../widget/page_indicator.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
-  void _nextPage() {
+  void _forwardToSignup() {
     Routes.signUpRoute.moveTo;
+  }
+
+  void _forwardToLogin() {
+    Routes.loginRoute.moveTo;
   }
 
   @override
@@ -30,24 +34,28 @@ class OnboardingPage extends StatelessWidget {
             PageIndicator(pageController: pageController),
             70.vs,
             CustomButtonWidget(
-              function: () {},
+              function: () {
+                _forwardToLogin();
+              },
               backgroundColor: AppColors.primaryColor,
-              child:  CustomTextWidget(
-              text: "تسجيل دخول",
-        style: getMediumTextStyle(color: AppColors.white, fontSize: 13),
-      ),
+              child: CustomTextWidget(
+                text: "تسجيل دخول",
+                style: getMediumTextStyle(color: AppColors.white, fontSize: 13),
+              ),
             ),
             18.vs,
             CustomButtonWidget(
-                 function: () {
-                _nextPage();
+              function: () {
+                _forwardToSignup();
               },
               backgroundColor: AppColors.white,
-                 child:  CustomTextWidget(
-              text: "انشاء حساب",
-        style: getMediumTextStyle(color: AppColors.primaryColor, fontSize: 13),
-      ),
-          
+              child: CustomTextWidget(
+                text: "انشاء حساب",
+                style: getMediumTextStyle(
+                  color: AppColors.primaryColor,
+                  fontSize: 13,
+                ),
+              ),
             ),
           ],
         ),
