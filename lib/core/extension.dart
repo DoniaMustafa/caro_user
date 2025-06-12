@@ -4,6 +4,7 @@ import 'package:caro_user_app/core/utils/size_utils.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../config/routes/app_routes_helper.dart';
+import 'utils/app_strings.dart';
 
 extension StringExtensions on String {
   String get removeSpaces => replaceAll(' ', '');
@@ -49,11 +50,11 @@ extension StringExtensions on String {
   bool get isEmptyOrNull => (isEmpty) || (this == 'null');
   get moveToAndRemoveCurrent => pushRoute(this, isToReplace: true);
   moveToWithArgs(Map<String, dynamic> args) => pushRoute(this, arguments: args);
-//
+  //
   get moveTo => pushRoute(this);
-//
+  //
   get pushAndRemoveAllUntil => pushRoute(this, isNewTask: true);
-//
+  //
   pushReplacementWithData(Map<String, dynamic>? arguments) =>
       pushRoute(this, isToReplace: true, arguments: arguments);
   // bool get validateOtp {
@@ -65,7 +66,7 @@ extension StringExtensions on String {
 
   String? get validatePassword {
     if (isEmpty || trim().isEmpty || length < 6) {
-      return 'AppStrings().passwordError';
+      return AppStrings.passwordError;
     }
     return null;
   }
@@ -114,14 +115,11 @@ extension IntNullExtension on int? {
 
   Duration get microseconds => Duration(microseconds: validate);
 
-
   Duration get seconds => Duration(seconds: validate);
 
   Duration get minutes => Duration(minutes: validate);
 
-
-  Duration get hours => Duration(hours: this.validate);
-
+  Duration get hours => Duration(hours: validate);
 
   Duration get days => Duration(days: validate);
   Duration get milliseconds => Duration(milliseconds: validate);

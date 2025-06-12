@@ -1,4 +1,3 @@
-import 'package:caro_user_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
 class AppColors {

@@ -88,7 +88,7 @@ class RectangleShape extends StatelessWidget with ShapeMixin {
           BoxShadow(
               color: AppColors.black.withValues(alpha: 0.20),
               blurRadius: 16,
-              offset: Offset(0, -4))
+              offset: const Offset(0, -4))
         ]
       : throw UnimplementedError();
 

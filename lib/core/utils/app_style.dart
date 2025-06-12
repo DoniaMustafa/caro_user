@@ -146,7 +146,7 @@ BoxDecoration get boxDecoration => BoxDecoration(
 BoxDecoration get boxDecorationWithShadow => BoxDecoration(
   borderRadius: BorderRadiusDirectional.all(Radius.circular(15.r)),
   color: AppColors.transparent,
-  boxShadow: [BoxShadow()],
+  boxShadow: [const BoxShadow()],
 );
 InputDecoration effectiveDecoration = InputDecoration(
   border: OutlineInputBorder(
