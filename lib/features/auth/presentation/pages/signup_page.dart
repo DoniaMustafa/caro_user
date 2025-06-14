@@ -9,7 +9,7 @@ class SignupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomBackgroundWidget.children(
       isBack: true,
-      children: [18.vs, TitleWidget(), ContainerOfBody(), 96.vs],
+      children: [18.vs, const TitleWidget(), const ContainerOfBody(), 96.vs],
     );
   }
 }
@@ -72,7 +72,7 @@ class ContainerOfBody extends StatelessWidget {
             isFill: true,
             hintStyle: getRegularTextStyle(
               fontSize: 12,
-              color: Color(0xffB1B1B1),
+              color: const Color(0xffB1B1B1),
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.r),
@@ -103,7 +103,7 @@ class ContainerOfBody extends StatelessWidget {
             isFill: true,
             hintStyle: getRegularTextStyle(
               fontSize: 12,
-              color: Color(0xffB1B1B1),
+              color: const Color(0xffB1B1B1),
             ),
           ),
           18.vs,

@@ -34,24 +34,24 @@ class _NavbarPageState extends State<NavbarPage> {
   // Define your screens. Replace SignupPage() with your actual screen widgets.
   List<Widget> _buildScreens() {
     return [
-      SignupPage(), // Replace with actual screen for "Settings"
-      SignupPage(), // Replace with actual screen for "Messages"
-      SignupPage(), // Replace with actual screen for "Reels"
-      SignupPage(), // Replace with actual screen for "My Orders"
-      SignupPage(), // Replace with actual screen for "Home"
+      const SignupPage(), // Replace with actual screen for "Settings"
+      const SignupPage(), // Replace with actual screen for "Messages"
+      const SignupPage(), // Replace with actual screen for "Reels"
+      const SignupPage(), // Replace with actual screen for "My Orders"
+      const SignupPage(), // Replace with actual screen for "Home"
     ];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.person),
+        icon: const Icon(Icons.person),
         title: "الاعدادات",
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.messenger),
+        icon: const Icon(Icons.messenger),
         title: "الرسائل",
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
@@ -67,13 +67,13 @@ class _NavbarPageState extends State<NavbarPage> {
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.shopping_cart_outlined),
+        icon: const Icon(Icons.shopping_cart_outlined),
         title: "طلباتي",
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.home),
+        icon: const Icon(Icons.home),
         title: "الرئيسيه",
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
@@ -85,7 +85,7 @@ class _NavbarPageState extends State<NavbarPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My App"), // Consider adding a title
+        title: const Text("My App"), // Consider adding a title
       ),
       bottomNavigationBar: PersistentTabView(
         context,

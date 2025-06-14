@@ -143,7 +143,7 @@ extension IntNullExtension on int? {
 
   Duration get minutes => Duration(minutes: validate);
 
-  Duration get hours => Duration(hours: this.validate);
+  Duration get hours => Duration(hours: validate);
 
   Duration get days => Duration(days: validate);
   Duration get milliseconds => Duration(milliseconds: validate);

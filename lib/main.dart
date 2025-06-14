@@ -1,11 +1,7 @@
-import 'package:caro_user_app/config/localization_constants.dart';
 import 'package:caro_user_app/config/themes/themes.dart';
-import 'package:caro_user_app/features/auth/presentation/pages/signup_page.dart';
-import 'package:caro_user_app/features/orders/presentation/pages/orders_page.dart';
+import 'package:caro_user_app/features/orders/presentation/pages/my_orders_page.dart';
 import 'package:flutter/material.dart';
 
-import 'config/routes/app_routes.dart';
-import 'config/routes/app_routes_helper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,10 +17,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: getAppTheme(context),
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: RouteGenerator.getRoute,
+      // onGenerateRoute: RouteGenerator.getRoute,
 
-      navigatorKey: navigatorKey,
-      // home: SignupPage(),
+      // navigatorKey: navigatorKey,
+      home: const MyOrdersPage(),
     );
   }
 }

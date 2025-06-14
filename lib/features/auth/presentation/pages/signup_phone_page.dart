@@ -1,12 +1,7 @@
-import 'package:caro_user_app/config/routes/app_routes_helper.dart';
-import 'package:caro_user_app/core/utils/assats_file.dart';
 import 'package:caro_user_app/core/widgets/custom_background_widget.dart';
 import 'package:caro_user_app/core/widgets/custom_network_image.dart';
-import 'package:caro_user_app/core/widgets/form_field/phone_form_field.dart';
-import 'package:caro_user_app/core/widgets/shapes/circel_shape.dart';
 import 'package:caro_user_app/core/widgets/shapes/rectangle_shape.dart';
 
-import '../../../../config/routes/app_routes.dart';
 import '../../../../core/export/export.dart';
 
 class SignupPyPhonePage extends StatelessWidget {
@@ -25,10 +20,10 @@ class SignupPyPhonePage extends StatelessWidget {
           radius: 140,
         ),
         33.vs,
-        CustomTextWidget(text: 'إنشاء حساب'),
+        const CustomTextWidget(text: 'إنشاء حساب'),
         12.vs,
 
-        CustomTextWidget(text: 'أدخل رقم الجوال لإنشاء حساب'),
+        const CustomTextWidget(text: 'أدخل رقم الجوال لإنشاء حساب'),
         38.vs,
         RectangleShape.withoutTap(
           color: AppColors.white300,

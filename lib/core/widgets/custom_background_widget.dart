@@ -1,12 +1,8 @@
 import 'package:caro_user_app/config/routes/app_routes_helper.dart';
 import 'package:caro_user_app/core/export/export.dart';
-import 'package:caro_user_app/core/extension.dart';
 import 'package:caro_user_app/core/widgets/custom_network_image.dart';
 import 'package:caro_user_app/core/widgets/shapes/circel_shape.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import 'custom_text_widget.dart';
 
 class CustomBackgroundWidget extends StatelessWidget {
   // CustomNetworkImage._internal();
@@ -84,6 +80,7 @@ class CustomBackgroundWidget extends StatelessWidget {
   AppBar get appBar => AppBar(
     toolbarHeight: 70,
     title: title.isNotNull ? CustomTextWidget(text: title!) : null,
+    centerTitle: true,
     leading:
         isBack.isTrue
             ? _circleBack

@@ -1,6 +1,5 @@
 import 'package:caro_user_app/core/export/export.dart';
 
-
 import 'custom_base_button.dart';
 
 class CustomElevatedButton extends StatelessWidget with BaseButton {
@@ -9,12 +8,15 @@ class CustomElevatedButton extends StatelessWidget with BaseButton {
     super.key,
     required this.onPressed,
     required this.text,
+    this.backgroundColor,
+
   }) : isIcon = true;
 
   CustomElevatedButton.text({
     super.key,
     required this.onPressed,
     required this.text,
+    this.backgroundColor,
   }) : isIcon = false;
   bool? isIcon;
   @override
@@ -27,7 +29,7 @@ class CustomElevatedButton extends StatelessWidget with BaseButton {
     onPressed: onPressed,
     text: text!,
 
-    color: AppColors.primaryColor,
+    color: backgroundColor?? AppColors.primaryColor,
     style: getMediumTextStyle(color: AppColors.white, fontSize: 13),
     boxShadow: boxShadow,
   );
@@ -48,7 +50,7 @@ class CustomElevatedButton extends StatelessWidget with BaseButton {
   @override
   // TODO: implement text
   String? text;
-
+  Color? backgroundColor; 
   List<BoxShadow> boxShadow = [
     BoxShadow(
       color: Colors.black.withValues(alpha: 0.051),

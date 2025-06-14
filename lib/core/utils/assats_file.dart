@@ -7,6 +7,11 @@ mixin class AssetsFiles {
   String verify = '${svg}verify.svg';
 
   String send = '${svg}send.svg';
+  String puzzle = '${svg}puzzle.svg';
+  String moneyIcon = '${svg}money.svg';
+  String speedIcon = '${svg}speed.svg';
+  String riyalSaudi = '${svg}Saudi_Riyal_icon.svg';
+  String colorIcon = '${svg}colors_icon.svg';
 
 }
 

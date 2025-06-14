@@ -64,6 +64,7 @@ class _BuildPinCodeState extends State<BuildPinCode> {
           validator: (otp) {
             // pinController.text = otp!;
             print(BuildPinCode.pinController.text);
+            return null;
           },
           pinAnimationType: PinAnimationType.scale,
         ),

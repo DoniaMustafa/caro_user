@@ -4,6 +4,7 @@ import 'package:caro_user_app/features/auth/presentation/pages/otp_page.dart';
 import '../../features/auth/presentation/pages/signup_page.dart';
 import '../../features/auth/presentation/pages/signup_phone_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
+import '../../features/orders/presentation/pages/order_details.dart';
 import '../../features/splash.dart';
 
 enum PageRouteAnimation { Fade, Scale, Rotate, Slide, SlideBottomTop }
@@ -13,7 +14,8 @@ class Routes {
   static const String splashRoute = "/";
   static const String loginRoute = "/login Route";
   static const String onBoardRoute = "/Route onBoard";
-  static const String signUpRoute = "sign Up";
+  static const String signUpRoute = "/sign Up";
+  static const String orderDetails = "/order Details";
 
   // static const String coursesGroupsRoute = "Courses  Screen";
   // static const String addSessionRoute = "add Session";
@@ -191,7 +193,12 @@ class RouteGenerator {
           routeSettings: routeSettings,
         );
       case Routes.loginRoute:
-        return buildPageRoute(child: LoginPage(), routeSettings: routeSettings);
+        return buildPageRoute(child: const LoginPage(), routeSettings: routeSettings);
+      case Routes.orderDetails:
+        return buildPageRoute(
+          child: const OrderDetails(),
+          routeSettings: routeSettings,
+        );
       // case Routes.youtueWidgetRoute:
       //   return buildPageRoute(
       //       child:  YoutueWidget(), routeSettings: routeSettings);
@@ -220,7 +227,7 @@ class RouteGenerator {
           routeSettings: routeSettings,
         );
       case Routes.OtpRoute:
-        return buildPageRoute(child: OtpPage(), routeSettings: routeSettings);
+        return buildPageRoute(child: const OtpPage(), routeSettings: routeSettings);
       // case Routes.privateTeacherGroupsDetailsRoute:
       //   return buildPageRoute(
       //       child: PrivateTeacherDetailsScreen(), routeSettings: routeSettings);
@@ -583,119 +590,117 @@ class RouteGenerator {
     RouteSettings? routeSettings,
   }) {
     pageRouteAnimation = pageRouteAnimation ?? PageRouteAnimation.Scale;
-    if (pageRouteAnimation != null) {
-      if (pageRouteAnimation == PageRouteAnimation.Fade) {
-        return PageRouteBuilder(
-          settings: routeSettings,
-          transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
-          reverseTransitionDuration: const Duration(milliseconds: 50),
-          pageBuilder:
-              (context, a1, a2) =>
-                  // BlocBuilder<LanguageCubit, LanguageState>(
-                  // builder: (context, state) {
-                  child,
-          //   Directionality(
-          //     textDirection: context.read<LanguageCubit>().isEn
-          //         ? TextDirection.ltr
-          //         : TextDirection.rtl,
-          //     child:
-          // ),
-          //   },
-          // ),
-          transitionsBuilder: (c, anim, a2, child) {
-            return FadeTransition(opacity: anim, child: child);
-          },
-        );
-      } else if (pageRouteAnimation == PageRouteAnimation.Rotate) {
-        return PageRouteBuilder(
-          settings: routeSettings,
-          pageBuilder: (context, a1, a2) => child,
-          //     BlocBuilder<LanguageCubit, LanguageState>(
-          //   builder: (context, state) {
-          //     return Directionality(
-          //         textDirection: context.read<LanguageCubit>().isEn
-          //             ? TextDirection.ltr
-          //             : TextDirection.rtl,
-          //         child: child);
-          //   },
-          // ),
-          transitionsBuilder: (c, anim, a2, child) {
-            return RotationTransition(
-              child: child,
-              turns: ReverseAnimation(anim),
-            );
-          },
-          transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
-        );
-      } else if (pageRouteAnimation == PageRouteAnimation.Scale) {
-        return PageRouteBuilder(
-          settings: routeSettings,
-          pageBuilder: (context, a1, a2) => child,
-          //     BlocBuilder<LanguageCubit, LanguageState>(
-          //   builder: (context, state) {
-          //     return Directionality(
-          //         textDirection: context.read<LanguageCubit>().isEn
-          //             ? TextDirection.ltr
-          //             : TextDirection.rtl,
-          //         child: child);
-          //   },
-          // ),
-          transitionsBuilder: (c, anim, a2, child) {
-            return ScaleTransition(child: child, scale: anim);
-          },
-          transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
-        );
-      } else if (pageRouteAnimation == PageRouteAnimation.Slide) {
-        return PageRouteBuilder(
-          settings: routeSettings,
-          pageBuilder: (context, a1, a2) => child,
-          //     BlocBuilder<LanguageCubit, LanguageState>(
-          //   builder: (context, state) {
-          //     return Directionality(
-          //         textDirection: context.read<LanguageCubit>().isEn
-          //             ? TextDirection.ltr
-          //             : TextDirection.rtl,
-          //         child: child);
-          //   },
-          // ),
-          transitionsBuilder: (c, anim, a2, child) {
-            return SlideTransition(
-              child: child,
-              position: Tween(
-                begin: const Offset(1.0, 0.0),
-                end: const Offset(0.0, 0.0),
-              ).animate(anim),
-            );
-          },
-          transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
-        );
-      } else if (pageRouteAnimation == PageRouteAnimation.SlideBottomTop) {
-        return PageRouteBuilder(
-          settings: routeSettings,
-          pageBuilder: (context, a1, a2) => child,
-          //     BlocBuilder<LanguageCubit, LanguageState>(
-          //   builder: (context, state) {
-          //     return Directionality(
-          //         textDirection: context.read<LanguageCubit>().isEn
-          //             ? TextDirection.ltr
-          //             : TextDirection.rtl,
-          //         child: child);
-          //   },
-          // ),
-          transitionsBuilder: (c, anim, a2, child) {
-            return SlideTransition(
-              position: Tween(
-                begin: const Offset(0.0, 1.0),
-                end: const Offset(0.0, 0.0),
-              ).animate(anim),
-              child: child,
-            );
-          },
-          transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
-        );
-      }
+    if (pageRouteAnimation == PageRouteAnimation.Fade) {
+      return PageRouteBuilder(
+        settings: routeSettings,
+        transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
+        reverseTransitionDuration: const Duration(milliseconds: 50),
+        pageBuilder:
+            (context, a1, a2) =>
+                // BlocBuilder<LanguageCubit, LanguageState>(
+                // builder: (context, state) {
+                child,
+        //   Directionality(
+        //     textDirection: context.read<LanguageCubit>().isEn
+        //         ? TextDirection.ltr
+        //         : TextDirection.rtl,
+        //     child:
+        // ),
+        //   },
+        // ),
+        transitionsBuilder: (c, anim, a2, child) {
+          return FadeTransition(opacity: anim, child: child);
+        },
+      );
+    } else if (pageRouteAnimation == PageRouteAnimation.Rotate) {
+      return PageRouteBuilder(
+        settings: routeSettings,
+        pageBuilder: (context, a1, a2) => child,
+        //     BlocBuilder<LanguageCubit, LanguageState>(
+        //   builder: (context, state) {
+        //     return Directionality(
+        //         textDirection: context.read<LanguageCubit>().isEn
+        //             ? TextDirection.ltr
+        //             : TextDirection.rtl,
+        //         child: child);
+        //   },
+        // ),
+        transitionsBuilder: (c, anim, a2, child) {
+          return RotationTransition(
+            turns: ReverseAnimation(anim),
+            child: child,
+          );
+        },
+        transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
+      );
+    } else if (pageRouteAnimation == PageRouteAnimation.Scale) {
+      return PageRouteBuilder(
+        settings: routeSettings,
+        pageBuilder: (context, a1, a2) => child,
+        //     BlocBuilder<LanguageCubit, LanguageState>(
+        //   builder: (context, state) {
+        //     return Directionality(
+        //         textDirection: context.read<LanguageCubit>().isEn
+        //             ? TextDirection.ltr
+        //             : TextDirection.rtl,
+        //         child: child);
+        //   },
+        // ),
+        transitionsBuilder: (c, anim, a2, child) {
+          return ScaleTransition(scale: anim, child: child);
+        },
+        transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
+      );
+    } else if (pageRouteAnimation == PageRouteAnimation.Slide) {
+      return PageRouteBuilder(
+        settings: routeSettings,
+        pageBuilder: (context, a1, a2) => child,
+        //     BlocBuilder<LanguageCubit, LanguageState>(
+        //   builder: (context, state) {
+        //     return Directionality(
+        //         textDirection: context.read<LanguageCubit>().isEn
+        //             ? TextDirection.ltr
+        //             : TextDirection.rtl,
+        //         child: child);
+        //   },
+        // ),
+        transitionsBuilder: (c, anim, a2, child) {
+          return SlideTransition(
+            position: Tween(
+              begin: const Offset(1.0, 0.0),
+              end: const Offset(0.0, 0.0),
+            ).animate(anim),
+            child: child,
+          );
+        },
+        transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
+      );
+    } else if (pageRouteAnimation == PageRouteAnimation.SlideBottomTop) {
+      return PageRouteBuilder(
+        settings: routeSettings,
+        pageBuilder: (context, a1, a2) => child,
+        //     BlocBuilder<LanguageCubit, LanguageState>(
+        //   builder: (context, state) {
+        //     return Directionality(
+        //         textDirection: context.read<LanguageCubit>().isEn
+        //             ? TextDirection.ltr
+        //             : TextDirection.rtl,
+        //         child: child);
+        //   },
+        // ),
+        transitionsBuilder: (c, anim, a2, child) {
+          return SlideTransition(
+            position: Tween(
+              begin: const Offset(0.0, 1.0),
+              end: const Offset(0.0, 0.0),
+            ).animate(anim),
+            child: child,
+          );
+        },
+        transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
+      );
     }
-    return MaterialPageRoute<T>(
+      return MaterialPageRoute<T>(
       builder:
           (context) => AnnotatedRegion<SystemUiOverlayStyle>(
             value: const SystemUiOverlayStyle(
