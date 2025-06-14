@@ -1,12 +1,12 @@
 import 'package:caro_user_app/core/export/export.dart';
 
 class AppCard extends StatelessWidget {
-   AppCard({super.key});
+  AppCard({super.key});
   TextEditingController phone = TextEditingController();
   TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return  AppCardBackground(
+    return AppCardBackground(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -32,14 +32,13 @@ class AppCard extends StatelessWidget {
           32.vs,
           CustomElevatedButton.text(
             onPressed: () {
-              // Routes.signUpPyPhoneRoutes.moveTo;
+              Routes.bottomNavigationRoute.moveTo;
             },
             text: 'تسجيل الدخول',
           ),
           10.vs,
           CustomOutlineButton(
             onPressed: () {
-
               Routes.signUpPyPhoneRoutes.moveTo;
               // Routes.signUpRoute.moveTo;
             },

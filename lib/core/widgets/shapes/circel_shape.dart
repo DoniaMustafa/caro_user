@@ -8,7 +8,8 @@ class CircleShape extends StatelessWidget with ShapeMixin {
     super.key,
     this.color,
     this.onTap,
-    this.height, this.alignment,
+    this.height,
+    this.alignment,
     this.margin,
     this.padding,
     this.width,
@@ -25,7 +26,8 @@ class CircleShape extends StatelessWidget with ShapeMixin {
       onTap: onTap,
       child: BasedShape(
         height: height,
-        width: width,alignment: alignment,
+        width: width,
+        alignment: alignment,
         shape: BoxShape.circle,
         color: color,
         padding: padding,
@@ -57,7 +59,7 @@ class CircleShape extends StatelessWidget with ShapeMixin {
 
   @override
   // TODO: implement height
-   double? height=0;
+  double? height;
 
   @override
   // TODO: implement margin
@@ -73,9 +75,9 @@ class CircleShape extends StatelessWidget with ShapeMixin {
 
   @override
   // TODO: implement width
-   double? width=0;
+  double? width;
 
   @override
   // TODO: implement alignment
-  final AlignmentGeometry?  alignment ;
+  final AlignmentGeometry? alignment;
 }

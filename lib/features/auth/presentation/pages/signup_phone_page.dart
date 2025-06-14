@@ -25,10 +25,16 @@ class SignupPyPhonePage extends StatelessWidget {
           radius: 140,
         ),
         33.vs,
-        CustomTextWidget(text: 'إنشاء حساب'),
+        CustomTextWidget(
+          text: 'إنشاء حساب',
+          style: getSemiboldTextStyle(fontSize: 18,color: AppColors.primaryColor),
+        ),
         12.vs,
 
-        CustomTextWidget(text: 'أدخل رقم الجوال لإنشاء حساب'),
+        CustomTextWidget(
+          text: 'أدخل رقم الجوال لإنشاء حساب',
+          style: getRegularTextStyle(color: AppColors.grey800),
+        ),
         38.vs,
         RectangleShape.withoutTap(
           color: AppColors.white300,

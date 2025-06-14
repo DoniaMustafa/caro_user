@@ -68,6 +68,6 @@ class _BuildPinCodeState extends State<BuildPinCode> {
           pinAnimationType: PinAnimationType.scale,
         ),
       ],
-    );
+    ).withPadding(horizontal: 20);
   }
 }

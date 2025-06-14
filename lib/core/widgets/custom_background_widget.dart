@@ -1,12 +1,7 @@
 import 'package:caro_user_app/config/routes/app_routes_helper.dart';
 import 'package:caro_user_app/core/export/export.dart';
-import 'package:caro_user_app/core/extension.dart';
 import 'package:caro_user_app/core/widgets/custom_network_image.dart';
 import 'package:caro_user_app/core/widgets/shapes/circel_shape.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import 'custom_text_widget.dart';
 
 class CustomBackgroundWidget extends StatelessWidget {
   // CustomNetworkImage._internal();
@@ -17,8 +12,9 @@ class CustomBackgroundWidget extends StatelessWidget {
     this.bottomNavigationBar,
     this.leading,
     this.padding,
+    this.isAppBar = true,
     this.image,
-    this.isBack = false,
+    this.isBack = true,
     this.title,
     this.crossAxisAlignment = CrossAxisAlignment.center,
     this.mainAxisAlignment = MainAxisAlignment.start,
@@ -28,7 +24,8 @@ class CustomBackgroundWidget extends StatelessWidget {
     required this.child,
     this.children,
     this.leading,
-    this.isBack = false,
+    this.isBack = true,
+    this.isAppBar = true,
     this.title,
     this.padding,
     this.bottomNavigationBar,
@@ -45,16 +42,14 @@ class CustomBackgroundWidget extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final Widget? bottomNavigationBar;
   final Widget? leading;
+  bool? isAppBar;
   @override
   Widget build(BuildContext context) {
     return isChildren == true ? _buildListWidget : _buildChildWidget;
   }
 
-  get _buildListWidget => Scaffold(
-    appBar:
-        title.isNotNull || isBack.isTrue || leading.isNotNull || image.isNotNull
-            ? appBar
-            : null,
+  get _buildListWidget => Scaffold(backgroundColor: AppColors.white,
+    appBar: isAppBar.isTrue ? appBar : null,
     bottomNavigationBar: bottomNavigationBar,
     body: SafeArea(
       child: Align(
@@ -74,32 +69,33 @@ class CustomBackgroundWidget extends StatelessWidget {
     ),
   );
   get _buildChildWidget => Scaffold(
-    appBar:
-        title.isNotNull || isBack.isTrue || leading.isNotNull || image.isNotNull
-            ? appBar
-            : null,
+    appBar: isAppBar.isTrue ? appBar : null,
     bottomNavigationBar: bottomNavigationBar,
     body: SafeArea(child: child!),
   );
   AppBar get appBar => AppBar(
-    toolbarHeight: 70,
+    // toolbarHeight: 70,
     title: title.isNotNull ? CustomTextWidget(text: title!) : null,
+    actions: isBack.isTrue ? [_circleBack, 20.hs] : null,
+    // leadingWidth: 70,
     leading:
-        isBack.isTrue
-            ? _circleBack
-            : (leading.isNotNull
-                ? leading
-                : (image.isNotNull
-                    ? CustomNetworkImage.circular(imageUrl: image)
-                    : null)),
-    leadingWidth: 70,
+        leading.isNotNull
+            ? leading
+            : (image.isNotNull
+                ? CustomNetworkImage.circular(imageUrl: image)
+                : Container()),
   );
 
   get _circleBack => CircleShape(
+    width: 36,
+    height: 36,
     alignment: AlignmentDirectional.center,
-    onTap: () => pop(),
+    onTap: pop,
     margin: getMarginOrPadding(start: 20),
     color: AppColors.grey.withValues(alpha: 0.051),
-    child: const CustomIcon(icon: Icons.arrow_back_ios, color: AppColors.black),
+    child: const CustomIcon(
+      icon: Icons.arrow_forward_ios,
+      color: AppColors.black,
+    ),
   );
 }

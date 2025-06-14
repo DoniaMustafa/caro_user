@@ -14,7 +14,6 @@ import '../../../../core/export/export.dart';
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return CustomBackgroundWidget.children(
@@ -28,7 +27,10 @@ class LoginPage extends StatelessWidget {
         33.vs,
         CustomTextWidget(
           text: 'تسجيل الدخول',
-          style: getSemiboldTextStyle(fontSize: 18),
+          style: getSemiboldTextStyle(
+            fontSize: 18,
+            color: AppColors.primaryColor,
+          ),
         ),
         12.vs,
 
@@ -37,7 +39,7 @@ class LoginPage extends StatelessWidget {
           style: getRegularTextStyle(color: AppColors.grey800),
         ),
         38.vs,
-        AppCard()
+        AppCard(),
       ],
     );
   }

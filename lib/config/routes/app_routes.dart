@@ -1,6 +1,7 @@
 import 'package:caro_user_app/core/export/export.dart';
 import 'package:caro_user_app/features/auth/presentation/pages/login_page.dart';
 import 'package:caro_user_app/features/auth/presentation/pages/otp_page.dart';
+import 'package:caro_user_app/features/nav_bar/presentation/pages/nav_bar_page.dart';
 import '../../features/auth/presentation/pages/signup_page.dart';
 import '../../features/auth/presentation/pages/signup_phone_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
@@ -36,7 +37,7 @@ class Routes {
   // static const String forgetPassRoute = "forget Password";
   static const String OtpRoute = "/verification";
   // static const String resetPasswordRoute = "/reset_passsword";
-  // static const String bottomNavigationRoute = "bottom Navigation Route";
+  static const String bottomNavigationRoute = "/bottom Navigation Route";
   // static const String setPassRoute = "set Password";
   // static const String selectLanguageRoute = "/select language";
   // //NewTripsScreen
@@ -233,9 +234,9 @@ class RouteGenerator {
       //   return buildPageRoute(
       //       child: const ChooseProfessionalCoursesScreen(),
       //       routeSettings: routeSettings);
-      // case Routes.bottomNavigationRoute:
-      //   return buildPageRoute(
-      //       child: const BottomNavBarScreen(), routeSettings: routeSettings);
+      case Routes.bottomNavigationRoute:
+        return buildPageRoute(
+            child: const NavbarPage(), routeSettings: routeSettings);
       // case Routes.coursesDetailsRoute:
       //   return buildPageRoute(
       //       child: CoursesDetailsScreen(), routeSettings: routeSettings);

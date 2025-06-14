@@ -1,9 +1,18 @@
+import 'package:caro_user_app/core/export/export.dart';
 import 'package:caro_user_app/core/utils/app_colors.dart';
 import 'package:caro_user_app/core/utils/assats_file.dart';
+import 'package:caro_user_app/core/utils/size_utils.dart';
+import 'package:caro_user_app/core/widgets/custom_background_widget.dart';
 import 'package:caro_user_app/core/widgets/custom_network_image.dart';
 import 'package:caro_user_app/features/auth/presentation/pages/signup_page.dart';
+import 'package:caro_user_app/features/chat/presentation/pages/chat_page.dart';
+import 'package:caro_user_app/features/my_orders/presentation/pages/my_orders_page.dart';
+import 'package:caro_user_app/features/settings/presentation/pages/settings_page.dart';
+import 'package:caro_user_app/features/short_ads/presentation/pages/short_ads_page.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+
+import '../../../home/presentation/pages/home_page.dart' show HomePage;
 
 class NavbarPage extends StatefulWidget {
   const NavbarPage({super.key});
@@ -31,16 +40,13 @@ class _NavbarPageState extends State<NavbarPage> {
     super.dispose();
   }
 
-  // Define your screens. Replace SignupPage() with your actual screen widgets.
-  List<Widget> _buildScreens() {
-    return [
-      SignupPage(), // Replace with actual screen for "Settings"
-      SignupPage(), // Replace with actual screen for "Messages"
-      SignupPage(), // Replace with actual screen for "Reels"
-      SignupPage(), // Replace with actual screen for "My Orders"
-      SignupPage(), // Replace with actual screen for "Home"
-    ];
-  }
+   List<Widget> buildScreens =const [
+    HomePage(),
+    MyOrdersPage(),
+    ShortAdsPage(),
+    ChatPage(),
+    SettingsPage(),
+  ];
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
@@ -83,31 +89,30 @@ class _NavbarPageState extends State<NavbarPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("My App"), // Consider adding a title
-      ),
+    return CustomBackgroundWidget.child(
       bottomNavigationBar: PersistentTabView(
+        navBarHeight: 80.h,
         context,
+        backgroundColor: AppColors.white,
         controller: _controller, // Use the stateful controller
-        screens: _buildScreens(),
+        screens: buildScreens,
         items: _navBarsItems(),
         onItemSelected: (index) {
           setState(() {
-            _selectedIndex = index; // Update the state
-            // The PersistentTabView will handle controller.jumpToTab(index)
-            // and the icon colors will update automatically based on active/inactiveColorPrimary
+            _selectedIndex = index;
           });
           print(_selectedIndex);
         },
         decoration: NavBarDecoration(borderRadius: BorderRadius.circular(10)),
         confineToSafeArea: true,
         handleAndroidBackButtonPress: true,
-        navBarStyle: NavBarStyle.style15,
+        navBarStyle: NavBarStyle.style16,
+        padding: EdgeInsets.symmetric(vertical: 10),
         hideNavigationBarWhenKeyboardAppears: true,
         resizeToAvoidBottomInset:
             false, // Be mindful of this with keyboard interactions
       ),
+      child: buildScreens[_selectedIndex],
     );
   }
 }
