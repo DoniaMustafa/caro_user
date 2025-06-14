@@ -57,7 +57,7 @@ class CustomTextFormField extends StatefulWidget {
     this.focusNode,
     this.prefix,
     this.showError = false,
-    this.isFill = false,
+    this.isFill = true,
     this.padding,
     this.backColor,
     // this.keyboardType =

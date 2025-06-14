@@ -217,18 +217,7 @@ class ContainerOfBody extends StatelessWidget {
               color: AppColors.primaryColor,
             ),
             controller: passwordController,
-            hintTextDirection: TextDirection.rtl,
-            textDirection: TextDirection.rtl,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.r),
-              borderSide: BorderSide.none,
-            ),
-            isFill: true,
-            hintText: 'كتابة كملة المرور',
-            hintStyle: getRegularTextStyle(
-              fontSize: 12,
-              color: Color(0xffB1B1B1),
-            ),
+
           ),
           18.vs,
           CustomTextWidget(
@@ -256,7 +245,7 @@ class ContainerOfBody extends StatelessWidget {
             ),
           ),
           24.vs,
-          CustomElevatedButton(onPressed: () {}, text: "تسجيل دخول"),
+          CustomElevatedButton.text(onPressed: () {}, text: "تسجيل دخول"),
           CustomOutlineButton(
             onPressed: () {
               // _nextPage();

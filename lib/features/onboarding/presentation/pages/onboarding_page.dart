@@ -17,7 +17,7 @@ class OnboardingPage extends StatelessWidget {
         Routes.loginRoute.moveTo;
 
       case 2:
-        Routes.signUpRoute.moveTo;
+        Routes.signUpPyPhoneRoutes.moveTo;
     }
   }
 
@@ -36,7 +36,7 @@ class OnboardingPage extends StatelessWidget {
             45.vs,
             PageIndicator(pageController: pageController),
             70.vs,
-            CustomElevatedButton(
+            CustomElevatedButton.text(
               onPressed: () {
                 _nextPage(1);
               },

@@ -1,5 +1,8 @@
+import 'package:caro_user_app/config/routes/app_routes_helper.dart';
+import 'package:caro_user_app/core/export/export.dart';
 import 'package:caro_user_app/core/extension.dart';
 import 'package:caro_user_app/core/widgets/custom_network_image.dart';
+import 'package:caro_user_app/core/widgets/shapes/circel_shape.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -13,26 +16,33 @@ class CustomBackgroundWidget extends StatelessWidget {
     required this.children,
     this.bottomNavigationBar,
     this.leading,
+    this.padding,
     this.image,
+    this.isBack = false,
     this.title,
     this.crossAxisAlignment = CrossAxisAlignment.center,
+    this.mainAxisAlignment = MainAxisAlignment.start,
   }) : isChildren = true;
   CustomBackgroundWidget.child({
     super.key,
     required this.child,
     this.children,
     this.leading,
+    this.isBack = false,
     this.title,
+    this.padding,
     this.bottomNavigationBar,
-    this.crossAxisAlignment,
     this.image,
   }) : isChildren = false;
   final Widget? child;
   final List<Widget>? children;
-  final CrossAxisAlignment? crossAxisAlignment;
+  CrossAxisAlignment? crossAxisAlignment;
+  MainAxisAlignment? mainAxisAlignment;
+  bool isBack;
   bool? isChildren;
   final String? image;
   final String? title;
+  final EdgeInsetsGeometry? padding;
   final Widget? bottomNavigationBar;
   final Widget? leading;
   @override
@@ -41,16 +51,21 @@ class CustomBackgroundWidget extends StatelessWidget {
   }
 
   get _buildListWidget => Scaffold(
-    appBar: title.isNotNull || leading.isNotNull||image.isNotNull ? appBar : null,
+    appBar:
+        title.isNotNull || isBack.isTrue || leading.isNotNull || image.isNotNull
+            ? appBar
+            : null,
     bottomNavigationBar: bottomNavigationBar,
     body: SafeArea(
       child: Align(
         alignment: Alignment.topCenter,
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(11.0),
+            padding: padding ?? getMarginOrPadding(all: 11.0),
             child: Column(
               crossAxisAlignment: crossAxisAlignment!,
+              mainAxisAlignment: mainAxisAlignment!,
+
               children: children!,
             ),
           ),
@@ -59,7 +74,10 @@ class CustomBackgroundWidget extends StatelessWidget {
     ),
   );
   get _buildChildWidget => Scaffold(
-    appBar: title.isNotNull || leading.isNotNull||image.isNotNull ? appBar : null,
+    appBar:
+        title.isNotNull || isBack.isTrue || leading.isNotNull || image.isNotNull
+            ? appBar
+            : null,
     bottomNavigationBar: bottomNavigationBar,
     body: SafeArea(child: child!),
   );
@@ -67,11 +85,21 @@ class CustomBackgroundWidget extends StatelessWidget {
     toolbarHeight: 70,
     title: title.isNotNull ? CustomTextWidget(text: title!) : null,
     leading:
-        leading.isNotNull
-            ? leading
-            : (image.isNotNull
-                ? CustomNetworkImage.circular(imageUrl: image)
-                : null),
-    leadingWidth: 150,
+        isBack.isTrue
+            ? _circleBack
+            : (leading.isNotNull
+                ? leading
+                : (image.isNotNull
+                    ? CustomNetworkImage.circular(imageUrl: image)
+                    : null)),
+    leadingWidth: 70,
+  );
+
+  get _circleBack => CircleShape(
+    alignment: AlignmentDirectional.center,
+    onTap: () => pop(),
+    margin: getMarginOrPadding(start: 20),
+    color: AppColors.grey.withValues(alpha: 0.051),
+    child: const CustomIcon(icon: Icons.arrow_back_ios, color: AppColors.black),
   );
 }

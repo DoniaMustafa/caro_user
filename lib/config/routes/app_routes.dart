@@ -1,6 +1,8 @@
 import 'package:caro_user_app/core/export/export.dart';
 import 'package:caro_user_app/features/auth/presentation/pages/login_page.dart';
+import 'package:caro_user_app/features/auth/presentation/pages/otp_page.dart';
 import '../../features/auth/presentation/pages/signup_page.dart';
+import '../../features/auth/presentation/pages/signup_phone_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../../features/splash.dart';
 
@@ -9,12 +11,11 @@ enum PageRouteAnimation { Fade, Scale, Rotate, Slide, SlideBottomTop }
 class Routes {
   Routes._internal();
   static const String splashRoute = "/";
-static const String loginRoute = "/login Route";
-static const String onBoardRoute = "/Route onBoard";
-static const String signUpRoute = "sign Up";
+  static const String loginRoute = "/login Route";
+  static const String onBoardRoute = "/Route onBoard";
+  static const String signUpRoute = "sign Up";
 
-
-// static const String coursesGroupsRoute = "Courses  Screen";
+  // static const String coursesGroupsRoute = "Courses  Screen";
   // static const String addSessionRoute = "add Session";
   // static const String statisticsGroupsRoute = "statisticsGroupsRoute";
   //
@@ -27,13 +28,13 @@ static const String signUpRoute = "sign Up";
   // static const String mainRoute = "/main Route";
   // static const String chooseRoleRoute = "/choose Role";
   // static const String uploadResumeRoute = "upload Resume Route ";
-  // static const String signUpPyPhoneRoutes = "signUpPyPhoneRoutes";
+  static const String signUpPyPhoneRoutes = "signUpPyPhoneRoutes";
   //
   // static const String educationTypeRoute = " education Type ";
   // static const String assistantEducationTypeRoute = "assistant education Type ";
   //
   // static const String forgetPassRoute = "forget Password";
-  // static const String verificationRoute = "/verification";
+  static const String OtpRoute = "/verification";
   // static const String resetPasswordRoute = "/reset_passsword";
   // static const String bottomNavigationRoute = "bottom Navigation Route";
   // static const String setPassRoute = "set Password";
@@ -176,16 +177,21 @@ class RouteGenerator {
     switch (routeSettings.name) {
       case Routes.splashRoute:
         return buildPageRoute(
-            child: const SplashScreen(), routeSettings: routeSettings);
+          child: const SplashScreen(),
+          routeSettings: routeSettings,
+        );
       case Routes.onBoardRoute:
         return buildPageRoute(
-            child:const OnboardingPage(), routeSettings: routeSettings);
+          child: const OnboardingPage(),
+          routeSettings: routeSettings,
+        );
       case Routes.signUpRoute:
         return buildPageRoute(
-            child: const SignupPage(), routeSettings: routeSettings);
+          child: const SignupPage(),
+          routeSettings: routeSettings,
+        );
       case Routes.loginRoute:
-        return buildPageRoute(
-            child: LoginPage(), routeSettings: routeSettings);
+        return buildPageRoute(child: LoginPage(), routeSettings: routeSettings);
       // case Routes.youtueWidgetRoute:
       //   return buildPageRoute(
       //       child:  YoutueWidget(), routeSettings: routeSettings);
@@ -208,12 +214,13 @@ class RouteGenerator {
       // case Routes.uploadResumeRoute:
       //   return buildPageRoute(
       //       child: UploadResumeScreen(), routeSettings: routeSettings);
-      // case Routes.signUpPyPhoneRoutes:
-      //   return buildPageRoute(
-      //       child: SignUpByPhoneScreen(), routeSettings: routeSettings);
-      // case Routes.verificationRoute:
-      //   return buildPageRoute(
-      //       child: VerificationScreen(), routeSettings: routeSettings);
+      case Routes.signUpPyPhoneRoutes:
+        return buildPageRoute(
+          child: SignupPyPhonePage(),
+          routeSettings: routeSettings,
+        );
+      case Routes.OtpRoute:
+        return buildPageRoute(child: OtpPage(), routeSettings: routeSettings);
       // case Routes.privateTeacherGroupsDetailsRoute:
       //   return buildPageRoute(
       //       child: PrivateTeacherDetailsScreen(), routeSettings: routeSettings);
@@ -564,10 +571,9 @@ class RouteGenerator {
       //       child: SettingsScreen(), routeSettings: routeSettings);
     }
     return buildPageRoute(
-        child: const Center(
-          child: Text("no route found"),
-        ),
-        routeSettings: routeSettings);
+      child: const Center(child: Text("no route found")),
+      routeSettings: routeSettings,
+    );
   }
 
   static Route<T> buildPageRoute<T>({
@@ -583,16 +589,17 @@ class RouteGenerator {
           settings: routeSettings,
           transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
           reverseTransitionDuration: const Duration(milliseconds: 50),
-          pageBuilder: (context, a1, a2) =>
-              // BlocBuilder<LanguageCubit, LanguageState>(
-            // builder: (context, state) {
-               child,
-              //   Directionality(
-              //     textDirection: context.read<LanguageCubit>().isEn
-              //         ? TextDirection.ltr
-              //         : TextDirection.rtl,
-              //     child:
-              // ),
+          pageBuilder:
+              (context, a1, a2) =>
+                  // BlocBuilder<LanguageCubit, LanguageState>(
+                  // builder: (context, state) {
+                  child,
+          //   Directionality(
+          //     textDirection: context.read<LanguageCubit>().isEn
+          //         ? TextDirection.ltr
+          //         : TextDirection.rtl,
+          //     child:
+          // ),
           //   },
           // ),
           transitionsBuilder: (c, anim, a2, child) {
@@ -602,7 +609,7 @@ class RouteGenerator {
       } else if (pageRouteAnimation == PageRouteAnimation.Rotate) {
         return PageRouteBuilder(
           settings: routeSettings,
-          pageBuilder: (context, a1, a2) =>child,
+          pageBuilder: (context, a1, a2) => child,
           //     BlocBuilder<LanguageCubit, LanguageState>(
           //   builder: (context, state) {
           //     return Directionality(
@@ -614,14 +621,16 @@ class RouteGenerator {
           // ),
           transitionsBuilder: (c, anim, a2, child) {
             return RotationTransition(
-                child: child, turns: ReverseAnimation(anim));
+              child: child,
+              turns: ReverseAnimation(anim),
+            );
           },
           transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
         );
       } else if (pageRouteAnimation == PageRouteAnimation.Scale) {
         return PageRouteBuilder(
           settings: routeSettings,
-          pageBuilder: (context, a1, a2) =>child,
+          pageBuilder: (context, a1, a2) => child,
           //     BlocBuilder<LanguageCubit, LanguageState>(
           //   builder: (context, state) {
           //     return Directionality(
@@ -639,7 +648,7 @@ class RouteGenerator {
       } else if (pageRouteAnimation == PageRouteAnimation.Slide) {
         return PageRouteBuilder(
           settings: routeSettings,
-          pageBuilder: (context, a1, a2) =>child,
+          pageBuilder: (context, a1, a2) => child,
           //     BlocBuilder<LanguageCubit, LanguageState>(
           //   builder: (context, state) {
           //     return Directionality(
@@ -663,7 +672,7 @@ class RouteGenerator {
       } else if (pageRouteAnimation == PageRouteAnimation.SlideBottomTop) {
         return PageRouteBuilder(
           settings: routeSettings,
-          pageBuilder: (context, a1, a2) =>child,
+          pageBuilder: (context, a1, a2) => child,
           //     BlocBuilder<LanguageCubit, LanguageState>(
           //   builder: (context, state) {
           //     return Directionality(
@@ -687,23 +696,24 @@ class RouteGenerator {
       }
     }
     return MaterialPageRoute<T>(
-      builder: (context) => AnnotatedRegion<SystemUiOverlayStyle>(
-          value: const SystemUiOverlayStyle(
-            statusBarColor: AppColors.transparent,
-            statusBarIconBrightness: Brightness.dark,
-            statusBarBrightness: Brightness.dark,
+      builder:
+          (context) => AnnotatedRegion<SystemUiOverlayStyle>(
+            value: const SystemUiOverlayStyle(
+              statusBarColor: AppColors.transparent,
+              statusBarIconBrightness: Brightness.dark,
+              statusBarBrightness: Brightness.dark,
+            ),
+            child: child,
+            // BlocBuilder<LanguageCubit, LanguageState>(
+            //   builder: (context, state) {
+            //     return Directionality(
+            //         textDirection: context.read<LanguageCubit>().isEn
+            //             ? TextDirection.ltr
+            //             : TextDirection.rtl,
+            //         child: child);
+            //   },
+            // )
           ),
-          child:child,
-          // BlocBuilder<LanguageCubit, LanguageState>(
-          //   builder: (context, state) {
-          //     return Directionality(
-          //         textDirection: context.read<LanguageCubit>().isEn
-          //             ? TextDirection.ltr
-          //             : TextDirection.rtl,
-          //         child: child);
-          //   },
-          // )
-      ),
       settings: routeSettings,
     );
   }

@@ -1,43 +1,60 @@
-import 'package:caro_user_app/core/utils/app_colors.dart';
-import 'package:caro_user_app/core/utils/app_mixin.dart';
-import 'package:caro_user_app/core/utils/size_utils.dart';
-import 'package:flutter/material.dart';
+import 'package:caro_user_app/core/export/export.dart';
 
-import '../../utils/app_style.dart';
+
 import 'custom_base_button.dart';
 
 class CustomElevatedButton extends StatelessWidget with BaseButton {
-  const CustomElevatedButton({
+  CustomElevatedButton._();
+  CustomElevatedButton.icon({
     super.key,
     required this.onPressed,
     required this.text,
-  });
+  }) : isIcon = true;
 
+  CustomElevatedButton.text({
+    super.key,
+    required this.onPressed,
+    required this.text,
+  }) : isIcon = false;
+  bool? isIcon;
   @override
   Widget build(BuildContext context) {
-    return CustomBaseButton(
-      
-      margin: getMarginOrPadding(horizontal: 20),
-      onPressed: onPressed,
-      text: text,
-      color: AppColors.primaryColor,
-      style: getMediumTextStyle(color: AppColors.white, fontSize: 13),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withValues(alpha: 0.051),
-          offset: const Offset(0, 1),
-          blurRadius: 3,
-          spreadRadius: 0,
-        ),
-      ],
-    );
+    return isIcon.isTrue ? _elevatedButtonWithIcon : _elevatedButton;
   }
 
+  get _elevatedButton => CustomBaseButton(
+    margin: getMarginOrPadding(horizontal: 20),
+    onPressed: onPressed,
+    text: text!,
+
+    color: AppColors.primaryColor,
+    style: getMediumTextStyle(color: AppColors.white, fontSize: 13),
+    boxShadow: boxShadow,
+  );
+
+  get _elevatedButtonWithIcon => CustomBaseButton(
+    margin: getMarginOrPadding(horizontal: 20),
+    onPressed: onPressed,
+    text: text!,
+    rightIcon: CustomSvg.assets(asset: AppAssets().send),
+    color: AppColors.primaryColor,
+    style: getMediumTextStyle(color: AppColors.white, fontSize: 13),
+    boxShadow: boxShadow,
+  );
   @override
   // TODO: implement onPressed
-  final void Function()? onPressed;
+  VoidCallback? onPressed;
 
   @override
   // TODO: implement text
-  final String text;
+  String? text;
+
+  List<BoxShadow> boxShadow = [
+    BoxShadow(
+      color: Colors.black.withValues(alpha: 0.051),
+      offset: const Offset(0, 1),
+      blurRadius: 3,
+      spreadRadius: 0,
+    ),
+  ];
 }

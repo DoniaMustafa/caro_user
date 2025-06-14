@@ -31,7 +31,7 @@ class CustomBaseButton extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final Widget? leftIcon;
   final String text;
-  final void Function()? onPressed;
+  final VoidCallback? onPressed;
 
   final Color? borderColor;
   final bool isEnd;
@@ -91,18 +91,16 @@ class CustomBaseButton extends StatelessWidget {
     children: [
       if (leftIcon.isNotNull) leftIcon!,
       if (leftIcon.isNotNull) 10.hs,
-      Expanded(
-        child: Text(
-          text,
-          textScaler: const TextScaler.linear(0.9),
-          textAlign: TextAlign.center,
-          style:
-              style ??
-              getMediumTextStyle(fontSize: 18, color: textColor, height: 1),
-        ),
+      Text(
+        text,
+        textScaler: const TextScaler.linear(0.9),
+        textAlign: TextAlign.center,
+        style:
+            style ??
+            getMediumTextStyle(fontSize: 18, color: textColor, height: 1),
       ),
-      if (rightIcon.isNotNull) 7.97.hs,
-      if (isEnd) const Spacer(flex: 1),
+      if (rightIcon.isNotNull) 8.77.hs,
+
       if (rightIcon.isNotNull) rightIcon!,
     ],
   );
