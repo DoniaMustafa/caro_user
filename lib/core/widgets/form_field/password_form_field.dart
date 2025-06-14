@@ -1,8 +1,6 @@
-import 'package:caro_user_app/core/extension.dart';
 import 'package:caro_user_app/core/utils/app_mixin.dart';
 import 'package:flutter/material.dart';
 
-import '../custom_icon.dart';
 import 'custom_text_form.dart';
 
 class PasswordFormField extends StatefulWidget with BasedFormField {

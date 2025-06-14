@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 
 class CustomListTile extends StatelessWidget {
-  CustomListTile({
+  const CustomListTile({
     super.key,
     this.onTap,
     this.isStareWidget = false,
