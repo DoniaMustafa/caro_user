@@ -19,7 +19,7 @@ class RectangleShape extends StatelessWidget with ShapeMixin {
     this.height,
     this.borderRadius,
     this.isBoarder = false,
-    this.color = Colors.white,
+    this.color = Colors.white,this.alignment=AlignmentDirectional.topEnd,
     this.isShadow = false,
   });
 
@@ -31,12 +31,12 @@ class RectangleShape extends StatelessWidget with ShapeMixin {
     required this.child,
     this.padding,
     this.margin,
+    this.alignment=AlignmentDirectional.topEnd,
     this.height,
     this.isBoarder = false,
     this.isShadow = false,
     this.color = Colors.white,
   });
-  // AlignmentDirectional? alignment;
   bool? isTap;
   bool? isBoarder;
   bool? isShadow;
@@ -129,5 +129,5 @@ class RectangleShape extends StatelessWidget with ShapeMixin {
 
   @override
   // TODO: implement alignment
-  AlignmentDirectional get alignment => AlignmentDirectional.topEnd;
+  AlignmentDirectional? alignment ;
 }

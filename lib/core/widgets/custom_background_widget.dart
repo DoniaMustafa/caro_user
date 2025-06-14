@@ -84,9 +84,9 @@ class CustomBackgroundWidget extends StatelessWidget {
   );
   AppBar get appBar => AppBar(
     backgroundColor: AppColors.white200,
-    toolbarHeight: 50,
+    toolbarHeight: 70,
     title: title.isNotNull ? CustomTextWidget(text: title!) : null,
-    actions: isBack.isTrue ? [_circleBack, 20.hs] : null,
+    actions: isBack.isTrue ? [_circleBack, 20.hs] : null,centerTitle: true,
     // leadingWidth: 70,
     leading:
         leading.isNotNull

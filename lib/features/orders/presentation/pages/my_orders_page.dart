@@ -19,11 +19,11 @@ class _MyOrdersPageState extends State<MyOrdersPage> {
     super.initState();
   }
 
-  int index = 2;
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return CustomBackgroundWidget.children(
-      isBack: true,
+      isBack: false,
       title: "طلباتي",
       children: [
         Column(
@@ -31,70 +31,108 @@ class _MyOrdersPageState extends State<MyOrdersPage> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                RectangleShape.tap(
-                  isTap: true,
-                  onTap: () {
-                    setState(() {
-                      index = 0;
-                    });
-                  },
-                  borderRadius: BorderRadius.circular(12),
-                  color: index == 0 ? AppColors.red300 : AppColors.white,
-                  padding: getMarginOrPadding(vertical: 8, horizontal: 35),
-                  child: CustomTextWidget(
-                    text: "المنتهية",
-                    style: getMediumTextStyle(
-                      color: index == 0 ? AppColors.white : AppColors.red300,
-                      fontSize: 16,
+              children: List.generate(
+                3,
+                (index) => Expanded(
+                  child: RectangleShape.tap(
+                    isTap: true,
+                    alignment: AlignmentDirectional.center,
+                    margin: getMarginOrPadding(horizontal: 3),
+                    onTap: () {
+                      setState(() {
+                        currentIndex = index;
+                      });
+                    },
+                    borderRadius: BorderRadius.circular(12),
+                    color:
+                        currentIndex == index
+                            ? AppColors.red300
+                            : AppColors.white,
+                    padding: getMarginOrPadding(vertical: 8),
+                    child: CustomTextWidget(
+                      textAlign: TextAlign.center,
+                      text:
+                          index == 0
+                              ? "المنتهية"
+                              : index == 1
+                              ? "النشطة"
+                              : "طلباتي",
+                      style: getMediumTextStyle(
+                        color:
+                            currentIndex == index
+                                ? AppColors.white
+                                : AppColors.red300,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
-                RectangleShape.tap(
-                  isTap: true,
-                  onTap: () {
-                    setState(() {
-                      index = 1;
-                    });
-                  },
-                  borderRadius: BorderRadius.circular(12),
-                  color: index == 1 ? AppColors.red300 : AppColors.white,
-                  padding: getMarginOrPadding(vertical: 8, horizontal: 35),
-                  child: CustomTextWidget(
-                    text: "النشطة",
-                    style: getMediumTextStyle(
-                      color: index == 1 ? AppColors.white : AppColors.red300,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-                RectangleShape.tap(
-                  isTap: true,
-                  onTap: () {
-                    setState(() {
-                      index = 2;
-                    });
-                  },
-                  borderRadius: BorderRadius.circular(12),
-                  color: index == 2 ? AppColors.red300 : AppColors.white,
-                  padding: getMarginOrPadding(vertical: 8, horizontal: 35),
-                  child: CustomTextWidget(
-                    text: "طلباتي",
-                    style: getMediumTextStyle(
-                      color: index == 2 ? AppColors.white : AppColors.red300,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
+              ),
+
+              // [
+              //   RectangleShape.tap(
+              //     isTap: true,
+              //     onTap: () {
+              //       setState(() {
+              //         index = 0;
+              //       });
+              //     },
+              //     borderRadius: BorderRadius.circular(12),
+              //     color: index == 0 ? AppColors.red300 : AppColors.white,
+              //     padding: getMarginOrPadding(vertical: 8, horizontal: 35),
+              //     child: CustomTextWidget(
+              //       text: "المنتهية",
+              //       style: getMediumTextStyle(
+              //         color: index == 0 ? AppColors.white : AppColors.red300,
+              //         fontSize: 16,
+              //       ),
+              //     ),
+              //   ),6.hs,
+              //   RectangleShape.tap(
+              //     isTap: true,
+              //     onTap: () {
+              //       setState(() {
+              //         index = 1;
+              //       });
+              //     },
+              //     borderRadius: BorderRadius.circular(12),
+              //     color: index == 1 ? AppColors.red300 : AppColors.white,
+              //     padding: getMarginOrPadding(vertical: 8, horizontal: 35),
+              //     child: CustomTextWidget(
+              //       text: "النشطة",
+              //       style: getMediumTextStyle(
+              //         color: index == 1 ? AppColors.white : AppColors.red300,
+              //         fontSize: 16,
+              //       ),
+              //     ),
+              //   ),6.hs,
+              //   RectangleShape.tap(
+              //     isTap: true,
+              //     onTap: () {
+              //       setState(() {
+              //         index = 2;
+              //       });
+              //     },
+              //     borderRadius: BorderRadius.circular(12),
+              //     color: index == 2 ? AppColors.red300 : AppColors.white,
+              //     padding: getMarginOrPadding(vertical: 8, horizontal: 35),
+              //     child: CustomTextWidget(
+              //       text: "طلباتي",
+              //       style: getMediumTextStyle(
+              //         color: index == 2 ? AppColors.white : AppColors.red300,
+              //         fontSize: 16,
+              //       ),
+              //     ),
+              //   ),
+              // ],
             ),
 
             18.vs,
-            if (index == 2) ...[
+            if (currentIndex == 2) ...[
               const MyOrdersViewPage(),
-            ] else if (index == 1) ...[
+            ] else if (currentIndex == 1) ...[
               const ActiveOrder(),
-            ] else if (index == 0) ...[
+            ] else if (currentIndex == 0) ...[
               const MyOrdersViewPage(),
             ],
           ],
@@ -148,18 +186,29 @@ class OrderInformationDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.min,
       children: [
         if (prefixIcon) CustomSvg.assets(asset: AppAssets().riyalSaudi),
         if (prefixIcon) 5.hs,
         RichText(
+          textAlign: TextAlign.end,
           text: TextSpan(
-            style: getRegularTextStyle(color: AppColors.primaryColor),
+            style: getRegularTextStyle(color: AppColors.red300),
             children: <TextSpan>[
-              TextSpan(text: text, style: getRegularTextStyle()),
+              TextSpan(
+                text: text,
+                style: getRegularTextStyle(
+                  fontSize: 12,
+                  color: AppColors.primaryColor,
+                ),
+              ),
               TextSpan(
                 text: ' : $details ',
-                style: getRegularTextStyle(color: AppColors.black),
+                style: getRegularTextStyle(
+                  color: AppColors.black,
+                  fontSize: 12,
+                ),
               ),
             ],
           ),
@@ -169,11 +218,11 @@ class OrderInformationDetails extends StatelessWidget {
             ? CustomIcon(
               icon: icon!,
               color: AppColors.primaryColor,
-              size: iconSize(11, 11),
+              size: iconSize(1.2 * 11, 1.2 * 11),
             )
             : CustomSvg.assets(asset: image),
       ],
-    );
+    ).withPadding(end: 10);
   }
 }
 
@@ -261,57 +310,53 @@ class CustomOrderWidget extends StatelessWidget {
           ),
           14.vs,
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-
-            children: [
-              OrderInformationDetails.withIcon(
-                text: "تاريخ التسليم",
-                details: "24/5/2025",
-                icon: Icons.calendar_month,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: List.generate(
+              2,
+              (index) => Expanded(
+                child: OrderInformationDetails.withIcon(
+                  text: index == 0 ? "تاريخ التسليم" : "تاريخ الاستلام",
+                  details: index == 0 ? "24/5/2025" : "24/5/2025",
+                  icon: Icons.calendar_month,
+                ),
               ),
-              11.hs,
-              OrderInformationDetails.withIcon(
-                text: "تاريخ الاستلام",
-                details: "24/5/2025",
-                icon: Icons.calendar_month,
-              ),
-            ],
+            ),
           ),
           15.vs,
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              OrderInformationDetails.withImage(
-                prefixIcon: true,
-                text: "مبلغ التأجير ",
-                details: "1500",
-                image: AppAssets().moneyIcon,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.min,
+            children: List.generate(
+              2,
+              (index) => Expanded(
+                child: OrderInformationDetails.withImage(
+                  prefixIcon: index == 0 ? true : false,
+                  text: index == 0 ? "مبلغ التأجير " : "نوع الكيلو",
+                  details: index == 0 ? "1500" : "مفتوح",
+                  image:
+                      index == 0
+                          ? AppAssets().moneyIcon
+                          : AppAssets().speedIcon,
+                ),
               ),
-              59.hs,
-              OrderInformationDetails.withImage(
-                text: "نوع الكيلو",
-                details: "مفتوح",
-                image: AppAssets().speedIcon,
-              ),
-            ],
+            ),
           ),
           11.vs,
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-
-            children: [
-              OrderInformationDetails.withImage(
-                text: "نوع الاستلام",
-                details: "من الفرع",
-                image: AppAssets().puzzle,
+            mainAxisSize: MainAxisSize.min,
+            children: List.generate(
+              2,
+              (index) => Expanded(
+                child: OrderInformationDetails.withImage(
+                  prefixIcon: index == 0 ? true : false,
+                  text: index == 0 ? "نوع الاستلام " : "نوع الدفع",
+                  details: index == 0 ? "من الفرع" : "مدى",
+                  image:
+                      index == 0 ? AppAssets().puzzle : AppAssets().moneyIcon,
+                ),
               ),
-              65.hs,
-              OrderInformationDetails.withImage(
-                text: "نوع الدفع",
-                details: "مدى",
-                image: AppAssets().moneyIcon,
-              ),
-            ],
+            ),
           ),
           16.vs,
           isWaiting

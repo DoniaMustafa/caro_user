@@ -1,18 +1,13 @@
 import 'package:caro_user_app/core/export/export.dart';
-import 'package:caro_user_app/core/utils/app_colors.dart';
-import 'package:caro_user_app/core/utils/assats_file.dart';
-import 'package:caro_user_app/core/utils/size_utils.dart';
 import 'package:caro_user_app/core/widgets/custom_background_widget.dart';
 import 'package:caro_user_app/core/widgets/custom_network_image.dart';
-import 'package:caro_user_app/features/auth/presentation/pages/signup_page.dart';
 import 'package:caro_user_app/features/chat/presentation/pages/chat_page.dart';
-import 'package:caro_user_app/features/my_orders/presentation/pages/my_orders_page.dart';
+import 'package:caro_user_app/features/orders/presentation/pages/my_orders_page.dart';
 import 'package:caro_user_app/features/settings/presentation/pages/settings_page.dart';
 import 'package:caro_user_app/features/short_ads/presentation/pages/short_ads_page.dart';
-import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
-import '../../../home/presentation/pages/home_page.dart' show HomePage;
+import '../../../home/presentation/pages/home_page.dart';
 
 class NavbarPage extends StatefulWidget {
   const NavbarPage({super.key});
@@ -40,7 +35,7 @@ class _NavbarPageState extends State<NavbarPage> {
     super.dispose();
   }
 
-   List<Widget> buildScreens = [
+  List<Widget> buildScreens = [
     HomePage(),
     MyOrdersPage(),
     ShortAdsPage(),
@@ -103,7 +98,10 @@ class _NavbarPageState extends State<NavbarPage> {
           });
           print(_selectedIndex);
         },
-        decoration: NavBarDecoration(borderRadius: BorderRadius.circular(10),colorBehindNavBar: AppColors.white200),
+        decoration: NavBarDecoration(
+          borderRadius: BorderRadius.circular(10),
+          colorBehindNavBar: AppColors.white200,
+        ),
         // confineToSafeArea: true,
         handleAndroidBackButtonPress: true,
         navBarStyle: NavBarStyle.style16,
