@@ -1,7 +1,6 @@
+import 'package:caro_user_app/core/export/export.dart';
 import 'package:caro_user_app/core/utils/app_mixin.dart';
-import 'package:flutter/material.dart';
-
-import 'custom_text_form.dart';
+import 'package:country_code_picker/country_code_picker.dart';
 
 class PhoneFormField extends StatefulWidget with BasedFormField {
   PhoneFormField({
@@ -29,6 +28,22 @@ class _PhoneFormFieldState extends State<PhoneFormField> {
     final phoneForm = widget;
 
     return CustomTextFormField(
+      prefix: CountryCodePicker(
+        onChanged: (country) {
+          print(country.code);
+          print(country.dialCode);
+          print(country.flagUri);
+        },
+        initialSelection: 'SA',
+        favorite: ['+966', 'SA'],
+        showCountryOnly: false,
+        // showOnlyCountryWhenClosed: false,
+        alignLeft: false,
+      ),
+      suffixIcon: const CustomIcon(
+        icon: Icons.phone_in_talk_rounded,
+        color: AppColors.primaryColor,
+      ),
       controller: phoneForm.controller,
       textInputAction: TextInputAction.next,
       onChanged: phoneForm.onChanged,

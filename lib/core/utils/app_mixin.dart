@@ -10,6 +10,7 @@ mixin ShapeMixin {
   double? get width;
   double? get height;
   Widget? get child;
+  AlignmentGeometry? get alignment;
   Color? get color;
   EdgeInsetsGeometry? get padding;
   EdgeInsetsGeometry? get margin;

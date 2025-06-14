@@ -25,7 +25,7 @@ class OnBoardingView extends StatelessWidget {
               Flexible(
                 child: CustomSvg.assets(
                   asset: AppListConstant.onBoardingData[index].image,
-                ).withPadding(horizontal: 90, vertical: 90),
+                ).withPadding(vertical: 90),
               ),
               // 70.vs,
               CustomTextWidget(
@@ -35,7 +35,7 @@ class OnBoardingView extends StatelessWidget {
                   color: AppColors.primaryColor,
                 ),
               ),
-              // 10.vs,
+              12.vs,
               Padding(
                 padding: getMarginOrPadding(horizontal: 40),
                 child: CustomTextWidget(

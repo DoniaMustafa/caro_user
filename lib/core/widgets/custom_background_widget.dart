@@ -12,6 +12,7 @@ class CustomBackgroundWidget extends StatelessWidget {
     this.child,
     required this.children,
     this.bottomNavigationBar,
+    this.leading,
     this.image,
     this.title,
     this.crossAxisAlignment = CrossAxisAlignment.center,
@@ -20,6 +21,7 @@ class CustomBackgroundWidget extends StatelessWidget {
     super.key,
     required this.child,
     this.children,
+    this.leading,
     this.title,
     this.bottomNavigationBar,
     this.crossAxisAlignment,
@@ -32,13 +34,14 @@ class CustomBackgroundWidget extends StatelessWidget {
   final String? image;
   final String? title;
   final Widget? bottomNavigationBar;
+  final Widget? leading;
   @override
   Widget build(BuildContext context) {
     return isChildren == true ? _buildListWidget : _buildChildWidget;
   }
 
   get _buildListWidget => Scaffold(
-    appBar: appBar,
+    appBar: title.isNotNull || leading.isNotNull||image.isNotNull ? appBar : null,
     bottomNavigationBar: bottomNavigationBar,
     body: SafeArea(
       child: Align(
@@ -56,6 +59,7 @@ class CustomBackgroundWidget extends StatelessWidget {
     ),
   );
   get _buildChildWidget => Scaffold(
+    appBar: title.isNotNull || leading.isNotNull||image.isNotNull ? appBar : null,
     bottomNavigationBar: bottomNavigationBar,
     body: SafeArea(child: child!),
   );
@@ -63,7 +67,11 @@ class CustomBackgroundWidget extends StatelessWidget {
     toolbarHeight: 70,
     title: title.isNotNull ? CustomTextWidget(text: title!) : null,
     leading:
-        image.isNotNull ? CustomNetworkImage.circular(imageUrl: image) : null,
+        leading.isNotNull
+            ? leading
+            : (image.isNotNull
+                ? CustomNetworkImage.circular(imageUrl: image)
+                : null),
     leadingWidth: 150,
   );
 }

@@ -3,22 +3,21 @@ import 'package:flutter/material.dart';
 
 import 'based_shape.dart';
 
-
 class CircleShape extends StatelessWidget with ShapeMixin {
-  CircleShape(
-      {super.key,
-      this.color,
-      this.onTap,
-      this.height,
-      this.margin,
-      this.padding,
-      this.width,
-      required this.child
-      // double? width,
-      // required super.child,
-      // double? height,
-      // Color super.color = Colors.black,
-      });
+  CircleShape({
+    super.key,
+    this.color,
+    this.onTap,
+    this.height,
+    this.margin,
+    this.padding,
+    this.width,
+    required this.child,
+    // double? width,
+    // required super.child,
+    // double? height,
+    // Color super.color = Colors.black,
+  });
   final GestureTapCallback? onTap;
   @override
   Widget build(BuildContext context) {
@@ -75,4 +74,8 @@ class CircleShape extends StatelessWidget with ShapeMixin {
   @override
   // TODO: implement width
   final double? width;
+
+  @override
+  // TODO: implement alignment
+  AlignmentGeometry? get alignment => throw UnimplementedError();
 }

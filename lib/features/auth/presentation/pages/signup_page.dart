@@ -1,16 +1,4 @@
-import 'package:caro_user_app/core/extension.dart';
-import 'package:caro_user_app/core/utils/app_colors.dart';
-import 'package:caro_user_app/core/utils/size_utils.dart';
-import 'package:caro_user_app/core/widgets/custom_button_widget.dart';
-import 'package:caro_user_app/core/widgets/custom_icon.dart';
-import 'package:caro_user_app/core/widgets/custom_text_widget.dart';
-import 'package:caro_user_app/core/widgets/form_field/email_form_field.dart';
-import 'package:caro_user_app/core/widgets/form_field/password_form_field.dart';
-import 'package:flutter/material.dart';
-import '../../../../core/utils/app_style.dart';
-import '../../../../core/widgets/button_shape/custom_elevated_button.dart';
-import '../../../../core/widgets/button_shape/custom_outline_button.dart';
-import '../../../../core/widgets/form_field/custom_text_form.dart';
+import 'package:caro_user_app/core/export/export.dart';
 
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
@@ -198,11 +186,8 @@ class ContainerOfBody extends StatelessWidget {
             ),
           ),
           24.vs,
-          CustomElevatedButton(
-            
-            onPressed: () {}, text: "تسجيل دخول"),
+          CustomElevatedButton(onPressed: () {}, text: "تسجيل دخول"),
           CustomOutlineButton(
-          
             onPressed: () {
               // _nextPage();
             },

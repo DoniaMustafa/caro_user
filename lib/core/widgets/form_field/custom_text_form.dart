@@ -176,12 +176,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 AppColors.white,
           ),
           // : AppColors.black.withOpacity(0.67)),
-          // prefix:
-          //     widget.isPassword
-          //         ? buildSuffixPassword
-          //         : widget.prefix.isNotNull
-          //         ? widget.prefix
-          //         : null,
+          prefixIcon: widget.prefix.isNotNull ? widget.prefix : null,
           suffix: widget.suffix,
           hintText: widget.hintText,
           // hintFadeDuration: 20.milliseconds,

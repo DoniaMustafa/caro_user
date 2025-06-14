@@ -11,13 +11,14 @@ class PasswordFormField extends StatefulWidget with BasedFormField {
     this.onChanged,
     this.onValidate,
     this.onSaved,
-    required this.controller,
-    required this.suffixIcon,
-    required this.hintText,
+    this.controller,
+    this.suffixIcon,
+    this.hintText,
     this.textDirection,
     this.hintTextDirection,
-    required this.isFill,
-    required this.border, required this.hintStyle,
+    this.isFill = false,
+    this.border,
+    this.hintStyle,
   });
 
   @override
@@ -29,13 +30,13 @@ class PasswordFormField extends StatefulWidget with BasedFormField {
   @override
   final FormFieldValidator<String?>? onValidate;
 
-  final Widget? suffixIcon;
-  final String hintText;
-  final TextDirection? textDirection;
-  final TextDirection? hintTextDirection;
-  final bool isFill;
-  final InputBorder border;
-  final TextStyle hintStyle;
+  Widget? suffixIcon;
+  String? hintText;
+  TextDirection? textDirection;
+  TextDirection? hintTextDirection;
+  bool? isFill;
+  InputBorder? border;
+  TextStyle? hintStyle;
 
   @override
   State<PasswordFormField> createState() => _PasswordFormFieldState();
@@ -67,7 +68,7 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
       hintTextDirection: widget.hintTextDirection,
       textDirection: widget.textDirection,
       border: widget.border,
-      isFill: widget.isFill,
+      isFill: widget.isFill!,
       hintStyle: widget.hintStyle,
     );
   }

@@ -1,5 +1,6 @@
 
- import 'package:flutter/cupertino.dart';
+ import 'package:caro_user_app/core/export/export.dart';
+import 'package:flutter/cupertino.dart';
 
 class BasedShape extends StatelessWidget {
   const BasedShape({
@@ -13,7 +14,7 @@ class BasedShape extends StatelessWidget {
     this.shape,
     this.border,
     this.boxShadow,
-    // this.onTap,
+    this.alignment,
     this.borderRadius,
   });
   final double? width;
@@ -24,7 +25,7 @@ class BasedShape extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final BorderRadiusGeometry? borderRadius;
   final BoxBorder? border;
-  final BoxShape? shape;
+  final BoxShape? shape;  final AlignmentGeometry?alignment;
   final List<BoxShadow>? boxShadow;
   @override
   Widget build(BuildContext context) {
@@ -33,10 +34,10 @@ class BasedShape extends StatelessWidget {
           color: color,
           borderRadius: borderRadius,
           border: border,
-          shape: shape!,
+          shape:shape!,
           boxShadow: boxShadow),
       height: height,
-      width: width,
+      width: width,alignment:alignment ,
       margin: margin,
       padding: padding,
       child: child,
