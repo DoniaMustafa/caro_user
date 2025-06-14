@@ -1,9 +1,9 @@
-
-import 'package:caro_user_app/core/extension.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-import '../../core/utils/app_colors.dart';
+import 'package:caro_user_app/core/export/export.dart';
+import 'package:caro_user_app/features/auth/presentation/pages/login_page.dart';
+import 'package:caro_user_app/features/auth/presentation/pages/otp_page.dart';
+import 'package:caro_user_app/features/nav_bar/presentation/pages/nav_bar_page.dart';
+import '../../features/auth/presentation/pages/signup_page.dart';
+import '../../features/auth/presentation/pages/signup_phone_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../../features/splash.dart';
 
@@ -12,160 +12,161 @@ enum PageRouteAnimation { Fade, Scale, Rotate, Slide, SlideBottomTop }
 class Routes {
   Routes._internal();
   static const String splashRoute = "/";
-  static const String coursesGroupsRoute = "Courses  Screen";
-  static const String addSessionRoute = "add Session";
-  static const String statisticsGroupsRoute = "statisticsGroupsRoute";
-
-  static const String statisticsRoute = "/Statistics Route";
-  static const String statisticsCoursesRoute = "StatisticsCourses";
-  //
-  static const String updateGroupRoute = "update  Group";
-  static const String updateSessionOfGroupRoute = "update Session Of Group";
-
-  static const String mainRoute = "/main Route";
   static const String loginRoute = "/login Route";
-  static const String chooseRoleRoute = "/choose Role";
-  static const String signUpRoute = "sign Up";
   static const String onBoardRoute = "/Route onBoard";
-  static const String uploadResumeRoute = "upload Resume Route ";
+  static const String signUpRoute = "sign Up";
+
+  // static const String coursesGroupsRoute = "Courses  Screen";
+  // static const String addSessionRoute = "add Session";
+  // static const String statisticsGroupsRoute = "statisticsGroupsRoute";
+  //
+  // static const String statisticsRoute = "/Statistics Route";
+  // static const String statisticsCoursesRoute = "StatisticsCourses";
+  // //
+  // static const String updateGroupRoute = "update  Group";
+  // static const String updateSessionOfGroupRoute = "update Session Of Group";
+  //
+  // static const String mainRoute = "/main Route";
+  // static const String chooseRoleRoute = "/choose Role";
+  // static const String uploadResumeRoute = "upload Resume Route ";
   static const String signUpPyPhoneRoutes = "signUpPyPhoneRoutes";
-
-  static const String educationTypeRoute = " education Type ";
-  static const String assistantEducationTypeRoute = "assistant education Type ";
-
-  static const String forgetPassRoute = "forget Password";
-  static const String verificationRoute = "/verification";
-  static const String resetPasswordRoute = "/reset_passsword";
-  static const String bottomNavigationRoute = "bottom Navigation Route";
-  static const String setPassRoute = "set Password";
-  static const String selectLanguageRoute = "/select language";
-  //NewTripsScreen
-  static const String notificationsRoute = "/notification Route";
-  static const String lessonDetailsRoute = "/ Lesson Details";
-  static const String coursesDetailsRoute = "Courses Details";
-  static const String groupsLessonRoute = "Groups Lesson Details";
-
-  static const String groupsDetailsRoute = "groups Details";
-  static const String chooseProfessionalCourseRoute =
-      "choose Professional Course Route";
-  static const String teacherFollowersRoute = "teacherFollowersRoute";
-  static const String addLessonOfCourseRoute = "AddLessonOfCourse";
-  static const String updateLessonOfCourseRoute = "updateLessonOfCourseRoute";
+  //
+  // static const String educationTypeRoute = " education Type ";
+  // static const String assistantEducationTypeRoute = "assistant education Type ";
+  //
+  // static const String forgetPassRoute = "forget Password";
+  static const String OtpRoute = "/verification";
+  // static const String resetPasswordRoute = "/reset_passsword";
+  static const String bottomNavigationRoute = "/bottom Navigation Route";
+  // static const String setPassRoute = "set Password";
+  // static const String selectLanguageRoute = "/select language";
+  // //NewTripsScreen
+  // static const String notificationsRoute = "/notification Route";
+  // static const String lessonDetailsRoute = "/ Lesson Details";
+  // static const String coursesDetailsRoute = "Courses Details";
+  // static const String groupsLessonRoute = "Groups Lesson Details";
+  //
+  // static const String groupsDetailsRoute = "groups Details";
+  // static const String chooseProfessionalCourseRoute =
+  //     "choose Professional Course Route";
+  // static const String teacherFollowersRoute = "teacherFollowersRoute";
+  // static const String addLessonOfCourseRoute = "AddLessonOfCourse";
   // static const String updateLessonOfCourseRoute = "updateLessonOfCourseRoute";
+  // // static const String updateLessonOfCourseRoute = "updateLessonOfCourseRoute";
+  // //
+  // // QuestionsDetailsScreen
   //
-  // QuestionsDetailsScreen
-
-  static const String publicCoursesGroupsRoute = "Public Courses Groups";
-  static const String profileRoute = "profile Route";
-  static const String followingTeachersRoute = "followingTeachers Route";
-  static const String subscriptionOfCourseDetailsRoute =
-      "subscription of Course Details";
-
-  static const String teacherOfParentDetailsScreenRoute =
-      "PrivateTeacherDetails";
-  static const String topStudentRoute = "TopStudent";
-
-  ///*********************************************************************************\\\
-
-  static const String teachersOfParentRoute = "Teacher Parent Screen";
-
-  static const String teacherDetailsRoute = "Teacher Details Screen";
-  static const String teachersRoute = "/Teachers";
-  static const String aboutUsRoute = "/ aboutUs";
-  static const String favoriteCourseVideoRoute = "/ favorite Course Video";
-  // static const String privateTeacherDetailsRoute = "privateTeacherDetailsRoute";
-  static const String subscriptionGroupDetailsRoute =
-      "Subscription Group Details";
-  static const String settingsRoute = "settings Route";
+  // static const String publicCoursesGroupsRoute = "Public Courses Groups";
+  // static const String profileRoute = "profile Route";
+  // static const String followingTeachersRoute = "followingTeachers Route";
+  // static const String subscriptionOfCourseDetailsRoute =
+  //     "subscription of Course Details";
   //
-  static const String bookingDateRoute = "Booking Date";
-
+  // static const String teacherOfParentDetailsScreenRoute =
+  //     "PrivateTeacherDetails";
+  // static const String topStudentRoute = "TopStudent";
   //
-  static const String studentGroupSessionsRoute = "student Group Sessions";
+  // ///*********************************************************************************\\\
   //
-  static const String termsAndConditionRoute = "Terms And Condition";
-
-  static const String resultExamRoute = "result Exam route";
-
-  static const String nearSchoolDetailsRoute = "near School Details route";
-  static const String adsDetailsRoute = "ads Details Route";
-  static const String studentTasksRoute = "student Tasks Route";
-  static const String personalInformation = "personalInfo";
-  static const String editPersonalInformation = "editPersonalInformation";
-  static const String fqs = "fqs";
-  static const String privacyRoute = "privacy";
-  static const String examsRoute = "exams Route";
-  static const String passedExamRoute = "Passed Exam";
-  static const String myGradesRoute = "my Grades Route";
-  static const String pdfRoute = 'Pdf';
-  static const String notesRoute = 'Notes';
-  static const String publicNotesRoute = 'publicNotesRoute';
-  static const String notesBookedUnbookedRoute = 'notes Booked Unbooked';
-  static const String notesDetailsRoute = 'Notes Details Screen';
-  static const String reserveNoteRoute = "reserve Note Route";
-  static const String videoOfSessionRoute = "video Of Session Route";
-  static const String updateUserProfileRoute =
-      "update User Profile ScreenRoute";
-  static const String privateGroupsRoute = "private Groups";
-  static const String privateTeacherGroupsDetailsRoute =
-      "private Groups Details";
-
-  static const String bookPrivateAppointmentGroupsRoute =
-      'bookPrivateAppointmentGroupsRoute';
-  static const String examQuestionRoute = 'ExamQuestionScreen';
-  static const String parentsRoute = 'Parents Screen';
-  static const String studentForParentDetailsRoute =
-      'Student For Parent Details';
-
-  static const String addParentChildrenRoute = 'add Parents Children';
-
-  static const String addParentRoute = 'add Parents Screen';
-
-  static const String liveRoute = 'Live Screen';
-  static const String teacherLiveRoute = 'teacher Live Route ';
-  static const String chatMassagesRoute = 'chatMassagesRoute';
+  // static const String teachersOfParentRoute = "Teacher Parent Screen";
   //
-  static const String youtueWidgetRoute = 'YoutueWidget';
-
-  static const String parentsDetailsRoute = 'parentsDetailsRoute';
+  // static const String teacherDetailsRoute = "Teacher Details Screen";
+  // static const String teachersRoute = "/Teachers";
+  // static const String aboutUsRoute = "/ aboutUs";
+  // static const String favoriteCourseVideoRoute = "/ favorite Course Video";
+  // // static const String privateTeacherDetailsRoute = "privateTeacherDetailsRoute";
+  // static const String subscriptionGroupDetailsRoute =
+  //     "Subscription Group Details";
+  // static const String settingsRoute = "settings Route";
+  // //
+  // static const String bookingDateRoute = "Booking Date";
   //
-  static const String homeWorkRoute = 'homeWorkScreen';
+  // //
+  // static const String studentGroupSessionsRoute = "student Group Sessions";
+  // //
+  // static const String termsAndConditionRoute = "Terms And Condition";
   //
-  static const String parentChildrenRoute = 'parentChildrenRoute';
-
-  static const String updateLiveRoute = 'update Live ';
-
-  static const String liveTableRoute = 'Live Table Screen';
-  static const String createLiveRoute = 'Create Live Screen';
-  static const String addGroupRoute = 'add Group';
-  static const String addExamRoute = 'Add Exam';
-
-  static const String updateExamRoute = 'update Exam';
-
-  static const String updateCourseRoute = 'updateCourseRoute';
-
-  static const String addCourseRoute = 'add Course';
-  static const String groupsDetailsOfTeacherRoute = 'Group Of Teacher Details';
-  static const String assistantForTeacherRoute = 'assistantForTeacher';
-  static const String assistantForTeacherDetailsRoute =
-      'assistantForTeacherDetailsRoute Screen';
-  static const String addTeacherForStudentRoute = 'addTeacherForStudentRoute';
-
-  static const String studentForTeacherDetailsRoute =
-      'studentForTeacherDetails';
-  static const String teacherAssistantToSubmitRequestRoute =
-      'TeacherAssistantToSubmitRequest';
-  static const String teacherCoursesDetailsRoute = 'teacherCoursesDetails';
-  static const String addOrUpdateNoteRoute = 'add Or Update Note';
-  static const String updateQuestionsRoute = 'updateQuestionsRoute';
-  static const String statisticsExamRoute = 'statistics Exam';
-  static const String addQuestionsRoute = 'addQuestionsRoute';
-  static const String questionsRoute = 'Questions';
-  static const String transferBalanceRoute = 'TransferBalance';
-  static const String questionsDetailsRoute = 'questions Details';
-  static const String examDetailsRoute = 'examDetailsRoute';
-
-  static const String teacherForAssistantRoute = 'teacherForAssistantRoute';
+  // static const String resultExamRoute = "result Exam route";
+  //
+  // static const String nearSchoolDetailsRoute = "near School Details route";
+  // static const String adsDetailsRoute = "ads Details Route";
+  // static const String studentTasksRoute = "student Tasks Route";
+  // static const String personalInformation = "personalInfo";
+  // static const String editPersonalInformation = "editPersonalInformation";
+  // static const String fqs = "fqs";
+  // static const String privacyRoute = "privacy";
+  // static const String examsRoute = "exams Route";
+  // static const String passedExamRoute = "Passed Exam";
+  // static const String myGradesRoute = "my Grades Route";
+  // static const String pdfRoute = 'Pdf';
+  // static const String notesRoute = 'Notes';
+  // static const String publicNotesRoute = 'publicNotesRoute';
+  // static const String notesBookedUnbookedRoute = 'notes Booked Unbooked';
+  // static const String notesDetailsRoute = 'Notes Details Screen';
+  // static const String reserveNoteRoute = "reserve Note Route";
+  // static const String videoOfSessionRoute = "video Of Session Route";
+  // static const String updateUserProfileRoute =
+  //     "update User Profile ScreenRoute";
+  // static const String privateGroupsRoute = "private Groups";
+  // static const String privateTeacherGroupsDetailsRoute =
+  //     "private Groups Details";
+  //
+  // static const String bookPrivateAppointmentGroupsRoute =
+  //     'bookPrivateAppointmentGroupsRoute';
+  // static const String examQuestionRoute = 'ExamQuestionScreen';
+  // static const String parentsRoute = 'Parents Screen';
+  // static const String studentForParentDetailsRoute =
+  //     'Student For Parent Details';
+  //
+  // static const String addParentChildrenRoute = 'add Parents Children';
+  //
+  // static const String addParentRoute = 'add Parents Screen';
+  //
+  // static const String liveRoute = 'Live Screen';
+  // static const String teacherLiveRoute = 'teacher Live Route ';
+  // static const String chatMassagesRoute = 'chatMassagesRoute';
+  // //
+  // static const String youtueWidgetRoute = 'YoutueWidget';
+  //
+  // static const String parentsDetailsRoute = 'parentsDetailsRoute';
+  // //
+  // static const String homeWorkRoute = 'homeWorkScreen';
+  // //
+  // static const String parentChildrenRoute = 'parentChildrenRoute';
+  //
+  // static const String updateLiveRoute = 'update Live ';
+  //
+  // static const String liveTableRoute = 'Live Table Screen';
+  // static const String createLiveRoute = 'Create Live Screen';
+  // static const String addGroupRoute = 'add Group';
+  // static const String addExamRoute = 'Add Exam';
+  //
+  // static const String updateExamRoute = 'update Exam';
+  //
+  // static const String updateCourseRoute = 'updateCourseRoute';
+  //
+  // static const String addCourseRoute = 'add Course';
+  // static const String groupsDetailsOfTeacherRoute = 'Group Of Teacher Details';
+  // static const String assistantForTeacherRoute = 'assistantForTeacher';
+  // static const String assistantForTeacherDetailsRoute =
+  //     'assistantForTeacherDetailsRoute Screen';
+  // static const String addTeacherForStudentRoute = 'addTeacherForStudentRoute';
+  //
+  // static const String studentForTeacherDetailsRoute =
+  //     'studentForTeacherDetails';
+  // static const String teacherAssistantToSubmitRequestRoute =
+  //     'TeacherAssistantToSubmitRequest';
+  // static const String teacherCoursesDetailsRoute = 'teacherCoursesDetails';
+  // static const String addOrUpdateNoteRoute = 'add Or Update Note';
+  // static const String updateQuestionsRoute = 'updateQuestionsRoute';
+  // static const String statisticsExamRoute = 'statistics Exam';
+  // static const String addQuestionsRoute = 'addQuestionsRoute';
+  // static const String questionsRoute = 'Questions';
+  // static const String transferBalanceRoute = 'TransferBalance';
+  // static const String questionsDetailsRoute = 'questions Details';
+  // static const String examDetailsRoute = 'examDetailsRoute';
+  //
+  // static const String teacherForAssistantRoute = 'teacherForAssistantRoute';
 }
 
 class RouteGenerator {
@@ -177,14 +178,21 @@ class RouteGenerator {
     switch (routeSettings.name) {
       case Routes.splashRoute:
         return buildPageRoute(
-            child: const SplashScreen(), routeSettings: routeSettings);
+          child: const SplashScreen(),
+          routeSettings: routeSettings,
+        );
       case Routes.onBoardRoute:
         return buildPageRoute(
-            child: OnboardingPage(), routeSettings: routeSettings);
-      // case Routes.statisticsExamRoute:
-      //   return buildPageRoute(
-      //       child: StatisticsExamScreen(), routeSettings: routeSettings);
-      //
+          child: const OnboardingPage(),
+          routeSettings: routeSettings,
+        );
+      case Routes.signUpRoute:
+        return buildPageRoute(
+          child: const SignupPage(),
+          routeSettings: routeSettings,
+        );
+      case Routes.loginRoute:
+        return buildPageRoute(child: LoginPage(), routeSettings: routeSettings);
       // case Routes.youtueWidgetRoute:
       //   return buildPageRoute(
       //       child:  YoutueWidget(), routeSettings: routeSettings);
@@ -207,12 +215,13 @@ class RouteGenerator {
       // case Routes.uploadResumeRoute:
       //   return buildPageRoute(
       //       child: UploadResumeScreen(), routeSettings: routeSettings);
-      // case Routes.signUpPyPhoneRoutes:
-      //   return buildPageRoute(
-      //       child: SignUpByPhoneScreen(), routeSettings: routeSettings);
-      // case Routes.verificationRoute:
-      //   return buildPageRoute(
-      //       child: VerificationScreen(), routeSettings: routeSettings);
+      case Routes.signUpPyPhoneRoutes:
+        return buildPageRoute(
+          child: SignupPyPhonePage(),
+          routeSettings: routeSettings,
+        );
+      case Routes.OtpRoute:
+        return buildPageRoute(child: OtpPage(), routeSettings: routeSettings);
       // case Routes.privateTeacherGroupsDetailsRoute:
       //   return buildPageRoute(
       //       child: PrivateTeacherDetailsScreen(), routeSettings: routeSettings);
@@ -225,9 +234,9 @@ class RouteGenerator {
       //   return buildPageRoute(
       //       child: const ChooseProfessionalCoursesScreen(),
       //       routeSettings: routeSettings);
-      // case Routes.bottomNavigationRoute:
-      //   return buildPageRoute(
-      //       child: const BottomNavBarScreen(), routeSettings: routeSettings);
+      case Routes.bottomNavigationRoute:
+        return buildPageRoute(
+            child: const NavbarPage(), routeSettings: routeSettings);
       // case Routes.coursesDetailsRoute:
       //   return buildPageRoute(
       //       child: CoursesDetailsScreen(), routeSettings: routeSettings);
@@ -353,10 +362,8 @@ class RouteGenerator {
       //       child: const NotesBookedUnbookedScreen(),
       //       routeSettings: routeSettings);
       // //
-      // case Routes.loginRoute:
-      //   return buildPageRoute(
-      //       child: LoginScreen(), routeSettings: routeSettings);
-      // //
+
+      //
       // //
       // case Routes.notesRoute:
       //   return buildPageRoute(
@@ -565,10 +572,9 @@ class RouteGenerator {
       //       child: SettingsScreen(), routeSettings: routeSettings);
     }
     return buildPageRoute(
-        child: const Center(
-          child: Text("no route found"),
-        ),
-        routeSettings: routeSettings);
+      child: const Center(child: Text("no route found")),
+      routeSettings: routeSettings,
+    );
   }
 
   static Route<T> buildPageRoute<T>({
@@ -584,16 +590,17 @@ class RouteGenerator {
           settings: routeSettings,
           transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
           reverseTransitionDuration: const Duration(milliseconds: 50),
-          pageBuilder: (context, a1, a2) =>
-              // BlocBuilder<LanguageCubit, LanguageState>(
-            // builder: (context, state) {
-               child,
-              //   Directionality(
-              //     textDirection: context.read<LanguageCubit>().isEn
-              //         ? TextDirection.ltr
-              //         : TextDirection.rtl,
-              //     child:
-              // ),
+          pageBuilder:
+              (context, a1, a2) =>
+                  // BlocBuilder<LanguageCubit, LanguageState>(
+                  // builder: (context, state) {
+                  child,
+          //   Directionality(
+          //     textDirection: context.read<LanguageCubit>().isEn
+          //         ? TextDirection.ltr
+          //         : TextDirection.rtl,
+          //     child:
+          // ),
           //   },
           // ),
           transitionsBuilder: (c, anim, a2, child) {
@@ -603,7 +610,7 @@ class RouteGenerator {
       } else if (pageRouteAnimation == PageRouteAnimation.Rotate) {
         return PageRouteBuilder(
           settings: routeSettings,
-          pageBuilder: (context, a1, a2) =>child,
+          pageBuilder: (context, a1, a2) => child,
           //     BlocBuilder<LanguageCubit, LanguageState>(
           //   builder: (context, state) {
           //     return Directionality(
@@ -615,14 +622,16 @@ class RouteGenerator {
           // ),
           transitionsBuilder: (c, anim, a2, child) {
             return RotationTransition(
-                child: child, turns: ReverseAnimation(anim));
+              child: child,
+              turns: ReverseAnimation(anim),
+            );
           },
           transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
         );
       } else if (pageRouteAnimation == PageRouteAnimation.Scale) {
         return PageRouteBuilder(
           settings: routeSettings,
-          pageBuilder: (context, a1, a2) =>child,
+          pageBuilder: (context, a1, a2) => child,
           //     BlocBuilder<LanguageCubit, LanguageState>(
           //   builder: (context, state) {
           //     return Directionality(
@@ -640,7 +649,7 @@ class RouteGenerator {
       } else if (pageRouteAnimation == PageRouteAnimation.Slide) {
         return PageRouteBuilder(
           settings: routeSettings,
-          pageBuilder: (context, a1, a2) =>child,
+          pageBuilder: (context, a1, a2) => child,
           //     BlocBuilder<LanguageCubit, LanguageState>(
           //   builder: (context, state) {
           //     return Directionality(
@@ -664,7 +673,7 @@ class RouteGenerator {
       } else if (pageRouteAnimation == PageRouteAnimation.SlideBottomTop) {
         return PageRouteBuilder(
           settings: routeSettings,
-          pageBuilder: (context, a1, a2) =>child,
+          pageBuilder: (context, a1, a2) => child,
           //     BlocBuilder<LanguageCubit, LanguageState>(
           //   builder: (context, state) {
           //     return Directionality(
@@ -688,23 +697,24 @@ class RouteGenerator {
       }
     }
     return MaterialPageRoute<T>(
-      builder: (context) => AnnotatedRegion<SystemUiOverlayStyle>(
-          value: const SystemUiOverlayStyle(
-            statusBarColor: AppColors.transparent,
-            statusBarIconBrightness: Brightness.dark,
-            statusBarBrightness: Brightness.dark,
+      builder:
+          (context) => AnnotatedRegion<SystemUiOverlayStyle>(
+            value: const SystemUiOverlayStyle(
+              statusBarColor: AppColors.transparent,
+              statusBarIconBrightness: Brightness.dark,
+              statusBarBrightness: Brightness.dark,
+            ),
+            child: child,
+            // BlocBuilder<LanguageCubit, LanguageState>(
+            //   builder: (context, state) {
+            //     return Directionality(
+            //         textDirection: context.read<LanguageCubit>().isEn
+            //             ? TextDirection.ltr
+            //             : TextDirection.rtl,
+            //         child: child);
+            //   },
+            // )
           ),
-          child:child,
-          // BlocBuilder<LanguageCubit, LanguageState>(
-          //   builder: (context, state) {
-          //     return Directionality(
-          //         textDirection: context.read<LanguageCubit>().isEn
-          //             ? TextDirection.ltr
-          //             : TextDirection.rtl,
-          //         child: child);
-          //   },
-          // )
-      ),
       settings: routeSettings,
     );
   }

@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-
-Size size = WidgetsBinding.instance.window.physicalSize / WidgetsBinding.instance.window.devicePixelRatio;
+Size size =
+    WidgetsBinding.instance.window.physicalSize /
+    WidgetsBinding.instance.window.devicePixelRatio;
 
 // These are the Viewport values of your Figma Design.
 // These are used in the code as a reference to create your UI Responsively.
@@ -11,14 +14,21 @@ const num FIGMA_DESIGN_STATUS_BAR = 34.33;
 
 ///This method is used to get device viewport width.
 get width {
-
   return size.width;
+}
+
+double iconSize(double width, double height) {
+  return max(width, height);
 }
 
 ///This method is used to get device viewport height.
 get height {
-  num statusBar = MediaQueryData.fromView(WidgetsBinding.instance.window).viewPadding.top;
-  num bottomBar = MediaQueryData.fromView(WidgetsBinding.instance.window).viewPadding.bottom;
+  num statusBar =
+      MediaQueryData.fromView(WidgetsBinding.instance.window).viewPadding.top;
+  num bottomBar =
+      MediaQueryData.fromView(
+        WidgetsBinding.instance.window,
+      ).viewPadding.bottom;
   num screenHeight = size.height - statusBar - bottomBar;
   return screenHeight;
 }
@@ -32,7 +42,6 @@ double getHorizontalSize(double px) {
 double getVerticalSize(double px) {
   return ((px * height) / (FIGMA_DESIGN_HEIGHT - FIGMA_DESIGN_STATUS_BAR));
 }
-
 
 ///This method is used to get padding or margin responsively
 EdgeInsetsDirectional getMarginOrPadding({
@@ -59,17 +68,9 @@ EdgeInsetsDirectional getMarginOrPadding({
     end = horizontal;
   }
   return EdgeInsetsDirectional.only(
-    start: getHorizontalSize(
-      start ?? 0,
-    ),
-    top: getVerticalSize(
-      top ?? 0,
-    ),
-    end: getHorizontalSize(
-      end ?? 0,
-    ),
-    bottom: getVerticalSize(
-      bottom ?? 0,
-    ),
+    start: getHorizontalSize(start ?? 0),
+    top: getVerticalSize(top ?? 0),
+    end: getHorizontalSize(end ?? 0),
+    bottom: getVerticalSize(bottom ?? 0),
   );
 }

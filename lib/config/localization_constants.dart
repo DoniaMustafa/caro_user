@@ -1,15 +1,14 @@
+
 import 'package:flutter/cupertino.dart';
 
 class AppLocalizationsConstants {
-  static final AppLocalizationsConstants _instance = AppLocalizationsConstants._internal();
+  static final AppLocalizationsConstants _instance =
+      AppLocalizationsConstants._internal();
   factory AppLocalizationsConstants() => _instance;
   AppLocalizationsConstants._internal() {
     enLocale = Locale(enLanguage, enRegion);
     arLocale = Locale(arLanguage, arRegion);
-    supportedLocales = [
-      enLocale,
-      arLocale,
-    ];
+    supportedLocales = [enLocale, arLocale];
   }
 
   final String enLanguage = 'en';

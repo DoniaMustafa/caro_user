@@ -1,4 +1,3 @@
-
 import 'package:caro_user_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +5,7 @@ import 'app_colors.dart';
 import 'app_fonts.dart';
 
 TextStyle getBoldTextStyle({
-  double? fontSize=14,
+  double? fontSize = 14,
   Color? color,
   String? fontFamily = FontFamilies.sansArabicFamily,
   double? letterSpacing,
@@ -20,7 +19,7 @@ TextStyle getBoldTextStyle({
   double? height,
 }) {
   return TextStyle(
-    fontSize:fontSize,
+    fontSize: fontSize,
     color: color,
     fontWeight: FontWeights.bold,
     fontFamily: fontFamily,
@@ -38,7 +37,7 @@ TextStyle getBoldTextStyle({
 
 // Primary Text Style
 TextStyle getRegularTextStyle({
-  double? fontSize=14,
+  double? fontSize = 14,
   Color? color,
   FontWeight? fontWeight,
   String? fontFamily = FontFamilies.sansArabicFamily,
@@ -103,7 +102,7 @@ TextStyle getMediumTextStyle({
 
 // Secondary Text Style
 TextStyle getSemiboldTextStyle({
-  double? fontSize=14,
+  double? fontSize = 14,
   Color? color,
   FontWeight? fontWeight,
   String? fontFamily = FontFamilies.sansArabicFamily,
@@ -135,29 +134,19 @@ TextStyle getSemiboldTextStyle({
 }
 
 ButtonStyle get outlinePrimary => OutlinedButton.styleFrom(
-      backgroundColor: AppColors.transparent,
-      side: const BorderSide(
-        color: Colors.white,
-        width: 1,
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(
-          10,
-        ),
-      ),
-    );
+  backgroundColor: AppColors.transparent,
+  side: const BorderSide(color: Colors.white, width: 1),
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+);
 
-
-BoxDecoration get boxDecoration =>BoxDecoration(
+BoxDecoration get boxDecoration => BoxDecoration(
   borderRadius: BorderRadiusDirectional.all(Radius.circular(12.r)),
   color: AppColors.white,
 );
-BoxDecoration get boxDecorationWithShadow =>BoxDecoration(
+BoxDecoration get boxDecorationWithShadow => BoxDecoration(
   borderRadius: BorderRadiusDirectional.all(Radius.circular(15.r)),
   color: AppColors.transparent,
-  boxShadow: [
-    BoxShadow()
-  ]
+  boxShadow: [const BoxShadow()],
 );
 InputDecoration effectiveDecoration = InputDecoration(
   border: OutlineInputBorder(

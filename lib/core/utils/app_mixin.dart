@@ -10,6 +10,7 @@ mixin ShapeMixin {
   double? get width;
   double? get height;
   Widget? get child;
+  AlignmentGeometry? get alignment;
   Color? get color;
   EdgeInsetsGeometry? get padding;
   EdgeInsetsGeometry? get margin;
@@ -17,4 +18,18 @@ mixin ShapeMixin {
   BoxBorder? get border;
   BoxShape? get shape;
   List<BoxShadow>? get boxShadow;
+}
+mixin BaseButton {
+   String? get text;
+   VoidCallback? get  onPressed;
+  // double? get width;
+  // double? get height;
+  // Widget? get child;
+  // Color? get color;
+  // EdgeInsetsGeometry? get padding;
+  // EdgeInsetsGeometry? get margin;
+  // BorderRadiusGeometry? get borderRadius;
+  // BoxBorder? get border;
+  // BoxShape? get shape;
+  // List<BoxShadow>? get boxShadow;
 }

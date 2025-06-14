@@ -5,6 +5,36 @@ import 'package:flutter/cupertino.dart';
 
 import '../config/routes/app_routes_helper.dart';
 
+extension WidgetExtension on Widget {
+  Widget withPadding({
+    double? horizontal,
+    double? all,
+    double? bottom,
+    double? end,
+    double? start,
+    double? top,
+    double? vertical,
+  }) {
+    return Padding(
+      padding: getMarginOrPadding(
+        horizontal: horizontal,
+        all: all,
+        bottom: bottom,
+        end: end,
+        start: start,
+        top: top,
+        vertical: vertical,
+      ),
+      child: this,
+    );
+  }
+
+
+  SizedBox  withSizedBox ({  double? h,
+    double? w,})=> SizedBox(height: h,width:w,child: this,);
+
+}
+
 extension StringExtensions on String {
   String get removeSpaces => replaceAll(' ', '');
   String get removeRangeSpaces => replaceRange(5, 8, '');
@@ -49,11 +79,11 @@ extension StringExtensions on String {
   bool get isEmptyOrNull => (isEmpty) || (this == 'null');
   get moveToAndRemoveCurrent => pushRoute(this, isToReplace: true);
   moveToWithArgs(Map<String, dynamic> args) => pushRoute(this, arguments: args);
-//
+  //
   get moveTo => pushRoute(this);
-//
+  //
   get pushAndRemoveAllUntil => pushRoute(this, isNewTask: true);
-//
+  //
   pushReplacementWithData(Map<String, dynamic>? arguments) =>
       pushRoute(this, isToReplace: true, arguments: arguments);
   // bool get validateOtp {
@@ -114,14 +144,14 @@ extension IntNullExtension on int? {
 
   Duration get microseconds => Duration(microseconds: validate);
 
-
   Duration get seconds => Duration(seconds: validate);
 
   Duration get minutes => Duration(minutes: validate);
 
-
   Duration get hours => Duration(hours: this.validate);
+  BorderRadiusGeometry get radius => BorderRadiusDirectional.all(Radius.circular(validate.toDouble()));
 
+  BorderRadius get borderRadius => BorderRadius.all(Radius.circular(validate.toDouble()));
 
   Duration get days => Duration(days: validate);
   Duration get milliseconds => Duration(milliseconds: validate);
@@ -135,6 +165,8 @@ extension DynamicExtension on dynamic {
   Map<String, dynamic> get json => jsonDecode(this);
   isEqualTo(value) => this == value;
   isNotEqualTo(value) => this != value;
+  BorderRadiusGeometry get radius => BorderRadiusDirectional.all(Radius.circular(this));
+
 }
 
 //
@@ -149,7 +181,7 @@ extension DoubleExtensions on double {
   double get h => getVerticalSize(this);
   double get w => getHorizontalSize(this);
   double get r => getVerticalSize(this);
-
+  BorderRadiusGeometry get radius => BorderRadiusDirectional.all(Radius.circular(this));
   SizedBox get vs => SizedBox(height: h);
   SizedBox get hs => SizedBox(width: w);
 }

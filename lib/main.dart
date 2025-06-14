@@ -1,9 +1,12 @@
-import 'package:caro_user_app/features/onboarding/presentation/pages/onboarding_page.dart';
+import 'package:caro_user_app/config/localization_constants.dart';
+import 'package:caro_user_app/config/themes/themes.dart';
+import 'package:caro_user_app/features/auth/presentation/pages/signup_page.dart';
+import 'package:caro_user_app/features/orders/presentation/pages/orders_page.dart';
 import 'package:flutter/material.dart';
 
 import 'config/routes/app_routes.dart';
 import 'config/routes/app_routes_helper.dart';
-import 'features/splash.dart';
+import 'features/nav_bar/presentation/pages/nav_bar_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,12 +18,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
-      // theme: ,
+      theme: getAppTheme(context),
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: RouteGenerator.getRoute,navigatorKey: navigatorKey,
-      // home: OnboardingPage(),
+      onGenerateRoute: RouteGenerator.getRoute,
+
+      navigatorKey: navigatorKey,
+      home: NavbarPage(),
     );
   }
 }

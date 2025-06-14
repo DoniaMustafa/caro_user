@@ -10,6 +10,13 @@ class EmailFormField extends StatefulWidget with BasedFormField {
     this.onValidate,
     this.onSaved,
     required this.controller,
+    required this.suffixIcon,
+    required this.hintText,
+    this.textDirection,
+    this.hintTextDirection,
+    required this.isFill,
+    required this.border,
+    required this.hintStyle,
   });
 
   @override
@@ -20,6 +27,15 @@ class EmailFormField extends StatefulWidget with BasedFormField {
   final ValueChanged<String?>? onSaved;
   @override
   final FormFieldValidator<String?>? onValidate;
+
+  final Widget? suffixIcon;
+  final String hintText;
+  final TextDirection? textDirection;
+  final TextDirection? hintTextDirection;
+  final bool isFill;
+  final InputBorder border;
+  final TextStyle hintStyle;
+
   @override
   State<EmailFormField> createState() => _EmailFormFieldState();
 }
@@ -35,6 +51,13 @@ class _EmailFormFieldState extends State<EmailFormField> {
       onChanged: emailWidget.onChanged,
       onSaved: emailWidget.onSaved,
       validator: emailWidget.onValidate,
+      suffixIcon: widget.suffixIcon,
+      hintText: widget.hintText,
+      hintTextDirection: widget.hintTextDirection,
+      textDirection: widget.textDirection,
+      border: widget.border,
+      isFill: widget.isFill,
+      hintStyle: widget.hintStyle,
     );
   }
 }

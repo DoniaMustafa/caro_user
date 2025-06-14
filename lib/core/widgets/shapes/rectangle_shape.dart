@@ -5,7 +5,6 @@ import '../../utils/app_colors.dart';
 import '../../utils/app_mixin.dart';
 import 'based_shape.dart';
 
-
 class RectangleShape extends StatelessWidget with ShapeMixin {
   RectangleShape._();
   RectangleShape.tap({
@@ -48,49 +47,57 @@ class RectangleShape extends StatelessWidget with ShapeMixin {
   }
 
   get _buildWithTap => GestureDetector(
-        onTap: onTap!,
-        child: BasedShape(
-          color: color,
-          shape: shape,
-          height: height,
-          width: width,
-          margin: margin,
-          // color: color,
-          padding: padding,
-          child: child!,
-        ),
-      );
+    onTap: onTap!,
+    child: BasedShape(
+      alignment: alignment,
+      color: color,
+      shape: shape.isNotNull ? shape! : null,
+      height: height,
+      width: width,
+      margin: margin,
+      // color: color,
+      borderRadius: borderRadius,
+      padding: padding,
+      child: child!,
+    ),
+  );
   get _buildWithoutTap => BasedShape(
-        color: color,
-        shape: shape,
-        height: height,
-        width: width,
-        margin: margin,
-        // color: color,
-        padding: padding,
-        child: child!,
-      );
+    color: color,
+    shape: shape,
+    borderRadius: borderRadius,
+    height: height,
+    width: width,
+    margin: margin,
+    // color: color,
+    padding: padding,
+    child: child!,
+  );
 
   @override
   // TODO: implement border
-  BoxBorder? get border => isBoarder.isFalse
-      ? Border.all(color: AppColors.black)
-      : throw UnimplementedError();
+  BoxBorder? get border =>
+      isBoarder.isFalse
+          ? Border.all(color: AppColors.black)
+          : throw UnimplementedError();
 
   @override
   // TODO: implement borderRadius
-  BorderRadiusGeometry? borderRadius;
+  BorderRadiusGeometry? borderRadius = const BorderRadius.all(
+    Radius.circular(20),
+  );
 
   @override
   // TODO: implement boxShadow
-  List<BoxShadow>? get boxShadow => isShadow.isTrue
-      ? [
-          BoxShadow(
+  List<BoxShadow>? get boxShadow =>
+      isShadow.isTrue
+          ? [
+            BoxShadow(
               color: AppColors.black.withValues(alpha: 0.20),
               blurRadius: 16,
-              offset: Offset(0, -4))
-        ]
-      : throw UnimplementedError();
+              offset: Offset(0, -4),
+            ),
+          ]
+          : throw UnimplementedError();
 
   @override
   // TODO: implement child
@@ -114,9 +121,13 @@ class RectangleShape extends StatelessWidget with ShapeMixin {
 
   @override
   // TODO: implement shape
-  BoxShape?  shape ;
+  BoxShape? get shape => BoxShape.rectangle;
 
   @override
   // TODO: implement width
   double? width;
+
+  @override
+  // TODO: implement alignment
+  AlignmentDirectional get alignment => AlignmentDirectional.topEnd;
 }
