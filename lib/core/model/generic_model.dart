@@ -1,9 +1,17 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-class GenericModel {
+class OnBoardingModel {
   String? title;
   String? subtitle;
-  String? image; 
+  String? image;
   IconData? icon;
-  GenericModel({this.title, this.subtitle, this.image, this.icon}); 
+  OnBoardingModel({this.title, this.subtitle, this.image, this.icon});
+}
+
+class OrderDetailStaticModel{
+  String? title;
+  String? status;
+OrderDetailStaticModel({this.title, this.status});
+
+
 }

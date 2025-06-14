@@ -1,7 +1,9 @@
 import 'package:caro_user_app/config/themes/themes.dart';
+import 'package:caro_user_app/features/orders/presentation/pages/finished_orders.dart';
 import 'package:caro_user_app/features/orders/presentation/pages/my_orders_page.dart';
+import 'package:caro_user_app/features/orders/presentation/pages/order_details_2.dart';
+import 'package:caro_user_app/features/orders/presentation/pages/rate_order.dart';
 import 'package:flutter/material.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
       // onGenerateRoute: RouteGenerator.getRoute,
 
       // navigatorKey: navigatorKey,
-      home: const MyOrdersPage(),
+      home: const RateOrder(),
     );
   }
 }

@@ -3,7 +3,6 @@ import 'package:caro_user_app/core/export/export.dart';
 import 'package:caro_user_app/core/widgets/custom_network_image.dart';
 import 'package:caro_user_app/core/widgets/shapes/circel_shape.dart';
 
-
 class CustomBackgroundWidget extends StatelessWidget {
   // CustomNetworkImage._internal();
   CustomBackgroundWidget.children({
@@ -75,7 +74,12 @@ class CustomBackgroundWidget extends StatelessWidget {
             ? appBar
             : null,
     bottomNavigationBar: bottomNavigationBar,
-    body: SafeArea(child: child!),
+    body: SafeArea(
+      child: Padding(
+        padding: padding ?? getMarginOrPadding(horizontal: 11.0),
+        child: child!,
+      ),
+    ),
   );
   AppBar get appBar => AppBar(
     toolbarHeight: 70,

@@ -1,6 +1,8 @@
 import 'package:caro_user_app/core/export/export.dart';
 import 'package:caro_user_app/features/auth/presentation/pages/login_page.dart';
 import 'package:caro_user_app/features/auth/presentation/pages/otp_page.dart';
+import 'package:caro_user_app/features/orders/presentation/pages/order_details_2.dart';
+import 'package:caro_user_app/features/orders/presentation/pages/rate_order.dart';
 import '../../features/auth/presentation/pages/signup_page.dart';
 import '../../features/auth/presentation/pages/signup_phone_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
@@ -16,6 +18,7 @@ class Routes {
   static const String onBoardRoute = "/Route onBoard";
   static const String signUpRoute = "/sign Up";
   static const String orderDetails = "/order Details";
+  static const String rateOrder = "/rate Order";
 
   // static const String coursesGroupsRoute = "Courses  Screen";
   // static const String addSessionRoute = "add Session";
@@ -193,10 +196,18 @@ class RouteGenerator {
           routeSettings: routeSettings,
         );
       case Routes.loginRoute:
-        return buildPageRoute(child: const LoginPage(), routeSettings: routeSettings);
+        return buildPageRoute(
+          child: const LoginPage(),
+          routeSettings: routeSettings,
+        );
       case Routes.orderDetails:
         return buildPageRoute(
-          child: const OrderDetails(),
+          child: const OrderDetails2(),
+          routeSettings: routeSettings,
+        );
+        case Routes.rateOrder:
+        return buildPageRoute(
+          child: const RateOrder(),
           routeSettings: routeSettings,
         );
       // case Routes.youtueWidgetRoute:
@@ -227,7 +238,10 @@ class RouteGenerator {
           routeSettings: routeSettings,
         );
       case Routes.OtpRoute:
-        return buildPageRoute(child: const OtpPage(), routeSettings: routeSettings);
+        return buildPageRoute(
+          child: const OtpPage(),
+          routeSettings: routeSettings,
+        );
       // case Routes.privateTeacherGroupsDetailsRoute:
       //   return buildPageRoute(
       //       child: PrivateTeacherDetailsScreen(), routeSettings: routeSettings);
@@ -700,7 +714,7 @@ class RouteGenerator {
         transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
       );
     }
-      return MaterialPageRoute<T>(
+    return MaterialPageRoute<T>(
       builder:
           (context) => AnnotatedRegion<SystemUiOverlayStyle>(
             value: const SystemUiOverlayStyle(

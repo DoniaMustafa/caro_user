@@ -1,3 +1,4 @@
+import 'package:caro_user_app/core/export/export.dart';
 import 'package:caro_user_app/core/utils/app_colors.dart';
 import 'package:caro_user_app/core/utils/assats_file.dart';
 import 'package:caro_user_app/core/widgets/custom_network_image.dart';
@@ -32,26 +33,24 @@ class _NavbarPageState extends State<NavbarPage> {
   }
 
   // Define your screens. Replace SignupPage() with your actual screen widgets.
-  List<Widget> _buildScreens() {
-    return [
+  List<Widget> _buildScreens = [
       const SignupPage(), // Replace with actual screen for "Settings"
       const SignupPage(), // Replace with actual screen for "Messages"
       const SignupPage(), // Replace with actual screen for "Reels"
       const SignupPage(), // Replace with actual screen for "My Orders"
       const SignupPage(), // Replace with actual screen for "Home"
     ];
-  }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.person),
+        icon: const CustomIcon(icon:  Icons.person),
         title: "الاعدادات",
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.messenger),
+        icon:  CustomIcon(icon:  Icons.messenger),
         title: "الرسائل",
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
@@ -67,13 +66,13 @@ class _NavbarPageState extends State<NavbarPage> {
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.shopping_cart_outlined),
+        icon:  CustomIcon(icon:  Icons.shopping_cart_outlined),
         title: "طلباتي",
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(Icons.home),
+        icon: const CustomIcon(icon:  Icons.home),
         title: "الرئيسيه",
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: Colors.grey,
@@ -90,7 +89,7 @@ class _NavbarPageState extends State<NavbarPage> {
       bottomNavigationBar: PersistentTabView(
         context,
         controller: _controller, // Use the stateful controller
-        screens: _buildScreens(),
+        screens: _buildScreens,
         items: _navBarsItems(),
         onItemSelected: (index) {
           setState(() {

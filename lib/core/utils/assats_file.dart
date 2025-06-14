@@ -12,6 +12,7 @@ mixin class AssetsFiles {
   String speedIcon = '${svg}speed.svg';
   String riyalSaudi = '${svg}Saudi_Riyal_icon.svg';
   String colorIcon = '${svg}colors_icon.svg';
+  // String mada = '${svg}mada.svg';
 
 }
 
@@ -22,6 +23,7 @@ mixin class ImageFiles {
   String logo = '${image}logo.png';
   String reel = '${image}reel.png';
   String ordersCar = '${image}orders_car.png';
+  String mada = '${image}mada.png';
 }
 
 class AppAssets with ImageFiles, AssetsFiles {
