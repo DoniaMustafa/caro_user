@@ -1,51 +1,15 @@
 import 'package:caro_user_app/core/export/export.dart';
+import 'package:caro_user_app/core/widgets/custom_background_widget.dart';
+import 'package:caro_user_app/core/widgets/shapes/rectangle_shape.dart';
 
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.white,
-      appBar: AppBar(
-        backgroundColor: AppColors.white,
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        actions: [const BackwardIcon()],
-      ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              18.vs,
-              const TitleWidget(),
-              38.vs,
-              const ContainerOfBody(),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class BackwardIcon extends StatelessWidget {
-  const BackwardIcon({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: getMarginOrPadding(end: 20),
-      child: CircleAvatar(
-        backgroundColor: Colors.grey[100],
-        child: IconButton(
-          onPressed: () {},
-          icon: const CustomIcon(
-            icon: Icons.arrow_forward_ios,
-            color: Colors.black,
-          ),
-        ),
-      ),
+    return CustomBackgroundWidget.children(
+      isBack: true,
+      children: [18.vs, TitleWidget(), ContainerOfBody(), 96.vs],
     );
   }
 }
@@ -81,7 +45,111 @@ class ContainerOfBody extends StatelessWidget {
     TextEditingController confPasswordController = TextEditingController();
     TextEditingController nameController = TextEditingController();
 
-    return Container(
+    return RectangleShape.withoutTap(
+      margin: getMarginOrPadding(start: 10, end: 8, top: 37),
+      borderRadius: BorderRadius.circular(20),
+      padding: getMarginOrPadding(start: 21, end: 19),
+      color: AppColors.white300,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          24.vs,
+          CustomTextWidget(
+            text: "الاسم كاملا",
+            style: getMediumTextStyle(fontSize: 12),
+          ),
+          7.vs,
+          CustomTextFormField(
+            suffixIcon: CustomIcon(
+              size: iconSize(14.01, 14),
+              icon: Icons.person,
+              color: AppColors.primaryColor,
+            ),
+            controller: nameController,
+            hintText: "كتابه الاسم",
+            hintTextDirection: TextDirection.rtl,
+            textDirection: TextDirection.rtl,
+            isFill: true,
+            hintStyle: getRegularTextStyle(
+              fontSize: 12,
+              color: Color(0xffB1B1B1),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.r),
+              borderSide: BorderSide.none,
+            ),
+          ),
+          18.vs,
+          CustomTextWidget(
+            text: "البريد الالكتروني",
+            style: getMediumTextStyle(fontSize: 12),
+          ),
+          7.vs,
+          EmailFormField(
+            controller: emailController,
+            hintText: "اكتب البريد الالكتروني",
+            suffixIcon: CustomIcon(
+              icon: Icons.email,
+              color: AppColors.primaryColor,
+              size: iconSize(14, 10),
+            ),
+
+            hintTextDirection: TextDirection.rtl,
+            textDirection: TextDirection.rtl,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.r),
+              borderSide: BorderSide.none,
+            ),
+            isFill: true,
+            hintStyle: getRegularTextStyle(
+              fontSize: 12,
+              color: Color(0xffB1B1B1),
+            ),
+          ),
+          18.vs,
+          CustomTextWidget(
+            text: "كملة المرور",
+            style: getMediumTextStyle(fontSize: 12),
+          ),
+          7.vs,
+          PasswordFormField(
+            isFill: true,
+            controller: passwordController,
+            hintText: "اعاده كلمه السر",
+            hintTextDirection: TextDirection.rtl,
+            hintStyle: getRegularTextStyle(color: AppColors.grey),
+          ),
+          18.vs,
+          CustomTextWidget(
+            text: "اعادة كملة المرور",
+            style: getMediumTextStyle(fontSize: 12),
+          ),
+          7.vs,
+          PasswordFormField(
+            isFill: true,
+            controller: confPasswordController,
+            hintText: "اعاده كلمه السر",
+            hintTextDirection: TextDirection.rtl,
+            hintStyle: getRegularTextStyle(color: AppColors.grey),
+          ),
+          24.vs,
+          CustomElevatedButton.text(onPressed: () {}, text: "تسجيل دخول"),
+          3.vs,
+          CustomOutlineButton(
+            onPressed: () {
+              // _nextPage();
+            },
+            text: "انشاء حساب",
+          ),
+          17.vs,
+        ],
+      ),
+    );
+  }
+}
+
+/*
+* Container(
       padding: getMarginOrPadding(horizontal: 19, vertical: 10),
       decoration: BoxDecoration(
         color: const Color(0xffF7F7F7),
@@ -201,6 +269,4 @@ class ContainerOfBody extends StatelessWidget {
           // ),
         ],
       ),
-    );
-  }
-}
+    );*/

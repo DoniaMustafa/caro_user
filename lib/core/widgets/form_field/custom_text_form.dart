@@ -1,11 +1,9 @@
+import 'package:caro_user_app/core/export/export.dart';
 import 'package:caro_user_app/core/utils/app_colors.dart';
 import 'package:caro_user_app/core/utils/app_fonts.dart';
 import 'package:caro_user_app/core/utils/app_style.dart';
 import 'package:caro_user_app/core/extension.dart';
-import 'package:caro_user_app/core/utils/size_utils.dart';
 import 'package:flutter/material.dart';
-
-import '../custom_network_image.dart';
 
 class CustomTextFormField extends StatefulWidget {
   final String? label;
@@ -52,8 +50,8 @@ class CustomTextFormField extends StatefulWidget {
   final double? width;
   final Widget? prefix;
   final bool showError;
-  CustomTextFormField({
-    Key? key,
+  const CustomTextFormField({
+    super.key,
     this.controller,
     this.backGroundColor = Colors.white,
     this.focusNode,
@@ -95,7 +93,7 @@ class CustomTextFormField extends StatefulWidget {
     this.suffixOnTap,
     this.r,
     this.hintTextDirection,
-  }) : super(key: key);
+  });
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -224,7 +222,15 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     behavior: HitTestBehavior.translucent,
     child:
         hidePassword
-            ? const Icon(Icons.visibility, color: AppColors.primaryColor)
-            : const Icon(Icons.visibility_off, color: AppColors.grey),
+            ? Icon(
+              Icons.visibility,
+              color: AppColors.primaryColor,
+              size: iconSize(14, 10),
+            )
+            : Icon(
+              Icons.visibility_off,
+              color: AppColors.grey,
+              size: iconSize(14, 10),
+            ),
   );
 }

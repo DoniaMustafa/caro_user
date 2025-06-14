@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:caro_user_app/config/routes/app_routes.dart';
 import 'package:caro_user_app/core/extension.dart';
@@ -9,12 +8,10 @@ import 'package:flutter/material.dart';
 import '../core/utils/assats_file.dart';
 import '../core/utils/size_utils.dart';
 import '../core/widgets/custom_network_image.dart';
-import '../core/widgets/custom_svg.dart';
 
-import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();

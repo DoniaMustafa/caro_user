@@ -34,7 +34,7 @@ class CustomListView extends StatelessWidget {
         padding: padding ?? getMarginOrPadding(all: 10),
         itemBuilder: widget,
         separatorBuilder:
-            separatorWidget ?? (context, index) => SizedBox.shrink(),
+            separatorWidget ?? (context, index) => const SizedBox.shrink(),
         itemCount: itemCount);
   }
 }

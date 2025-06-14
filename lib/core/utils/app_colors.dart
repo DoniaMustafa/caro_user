@@ -1,4 +1,3 @@
-import 'package:caro_user_app/core/extension.dart';
 import 'package:flutter/material.dart';
 
 class AppColors {
@@ -10,6 +9,5 @@ class AppColors {
   static const Color white = Colors.white;
   static const Color white300 = Color(0xFFF7F7F7);
   static const Color grey800 = Color(0xFF858585);
-
-
+  static const Color red300 = Color(0xff8A184F);
 }
