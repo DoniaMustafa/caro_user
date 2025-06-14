@@ -20,8 +20,8 @@ mixin ShapeMixin {
   List<BoxShadow>? get boxShadow;
 }
 mixin BaseButton {
-   String get text;
-   void Function()?get  onPressed;
+   String? get text;
+   VoidCallback? get  onPressed;
   // double? get width;
   // double? get height;
   // Widget? get child;

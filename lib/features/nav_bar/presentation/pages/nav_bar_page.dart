@@ -19,7 +19,9 @@ class _NavbarPageState extends State<NavbarPage> {
   @override
   void initState() {
     super.initState();
-    _controller = PersistentTabController(initialIndex: _selectedIndex); // Initialize here
+    _controller = PersistentTabController(
+      initialIndex: _selectedIndex,
+    ); // Initialize here
   }
 
   // It's good practice to dispose of controllers
@@ -55,8 +57,11 @@ class _NavbarPageState extends State<NavbarPage> {
         inactiveColorPrimary: Colors.grey,
       ),
       PersistentBottomNavBarItem(
-        icon:
-            CustomNetworkImage.circular(imageUrl: AppAssets().reel , defaultAsset: AppAssets().reel,radius: 40,),
+        icon: CustomNetworkImage.circular(
+          imageUrl: AppAssets().reel,
+          defaultAsset: AppAssets().reel,
+          radius: 40,
+        ),
         title: "ريلز",
         activeColorPrimary: AppColors.transparent,
         inactiveColorPrimary: Colors.grey,
@@ -95,14 +100,13 @@ class _NavbarPageState extends State<NavbarPage> {
           });
           print(_selectedIndex);
         },
-        decoration: NavBarDecoration(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        decoration: NavBarDecoration(borderRadius: BorderRadius.circular(10)),
         confineToSafeArea: true,
         handleAndroidBackButtonPress: true,
         navBarStyle: NavBarStyle.style15,
         hideNavigationBarWhenKeyboardAppears: true,
-        resizeToAvoidBottomInset: false, // Be mindful of this with keyboard interactions
+        resizeToAvoidBottomInset:
+            false, // Be mindful of this with keyboard interactions
       ),
     );
   }
