@@ -1,5 +1,7 @@
 import 'package:caro_user_app/config/localization_constants.dart';
 import 'package:caro_user_app/config/themes/themes.dart';
+import 'package:caro_user_app/features/auth/presentation/pages/signup_page.dart';
+import 'package:caro_user_app/features/orders/presentation/pages/orders_page.dart';
 import 'package:flutter/material.dart';
 
 import 'config/routes/app_routes.dart';
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: RouteGenerator.getRoute,
 
       navigatorKey: navigatorKey,
-      // home: OnboardingPage(),
+      // home: SignupPage(),
     );
   }
 }

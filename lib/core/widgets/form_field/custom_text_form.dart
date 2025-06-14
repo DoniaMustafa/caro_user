@@ -1,9 +1,9 @@
+import 'package:caro_user_app/core/export/export.dart';
 import 'package:caro_user_app/core/utils/app_colors.dart';
 import 'package:caro_user_app/core/utils/app_fonts.dart';
 import 'package:caro_user_app/core/utils/app_style.dart';
 import 'package:caro_user_app/core/extension.dart';
 import 'package:flutter/material.dart';
-
 
 class CustomTextFormField extends StatefulWidget {
   final String? label;
@@ -222,7 +222,15 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     behavior: HitTestBehavior.translucent,
     child:
         hidePassword
-            ? const Icon(Icons.visibility, color: AppColors.primaryColor)
-            : const Icon(Icons.visibility_off, color: AppColors.grey),
+            ? Icon(
+              Icons.visibility,
+              color: AppColors.primaryColor,
+              size: iconSize(14, 10),
+            )
+            : Icon(
+              Icons.visibility_off,
+              color: AppColors.grey,
+              size: iconSize(14, 10),
+            ),
   );
 }

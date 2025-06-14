@@ -16,6 +16,7 @@ mixin class ImageFiles {
   String car = '${image}car.png';
   String logo = '${image}logo.png';
   String reel = '${image}reel.png';
+  String ordersCar = '${image}orders_car.png';
 }
 
 class AppAssets with ImageFiles, AssetsFiles {
