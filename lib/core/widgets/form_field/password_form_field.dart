@@ -3,7 +3,6 @@ import 'package:caro_user_app/core/utils/app_mixin.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/app_style.dart';
-import '../custom_icon.dart';
 import 'custom_text_form.dart';
 
 class PasswordFormField extends StatefulWidget with BasedFormField {
@@ -75,7 +74,7 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
       hintText: 'كتابة كملة المرور',
       hintStyle: getRegularTextStyle(
         fontSize: 12,
-        color: Color(0xffB1B1B1),
+        color: const Color(0xffB1B1B1),
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:caro_user_app/core/export/export.dart';
-import 'package:caro_user_app/core/utils/app_mixin.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 
 class PhoneFormField extends StatefulWidget with BasedFormField {

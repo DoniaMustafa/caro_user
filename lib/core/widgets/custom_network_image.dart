@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:caro_user_app/core/extension.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_svg.dart';
@@ -104,7 +103,7 @@ class CustomNetworkImage extends StatelessWidget {
               height: height,
               // fit: BoxFit.fill,
               placeholder:
-                  (context, url) => Center(
+                  (context, url) => const Center(
                     // child: Lottie.asset(AppAssets().imageLoading),
                   ),
               errorWidget:
@@ -170,7 +169,7 @@ class CustomNetworkImage extends StatelessWidget {
     child:
         asset.isNotNull
             ? asset!.contains("svg").isTrue
-                ? CustomSvg.assets(asset: asset!)
+                ? CustomSvg.assets(asset: asset)
                 // SvgPicture.asset(
                 // asset,
                 // height: height,

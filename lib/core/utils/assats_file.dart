@@ -8,6 +8,12 @@ mixin class AssetsFiles {
   String car = '${svg}car.svg';
   String agm = '${svg}agm.svg';
   String send = '${svg}send.svg';
+  String puzzle = '${svg}puzzle.svg';
+  String moneyIcon = '${svg}money.svg';
+  String speedIcon = '${svg}speed.svg';
+  String riyalSaudi = '${svg}Saudi_Riyal_icon.svg';
+  String colorIcon = '${svg}colors_icon.svg';
+
   String chats = '${svg}chats.svg';
   // String carWinch = '${svg}car_winch.svg';
   // String carWheel = '${svg}car_wheel.svg';
