@@ -28,6 +28,11 @@ extension WidgetExtension on Widget {
       child: this,
     );
   }
+
+
+  SizedBox  withSizedBox ({  double? h,
+    double? w,})=> SizedBox(height: h,width:w,child: this,);
+
 }
 
 extension StringExtensions on String {
@@ -144,6 +149,9 @@ extension IntNullExtension on int? {
   Duration get minutes => Duration(minutes: validate);
 
   Duration get hours => Duration(hours: this.validate);
+  BorderRadiusGeometry get radius => BorderRadiusDirectional.all(Radius.circular(validate.toDouble()));
+
+  BorderRadius get borderRadius => BorderRadius.all(Radius.circular(validate.toDouble()));
 
   Duration get days => Duration(days: validate);
   Duration get milliseconds => Duration(milliseconds: validate);
@@ -157,6 +165,8 @@ extension DynamicExtension on dynamic {
   Map<String, dynamic> get json => jsonDecode(this);
   isEqualTo(value) => this == value;
   isNotEqualTo(value) => this != value;
+  BorderRadiusGeometry get radius => BorderRadiusDirectional.all(Radius.circular(this));
+
 }
 
 //
@@ -171,7 +181,7 @@ extension DoubleExtensions on double {
   double get h => getVerticalSize(this);
   double get w => getHorizontalSize(this);
   double get r => getVerticalSize(this);
-
+  BorderRadiusGeometry get radius => BorderRadiusDirectional.all(Radius.circular(this));
   SizedBox get vs => SizedBox(height: h);
   SizedBox get hs => SizedBox(width: w);
 }

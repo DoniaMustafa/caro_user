@@ -17,6 +17,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomBackgroundWidget.children(
+      isAppBar: false,
       children: [
         67.vs,
         CustomNetworkImage.circular(

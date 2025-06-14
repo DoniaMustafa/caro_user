@@ -7,7 +7,7 @@ class FontFamilies {
   // static const String outfitFamily = "Outfit";
   // static const String abhayaLibreFamily = "Abhaya Libre";
   // static const String elMessiriFamily = "El Messiri";
-  // static const String cairoFamily = "Cairo";
+  static const String cairoFamily = "Cairo";
   static const String sansArabicFamily = "IBMPlexSansArabic";
 }
 

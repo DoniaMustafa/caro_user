@@ -48,33 +48,43 @@ class CustomBackgroundWidget extends StatelessWidget {
     return isChildren == true ? _buildListWidget : _buildChildWidget;
   }
 
-  get _buildListWidget => Scaffold(backgroundColor: AppColors.white,
-    appBar: isAppBar.isTrue ? appBar : null,
-    bottomNavigationBar: bottomNavigationBar,
-    body: SafeArea(
-      child: Align(
-        alignment: Alignment.topCenter,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: padding ?? getMarginOrPadding(all: 11.0),
-            child: Column(
-              crossAxisAlignment: crossAxisAlignment!,
-              mainAxisAlignment: mainAxisAlignment!,
+  get _buildListWidget => AnnotatedRegion<SystemUiOverlayStyle>(
+    value: systemUiOverlayStyle,
+    child: Scaffold(
+      backgroundColor: AppColors.white200,
+      appBar: isAppBar.isTrue ? appBar : null,
+      bottomNavigationBar: bottomNavigationBar,
+      body: SafeArea(
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Padding(
+              padding: padding ?? getMarginOrPadding(all: 11.0),
+              child: Column(
+                crossAxisAlignment: crossAxisAlignment!,
+                mainAxisAlignment: mainAxisAlignment!,
 
-              children: children!,
+                children: children!,
+              ),
             ),
           ),
         ),
       ),
     ),
   );
-  get _buildChildWidget => Scaffold(
-    appBar: isAppBar.isTrue ? appBar : null,
-    bottomNavigationBar: bottomNavigationBar,
-    body: SafeArea(child: child!),
+  get _buildChildWidget => AnnotatedRegion<SystemUiOverlayStyle>(
+    value: systemUiOverlayStyle,
+    child: Scaffold(
+      backgroundColor: AppColors.white200,
+      appBar: isAppBar.isTrue ? appBar : null,
+      bottomNavigationBar: bottomNavigationBar,
+      body: SafeArea(child: child!),
+    ),
   );
   AppBar get appBar => AppBar(
-    // toolbarHeight: 70,
+    backgroundColor: AppColors.white200,
+    toolbarHeight: 50,
     title: title.isNotNull ? CustomTextWidget(text: title!) : null,
     actions: isBack.isTrue ? [_circleBack, 20.hs] : null,
     // leadingWidth: 70,
@@ -97,5 +107,11 @@ class CustomBackgroundWidget extends StatelessWidget {
       icon: Icons.arrow_forward_ios,
       color: AppColors.black,
     ),
+  );
+
+  get systemUiOverlayStyle => SystemUiOverlayStyle(
+    statusBarColor: AppColors.white200,
+    statusBarBrightness: Brightness.light,
+    statusBarIconBrightness: Brightness.light,
   );
 }

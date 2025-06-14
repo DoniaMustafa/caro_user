@@ -104,112 +104,91 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     print("build custom aga9j");
-    return Container(
-      margin: widget.padding,
-      decoration: BoxDecoration(
-        boxShadow: widget.boxShadow.isNotNull ? widget.boxShadow : null,
-      ),
-      child: TextFormField(
-        textDirection: widget.textDirection,
-        style:
-            widget.textStyle ??
+    return TextFormField(
+      textDirection: widget.textDirection,
+      style:
+      widget.textStyle ??
+          getRegularTextStyle(
+            color:
+            AppColors.black,
+            fontFamily: FontFamilies.sansArabicFamily,
+            fontSize: 14,
+          ),
+      controller: widget.controller,
+      focusNode: widget.focusNode,
+      maxLines: widget.isPassword ? 1 : widget.maxLines,
+      keyboardType:
+      widget.isPassword
+          ? TextInputType.visiblePassword
+          : widget.textInputType,
+      textInputAction: widget.textInputAction,
+      minLines: widget.minLines,
+      obscureText: widget.isPassword && hidePassword.isTrue,
+      cursorColor: AppColors.black,
+      cursorWidth: 2,
+      maxLength: widget.maxLength,
+      obscuringCharacter: "*",
+      onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
+      onTap: () async {
+        //  String? value = await          widget.onTap?.call();
+      },
+      enabled: widget.enabled,
+      // textDirection: context.read<LanguageCubit>().isEn
+      //     ? TextDirection.ltr
+      //     : TextDirection.rtl,
+      onChanged: (String value) {
+        widget.onChanged?.call(value);
+      },
+      decoration: InputDecoration(
+        hintTextDirection: widget.hintTextDirection,
+        filled: widget.isFill,
+        fillColor: AppColors.white,
+
+        enabledBorder: widget.enabledBorder,
+        focusedBorder: widget.enabledBorder,
+        contentPadding: widget.contentPadding,
+        labelText: widget.label,
+        labelStyle: getRegularTextStyle(
+          fontSize: 16,
+          color:
+          AppColors.white,
+        ),
+        // : AppColors.black.withOpacity(0.67)),
+        prefixIcon: widget.prefix.isNotNull ? widget.prefix : null,
+        suffix: widget.suffix,
+        hintText: widget.hintText,
+        // hintFadeDuration: 20.milliseconds,
+        border: widget.border,
+        suffixIconConstraints: widget.suffixConstraints,
+        hintStyle:
+        widget.hintStyle ??
             getRegularTextStyle(
               color:
-                  // widget.isFill.isTrue
-                  //     ? AppService().getBlocData<HomeOperationCubit>().isDark.isTrue
-                  //     ? AppColors.white
-                  //     : AppColors.black
-                  //     : AppService().getBlocData<HomeOperationCubit>().isDark.isTrue
-                  //     ? AppColors.white
-                  //     :
-                  AppColors.black,
+              // AppService()
+              //     .getBlocData<HomeOperationCubit>()
+              //     .isDark
+              //     .isTrue
+              //     ? AppColors.white
+              //     :
+              AppColors.black,
               fontFamily: FontFamilies.sansArabicFamily,
               fontSize: 14,
             ),
-        controller: widget.controller,
-        focusNode: widget.focusNode,
-        maxLines: widget.isPassword ? 1 : widget.maxLines,
-        keyboardType:
-            widget.isPassword
-                ? TextInputType.visiblePassword
-                : widget.textInputType,
-        textInputAction: widget.textInputAction,
-        minLines: widget.minLines,
-        obscureText: widget.isPassword && hidePassword.isTrue,
-        cursorColor: AppColors.black,
-        cursorWidth: 2,
-        maxLength: widget.maxLength,
-        obscuringCharacter: "*",
-        onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
-        onTap: () async {
-          //  String? value = await          widget.onTap?.call();
-        },
-        enabled: widget.enabled,
-        // textDirection: context.read<LanguageCubit>().isEn
-        //     ? TextDirection.ltr
-        //     : TextDirection.rtl,
-        onChanged: (String value) {
-          widget.onChanged?.call(value);
-        },
-        decoration: InputDecoration(
-          hintTextDirection: widget.hintTextDirection,
-          filled: widget.isFill,
-          fillColor: AppColors.white,
-          // widget.isFill.isTrue
-          //     ? AppService().getBlocData<HomeOperationCubit>().isDark.isTrue
-          //     ? AppColors.darkPurple
-          //     :
-          //     : null,
-          enabledBorder: widget.enabledBorder,
-          focusedBorder: widget.enabledBorder,
-          contentPadding: widget.contentPadding,
-          labelText: widget.label,
-          labelStyle: getRegularTextStyle(
-            fontSize: 16,
-            color:
-                // AppService().getBlocData<HomeOperationCubit>().isDark.isTrue
-                //     ? widget.isFill.isTrue
-                //     ? AppColors.black.withOpacity(0.67)
-                //     :
-                AppColors.white,
-          ),
-          // : AppColors.black.withOpacity(0.67)),
-          prefixIcon: widget.prefix.isNotNull ? widget.prefix : null,
-          suffix: widget.suffix,
-          hintText: widget.hintText,
-          // hintFadeDuration: 20.milliseconds,
-          border: widget.border,
-          suffixIconConstraints: widget.suffixConstraints,
-          hintStyle:
-              widget.hintStyle ??
-              getRegularTextStyle(
-                color:
-                    // AppService()
-                    //     .getBlocData<HomeOperationCubit>()
-                    //     .isDark
-                    //     .isTrue
-                    //     ? AppColors.white
-                    //     :
-                    AppColors.black,
-                fontFamily: FontFamilies.sansArabicFamily,
-                fontSize: 14,
-              ),
-          suffixIcon:
-              widget.isPassword ? buildSuffixPassword : widget.suffixIcon,
-          // prefixIcon: widget.prefixIcon.isNotNull
-          //     ? Padding(
-          //   padding: getPadding(horizontal: 15, vertical: 10),
-          //   child: CustomSvg(
-          //     asset: widget.prefixIcon!,
-          //     // matchTextDirection: true,
-          //   ),
-          // )
-          //     : null
-        ),
-        validator: widget.validator,
-        onSaved: widget.onSaved,
-        onEditingComplete: widget.onEditingComplete,
+        suffixIcon:
+        widget.isPassword ? buildSuffixPassword : widget.suffixIcon,
+        // prefixIcon: widget.prefixIcon.isNotNull
+        //     ? Padding(
+        //   padding: getPadding(horizontal: 15, vertical: 10),
+        //   child: CustomSvg(
+        //     asset: widget.prefixIcon!,
+        //     // matchTextDirection: true,
+        //   ),
+        // )
+        //     : null
       ),
+      validator: widget.validator,
+      onSaved: widget.onSaved,
+      onEditingComplete: widget.onEditingComplete,
     );
   }
 

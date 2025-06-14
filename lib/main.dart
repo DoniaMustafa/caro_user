@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'config/routes/app_routes.dart';
 import 'config/routes/app_routes_helper.dart';
+import 'features/nav_bar/presentation/pages/nav_bar_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: RouteGenerator.getRoute,
 
       navigatorKey: navigatorKey,
-      // home: SignupPage(),
+      home: NavbarPage(),
     );
   }
 }

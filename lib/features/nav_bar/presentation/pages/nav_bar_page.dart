@@ -40,7 +40,7 @@ class _NavbarPageState extends State<NavbarPage> {
     super.dispose();
   }
 
-   List<Widget> buildScreens =const [
+   List<Widget> buildScreens = [
     HomePage(),
     MyOrdersPage(),
     ShortAdsPage(),
@@ -103,8 +103,8 @@ class _NavbarPageState extends State<NavbarPage> {
           });
           print(_selectedIndex);
         },
-        decoration: NavBarDecoration(borderRadius: BorderRadius.circular(10)),
-        confineToSafeArea: true,
+        decoration: NavBarDecoration(borderRadius: BorderRadius.circular(10),colorBehindNavBar: AppColors.white200),
+        // confineToSafeArea: true,
         handleAndroidBackButtonPress: true,
         navBarStyle: NavBarStyle.style16,
         padding: EdgeInsets.symmetric(vertical: 10),

@@ -45,94 +45,98 @@ class ContainerOfBody extends StatelessWidget {
     TextEditingController confPasswordController = TextEditingController();
     TextEditingController nameController = TextEditingController();
 
-    return RectangleShape.withoutTap(
-      margin: getMarginOrPadding(start: 10, end: 8, top: 37),
-      borderRadius: BorderRadius.circular(20),
-      padding: getMarginOrPadding(start: 21, end: 19),
-      color: AppColors.white300,
+    return AppCardBackground(
+      // margin: getMarginOrPadding(start: 10, end: 8, top: 37),
+      // borderRadius: BorderRadius.circular(20),
+      // // padding: getMarginOrPadding(start: 21, end: 19),
+      // color: AppColors.white300,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          24.vs,
-          CustomTextWidget(
-            text: "الاسم كاملا",
-            style: getMediumTextStyle(fontSize: 12),
-          ),
-          7.vs,
-          CustomTextFormField(
-            suffixIcon: CustomIcon(
-              size: iconSize(14.01, 14),
-              icon: Icons.person,
-              color: AppColors.primaryColor,
-            ),
-            controller: nameController,
-            hintText: "كتابه الاسم",
-            hintTextDirection: TextDirection.rtl,
-            textDirection: TextDirection.rtl,
-            isFill: true,
-            hintStyle: getRegularTextStyle(
-              fontSize: 12,
-              color: Color(0xffB1B1B1),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.r),
-              borderSide: BorderSide.none,
-            ),
-          ),
-          18.vs,
-          CustomTextWidget(
-            text: "البريد الالكتروني",
-            style: getMediumTextStyle(fontSize: 12),
-          ),
-          7.vs,
-          EmailFormField(
-            controller: emailController,
-            hintText: "اكتب البريد الالكتروني",
-            suffixIcon: CustomIcon(
-              icon: Icons.email,
-              color: AppColors.primaryColor,
-              size: iconSize(14, 10),
-            ),
+          Column(  crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              24.vs,
+              CustomTextWidget(
+                text: "الاسم كاملا",
+                style: getMediumTextStyle(fontSize: 12),
+              ),
+              7.vs,
+              CustomTextFormField(
+                suffixIcon: CustomIcon(
+                  size: iconSize(14.01, 14),
+                  icon: Icons.person,
+                  color: AppColors.primaryColor,
+                ),
+                controller: nameController,
+                hintText: "كتابه الاسم",
+                hintTextDirection: TextDirection.rtl,
+                textDirection: TextDirection.rtl,
+                isFill: true,
+                hintStyle: getRegularTextStyle(
+                  fontSize: 12,
+                  color: Color(0xffB1B1B1),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.r),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+              18.vs,
+              CustomTextWidget(
+                text: "البريد الالكتروني",
+                style: getMediumTextStyle(fontSize: 12),
+              ),
+              7.vs,
+              EmailFormField(
+                controller: emailController,
+                hintText: "اكتب البريد الالكتروني",
+                suffixIcon: CustomIcon(
+                  icon: Icons.email,
+                  color: AppColors.primaryColor,
+                  size: iconSize(14, 10),
+                ),
 
-            hintTextDirection: TextDirection.rtl,
-            textDirection: TextDirection.rtl,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.r),
-              borderSide: BorderSide.none,
-            ),
-            isFill: true,
-            hintStyle: getRegularTextStyle(
-              fontSize: 12,
-              color: Color(0xffB1B1B1),
-            ),
-          ),
-          18.vs,
-          CustomTextWidget(
-            text: "كملة المرور",
-            style: getMediumTextStyle(fontSize: 12),
-          ),
-          7.vs,
-          PasswordFormField(
-            isFill: true,
-            controller: passwordController,
-            hintText: "اعاده كلمه السر",
-            hintTextDirection: TextDirection.rtl,
-            hintStyle: getRegularTextStyle(color: AppColors.grey),
-          ),
-          18.vs,
-          CustomTextWidget(
-            text: "اعادة كملة المرور",
-            style: getMediumTextStyle(fontSize: 12),
-          ),
-          7.vs,
-          PasswordFormField(
-            isFill: true,
-            controller: confPasswordController,
-            hintText: "اعاده كلمه السر",
-            hintTextDirection: TextDirection.rtl,
-            hintStyle: getRegularTextStyle(color: AppColors.grey),
-          ),
-          24.vs,
+                hintTextDirection: TextDirection.rtl,
+                textDirection: TextDirection.rtl,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.r),
+                  borderSide: BorderSide.none,
+                ),
+                isFill: true,
+                hintStyle: getRegularTextStyle(
+                  fontSize: 12,
+                  color: Color(0xffB1B1B1),
+                ),
+              ),
+              18.vs,
+              CustomTextWidget(
+                text: "كملة المرور",
+                style: getMediumTextStyle(fontSize: 12),
+              ),
+              7.vs,
+              PasswordFormField(
+                isFill: true,
+                controller: passwordController,
+                hintText: "اعاده كلمه السر",
+                hintTextDirection: TextDirection.rtl,
+                hintStyle: getRegularTextStyle(color: AppColors.grey),
+              ),
+              18.vs,
+              CustomTextWidget(
+                text: "اعادة كملة المرور",
+                style: getMediumTextStyle(fontSize: 12),
+              ),
+              7.vs,
+              PasswordFormField(
+                isFill: true,
+                controller: confPasswordController,
+                hintText: "اعاده كلمه السر",
+                hintTextDirection: TextDirection.rtl,
+                hintStyle: getRegularTextStyle(color: AppColors.grey),
+              ),
+              24.vs,
+            ],
+          ).withPadding(horizontal: 20),
           CustomElevatedButton.text(onPressed: () {}, text: "تسجيل دخول"),
           3.vs,
           CustomOutlineButton(

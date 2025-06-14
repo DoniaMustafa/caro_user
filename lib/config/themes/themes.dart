@@ -7,14 +7,14 @@ import '../constants.dart';
 ThemeData getAppTheme(BuildContext context) => ThemeData(
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.white,
+          seedColor: AppColors.white200,
           primary: AppColors.primaryColor,
-          onPrimary: Colors.white,
-          background: AppColors.white),
-      cardColor: Colors.transparent,
-      scaffoldBackgroundColor: AppColors.white,
+          onPrimary: AppColors.white200,
+          background: AppColors.white200),
+      cardColor: AppColors.transparent,
+      scaffoldBackgroundColor: AppColors.white200,
       appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.white,
+        backgroundColor: AppColors.white200,
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           selectedItemColor: AppColors.white,

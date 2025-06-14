@@ -14,10 +14,7 @@ class CircleShape extends StatelessWidget with ShapeMixin {
     this.padding,
     this.width,
     required this.child,
-    // double? width,
-    // required super.child,
-    // double? height,
-    // Color super.color = Colors.black,
+
   });
   final GestureTapCallback? onTap;
   @override
