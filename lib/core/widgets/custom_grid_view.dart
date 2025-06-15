@@ -1,7 +1,6 @@
 import 'package:caro_user_app/core/utils/size_utils.dart';
 import 'package:flutter/material.dart';
 
-
 class CustomGridView extends StatelessWidget {
   const CustomGridView({
     super.key,
@@ -12,11 +11,12 @@ class CustomGridView extends StatelessWidget {
     this.padding,
     this.scroll = const BouncingScrollPhysics(),
     this.axisDirection = Axis.vertical,
-    required this.aspectRatio,
+    required this.aspectRatio, required this.axisCount,
   });
 
   final double aspectRatio;
   final int itemCount;
+  final int axisCount;
   final Axis? axisDirection;
   final Widget? Function(BuildContext context, int index) widget;
   final bool? shrinkWrap;
@@ -31,13 +31,14 @@ class CustomGridView extends StatelessWidget {
       reverse: reverse!,
       physics: scroll,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: itemCount,
+        crossAxisCount: axisCount,
         childAspectRatio: aspectRatio,
       ),
+
       padding: padding ?? getMarginOrPadding(all: 10),
       childrenDelegate: SliverChildBuilderDelegate((context, index) {
         return widget(context, index);
-      }),
+      }, childCount: itemCount),
     );
   }
 }

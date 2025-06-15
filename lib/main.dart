@@ -3,6 +3,8 @@ import 'package:caro_user_app/features/orders/presentation/pages/finished_orders
 import 'package:caro_user_app/features/orders/presentation/pages/my_orders_page.dart';
 import 'package:caro_user_app/features/orders/presentation/pages/order_details_2.dart';
 import 'package:caro_user_app/features/orders/presentation/pages/rate_order.dart';
+import 'package:caro_user_app/features/search_for_me/presentation/pages/search_for_me.dart';
+import 'package:caro_user_app/features/search_for_me/presentation/pages/search_for_me_details.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       // onGenerateRoute: RouteGenerator.getRoute,
 
       // navigatorKey: navigatorKey,
-      home: const RateOrder(),
+      home: const SearchForMeDetails(),
     );
   }
 }

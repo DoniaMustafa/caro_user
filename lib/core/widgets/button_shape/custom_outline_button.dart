@@ -10,13 +10,13 @@ class CustomOutlineButton extends StatelessWidget with BaseButton {
   const CustomOutlineButton({
     super.key,
     required this.onPressed,
-    required this.text,
+    required this.text, this.textColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return CustomBaseButton(
-      style: getMediumTextStyle(color: AppColors.primaryColor, fontSize: 13),
+      style: getMediumTextStyle(color:textColor?? AppColors.primaryColor, fontSize: 13),
       onPressed: onPressed,
       text: text,
       borderColor: AppColors.primaryColor,
@@ -41,4 +41,5 @@ class CustomOutlineButton extends StatelessWidget with BaseButton {
   @override
   // TODO: implement text
   final String text;
+  final Color? textColor;
 }

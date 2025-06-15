@@ -13,7 +13,17 @@ mixin class AssetsFiles {
   String riyalSaudi = '${svg}Saudi_Riyal_icon.svg';
   String colorIcon = '${svg}colors_icon.svg';
   // String mada = '${svg}mada.svg';
-
+  String litrIcon = '${svg}litr_icon.svg';
+  String gasCan = '${svg}gas_can_icon.svg';
+  String cylnderIcon = '${svg}cylnder_icon.svg';
+  String motorIcon = '${svg}motor_icon.svg';
+  String tiresIcon = '${svg}tires_icon.svg';
+  String gasIcon = '${svg}gas_icon.svg';
+  String starsIcon = '${svg}stars_icon.svg';
+  String automaticIcon = '${svg}automatic_icon.svg';
+  String carIcon = '${svg}car_icon.svg';
+  String locationIcon = '${svg}location.svg';
+  String keyIcon = '${svg}key.svg';
 }
 
 mixin class ImageFiles {
@@ -24,6 +34,7 @@ mixin class ImageFiles {
   String reel = '${image}reel.png';
   String ordersCar = '${image}orders_car.png';
   String mada = '${image}mada.png';
+  String carForSeachForMe = '${image}searchForMe.png';
 }
 
 class AppAssets with ImageFiles, AssetsFiles {

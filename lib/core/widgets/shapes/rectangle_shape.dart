@@ -70,15 +70,14 @@ class RectangleShape extends StatelessWidget with ShapeMixin {
     margin: margin,
     // color: color,
     padding: padding,
+    border: border,
     child: child!,
   );
 
   @override
   // TODO: implement border
   BoxBorder? get border =>
-      isBoarder.isFalse
-          ? Border.all(color: AppColors.black)
-          : throw UnimplementedError();
+      isBoarder.isFalse ? null : Border.all(color: AppColors.grey800);
 
   @override
   // TODO: implement borderRadius
