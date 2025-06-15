@@ -1,0 +1,9 @@
+{
+  "login": "Login",
+  "loginTitle": "Enter your mobile number to create an account or to login",
+  "password": "Password",
+  "phoneNumber": "Phone number",
+  "forgetPasswordAsk": "Forget Password?",
+  "createAccount": "Create Account"
+
+}

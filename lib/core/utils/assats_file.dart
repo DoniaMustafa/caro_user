@@ -5,7 +5,7 @@ mixin class AssetsFiles {
   String onBoarding2 = '${svg}onBoarding2.svg';
   String personIcon = '${svg}person_icon.svg';
   String verify = '${svg}verify.svg';
-  String car = '${svg}car.svg';
+  // String car = '${svg}car.svg';
   String agm = '${svg}agm.svg';
   String send = '${svg}send.svg';
   String puzzle = '${svg}puzzle.svg';

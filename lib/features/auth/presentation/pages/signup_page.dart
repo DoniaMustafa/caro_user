@@ -8,8 +8,10 @@ class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomBackgroundWidget.children(
+      mainAxisAlignment: MainAxisAlignment.start,
+      backgroundColor: AppColors.white,
       isBack: true,
-      children: [18.vs, TitleWidget(), ContainerOfBody(), 96.vs],
+      children: [10.vs, TitleWidget(), 38.vs, ContainerOfBody(), 96.vs],
     );
   }
 }
@@ -46,14 +48,11 @@ class ContainerOfBody extends StatelessWidget {
     TextEditingController nameController = TextEditingController();
 
     return AppCardBackground(
-      // margin: getMarginOrPadding(start: 10, end: 8, top: 37),
-      // borderRadius: BorderRadius.circular(20),
-      // // padding: getMarginOrPadding(start: 21, end: 19),
-      // color: AppColors.white300,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(  crossAxisAlignment: CrossAxisAlignment.end,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               24.vs,
               CustomTextWidget(
@@ -137,14 +136,19 @@ class ContainerOfBody extends StatelessWidget {
               24.vs,
             ],
           ).withPadding(horizontal: 20),
-          CustomElevatedButton.text(onPressed: () {}, text: "تسجيل دخول"),
-          3.vs,
-          CustomOutlineButton(
+          CustomElevatedButton.text(
             onPressed: () {
-              // _nextPage();
+              Routes.loginRoute.pushAndRemoveAllUntil;
             },
             text: "انشاء حساب",
           ),
+          // 3.vs,
+          // CustomOutlineButton(
+          //   onPressed: () {
+          //     // _nextPage();
+          //   },
+          //   text: "انشاء حساب",
+          // ),
           17.vs,
         ],
       ),

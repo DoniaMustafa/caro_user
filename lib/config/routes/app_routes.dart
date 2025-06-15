@@ -1,7 +1,9 @@
 import 'package:caro_user_app/core/export/export.dart';
+import 'package:caro_user_app/features/auth/presentation/pages/forget_password_page.dart';
 import 'package:caro_user_app/features/auth/presentation/pages/login_page.dart';
 import 'package:caro_user_app/features/auth/presentation/pages/otp_page.dart';
 import 'package:caro_user_app/features/nav_bar/presentation/pages/nav_bar_page.dart';
+import '../../features/auth/presentation/pages/reset_password_page.dart';
 import '../../features/auth/presentation/pages/signup_page.dart';
 import '../../features/auth/presentation/pages/signup_phone_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
@@ -36,9 +38,9 @@ class Routes {
   // static const String educationTypeRoute = " education Type ";
   // static const String assistantEducationTypeRoute = "assistant education Type ";
   //
-  // static const String forgetPassRoute = "forget Password";
-  static const String OtpRoute = "/verification";
-  // static const String resetPasswordRoute = "/reset_passsword";
+  static const String forgetPassRoute = "forget Password";
+  static const String otpRoute = "/verification";
+  static const String resetPasswordRoute = "/reset_password";
   static const String bottomNavigationRoute = "/bottom Navigation Route";
   // static const String setPassRoute = "set Password";
   // static const String selectLanguageRoute = "/select language";
@@ -227,16 +229,16 @@ class RouteGenerator {
           child: SignupPyPhonePage(),
           routeSettings: routeSettings,
         );
-      case Routes.OtpRoute:
-        return buildPageRoute(child: const OtpPage(), routeSettings: routeSettings);
+      case Routes.otpRoute:
+        return buildPageRoute(child:  OtpPage(), routeSettings: routeSettings);
       // case Routes.privateTeacherGroupsDetailsRoute:
       //   return buildPageRoute(
       //       child: PrivateTeacherDetailsScreen(), routeSettings: routeSettings);
       //
       // // privateTeacherDetailsScreen
-      // case Routes.forgetPassRoute:
-      //   return buildPageRoute(
-      //       child: ForgetPasswordScreen(), routeSettings: routeSettings);
+      case Routes.forgetPassRoute:
+        return buildPageRoute(
+            child: ForgetPasswordPage(), routeSettings: routeSettings);
       // case Routes.chooseProfessionalCourseRoute:
       //   return buildPageRoute(
       //       child: const ChooseProfessionalCoursesScreen(),
@@ -257,9 +259,9 @@ class RouteGenerator {
       // case Routes.profileRoute:
       //   return buildPageRoute(
       //       child: const ProfileScreen(), routeSettings: routeSettings);
-      // case Routes.resetPasswordRoute:
-      //   return buildPageRoute(
-      //       child: ResetPasswordScreen(), routeSettings: routeSettings);
+      case Routes.resetPasswordRoute:
+        return buildPageRoute(
+            child: ResetPasswordPage(), routeSettings: routeSettings);
       // case Routes.updateGroupRoute:
       //   return buildPageRoute(
       //       child: UpdateGroupScreen(), routeSettings: routeSettings);
