@@ -15,7 +15,7 @@ class OnBoardingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: PageView.builder(
-        itemCount: 3,
+        itemCount: AppListConstant.onBoardingData.length,
         controller: pageController,
         itemBuilder: (context, index) {
           return Column(

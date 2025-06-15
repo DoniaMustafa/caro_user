@@ -1,7 +1,6 @@
 import 'package:caro_user_app/core/extension.dart';
 import 'package:flutter/material.dart';
 import '../../utils/app_colors.dart';
-import '../../utils/app_mixin.dart';
 import '../../utils/app_style.dart';
 import '../../utils/size_utils.dart';
 

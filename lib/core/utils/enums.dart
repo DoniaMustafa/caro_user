@@ -1,0 +1,1 @@
+enum OtpRoute { phone, password }

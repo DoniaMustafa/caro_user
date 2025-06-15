@@ -5,9 +5,15 @@ mixin class AssetsFiles {
   String onBoarding2 = '${svg}onBoarding2.svg';
   String personIcon = '${svg}person_icon.svg';
   String verify = '${svg}verify.svg';
-  String car = '${svg}car.svg';
+  // String car = '${svg}car.svg';
   String agm = '${svg}agm.svg';
   String send = '${svg}send.svg';
+  String puzzle = '${svg}puzzle.svg';
+  String moneyIcon = '${svg}money.svg';
+  String speedIcon = '${svg}speed.svg';
+  String riyalSaudi = '${svg}Saudi_Riyal_icon.svg';
+  String colorIcon = '${svg}colors_icon.svg';
+
   String chats = '${svg}chats.svg';
   // String carWinch = '${svg}car_winch.svg';
   // String carWheel = '${svg}car_wheel.svg';

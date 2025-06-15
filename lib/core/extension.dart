@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:caro_user_app/core/utils/size_utils.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../config/routes/app_routes_helper.dart';
@@ -36,8 +37,9 @@ extension WidgetExtension on Widget {
 }
 
 extension StringExtensions on String {
+  String get trans => this.tr();
+
   String get removeSpaces => replaceAll(' ', '');
-  String get removeRangeSpaces => replaceRange(5, 8, '');
   int get codeFromString {
     String formattedStringColor = removeSpaces;
     if (formattedStringColor.startsWith('#')) {

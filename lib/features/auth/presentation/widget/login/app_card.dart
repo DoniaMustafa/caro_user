@@ -1,4 +1,6 @@
 import 'package:caro_user_app/core/export/export.dart';
+import 'package:caro_user_app/core/utils/app_strings.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class AppCard extends StatelessWidget {
   AppCard({super.key});
@@ -14,7 +16,7 @@ class AppCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               CustomTextWidget(
-                text: 'رقم الجوال',
+                text:  AppStrings.phoneNumber.trans,
                 style: getSemiboldTextStyle(fontSize: 12),
               ),
               10.vs,
@@ -22,19 +24,31 @@ class AppCard extends StatelessWidget {
               20.vs,
               CustomTextWidget(
                 textAlign: TextAlign.start,
-                text: 'كملة المرور',
+                text:AppStrings.password.trans,
                 style: getSemiboldTextStyle(fontSize: 12),
               ),
               10.vs,
               PasswordFormField(controller: password),
             ],
           ).withPadding(horizontal: 20),
+          5.vs,
+          GestureDetector(
+            onTap: () => Routes.forgetPassRoute.moveTo,
+            child: CustomTextWidget(
+              textAlign: TextAlign.end,
+              text: AppStrings.forgetPasswordAsk.trans,
+              style: getRegularTextStyle(
+                color: AppColors.primaryColor,
+                fontSize: 12,
+              ),
+            ),
+          ).withPadding(start: 20),
           32.vs,
           CustomElevatedButton.text(
             onPressed: () {
               Routes.bottomNavigationRoute.moveTo;
             },
-            text: 'تسجيل الدخول',
+            text:AppStrings.login.trans,
           ),
           10.vs,
           CustomOutlineButton(
@@ -42,7 +56,7 @@ class AppCard extends StatelessWidget {
               Routes.signUpPyPhoneRoutes.moveTo;
               // Routes.signUpRoute.moveTo;
             },
-            text: 'إنشاء حساب',
+            text:AppStrings.createAccount.trans,
           ),
         ],
       ),

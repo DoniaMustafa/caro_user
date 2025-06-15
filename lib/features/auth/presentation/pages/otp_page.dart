@@ -1,15 +1,21 @@
 import 'package:caro_user_app/core/export/export.dart';
-import 'package:caro_user_app/core/utils/assats_file.dart';
+import 'package:caro_user_app/core/helper/app_helper.dart';
+import 'package:caro_user_app/core/utils/enums.dart';
 import 'package:caro_user_app/core/widgets/custom_background_widget.dart';
-import 'package:caro_user_app/core/widgets/custom_svg.dart';
-import 'package:caro_user_app/core/widgets/shapes/circel_shape.dart';
 import 'package:caro_user_app/features/auth/presentation/widget/otp/pin_code.dart';
 
 class OtpPage extends StatelessWidget {
-  const OtpPage({super.key});
+  OtpPage({super.key});
+  static const whichScreenKey = 'whichScreenKey';
+  OtpRoute? whichScreen;
   @override
   Widget build(BuildContext context) {
+    Map<String, dynamic>? data = getArguments(context);
+    if (data.isNotNull) {
+      whichScreen = data![whichScreenKey];
+    }
     return CustomBackgroundWidget.children(
+      backgroundColor: AppColors.white,
       isBack: true,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -48,7 +54,9 @@ class OtpPage extends StatelessWidget {
               35.vs,
               CustomElevatedButton.icon(
                 onPressed: () {
-                  Routes.signUpRoute.moveTo;
+                  whichScreen == OtpRoute.phone
+                      ? Routes.signUpRoute.moveTo
+                      : Routes.resetPasswordRoute.moveTo;
                 },
                 text: 'ارسال',
               ),

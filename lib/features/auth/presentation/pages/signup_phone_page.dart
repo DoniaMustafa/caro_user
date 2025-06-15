@@ -5,9 +5,11 @@ import 'package:caro_user_app/core/widgets/custom_network_image.dart';
 import 'package:caro_user_app/core/widgets/form_field/phone_form_field.dart';
 import 'package:caro_user_app/core/widgets/shapes/circel_shape.dart';
 import 'package:caro_user_app/core/widgets/shapes/rectangle_shape.dart';
+import 'package:caro_user_app/features/auth/presentation/pages/otp_page.dart';
 
 import '../../../../config/routes/app_routes.dart';
 import '../../../../core/export/export.dart';
+import '../../../../core/utils/enums.dart';
 
 class SignupPyPhonePage extends StatelessWidget {
   SignupPyPhonePage({super.key});
@@ -17,6 +19,7 @@ class SignupPyPhonePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomBackgroundWidget.children(
+      backgroundColor: AppColors.white,
       children: [
         67.vs,
         CustomNetworkImage.circular(
@@ -27,7 +30,10 @@ class SignupPyPhonePage extends StatelessWidget {
         33.vs,
         CustomTextWidget(
           text: 'إنشاء حساب',
-          style: getSemiboldTextStyle(fontSize: 18,color: AppColors.primaryColor),
+          style: getSemiboldTextStyle(
+            fontSize: 18,
+            color: AppColors.primaryColor,
+          ),
         ),
         12.vs,
 
@@ -59,7 +65,9 @@ class SignupPyPhonePage extends StatelessWidget {
               32.vs,
               CustomElevatedButton.text(
                 onPressed: () {
-                  Routes.OtpRoute.moveTo;
+                  Routes.otpRoute.moveToWithArgs({
+                    OtpPage.whichScreenKey: OtpRoute.phone,
+                  });
                 },
                 text: 'إنشاء حساب',
               ),

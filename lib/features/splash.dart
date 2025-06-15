@@ -1,4 +1,3 @@
-
 import 'package:caro_user_app/config/routes/app_routes.dart';
 import 'package:caro_user_app/core/extension.dart';
 import 'package:caro_user_app/core/utils/app_style.dart';
@@ -8,7 +7,6 @@ import 'package:flutter/material.dart';
 import '../core/utils/assats_file.dart';
 import '../core/utils/size_utils.dart';
 import '../core/widgets/custom_network_image.dart';
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -134,7 +132,7 @@ class _SplashScreenState extends State<SplashScreen>
           offset: Offset(_carSlideAnimation.value.dx * width, 0),
           child: CustomNetworkImage.rectangle(
             imageUrl: AppAssets().car,
-            // fit: BoxFit.contain,
+            defaultAsset: AppAssets().car,
             height: 200,
             // alignment: Alignment.bottomCenter,
           ),
